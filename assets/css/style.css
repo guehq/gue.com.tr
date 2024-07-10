@@ -881,3 +881,8 @@ ul.work li.active {
 .main {
   margin-bottom: 80px;
 }
+
+.nav li.active a {
+  border-bottom: 2px solid #e33d3a;
+  padding-bottom: 1em !important;
+}

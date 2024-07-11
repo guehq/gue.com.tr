@@ -509,7 +509,7 @@ fieldset {
   width: 130px;
   border-radius: 50%;
   text-align: center;
-  color: #1C1C1C;
+  /* color: #1C1C1C; */
   line-height: 130px;
 }
 

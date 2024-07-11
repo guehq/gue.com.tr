@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+
+# Allow all bots to access the rest of the site
+Allow: /
+
+# Sitemaps
+Sitemap: https://gue.com.tr/sitemap.xml

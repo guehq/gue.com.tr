@@ -913,6 +913,12 @@ footer li {
   border-bottom: 2px solid #e33d3a;
 }
 
+.portfolioitem-caption h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 @media (max-width: 767px) {
   .menu-bg .logo {
     padding-top: 1.2em;

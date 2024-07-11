@@ -385,7 +385,7 @@ fieldset {
 }
 
 .menu-bg .logo {
-  padding-top: 35px;
+  padding-top: 1.2em;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
@@ -893,4 +893,16 @@ a.thumbnail:hover figcaption {
 
 footer a:hover {
   color: #e33d3a;
+}
+
+footer li {
+  line-height: 2.5em;
+}
+
+.buttons .btn {
+  margin-right: .5em;
+}
+
+.buttons .btn:last-child {
+  margin-right: 0;
 }

@@ -909,6 +909,10 @@ footer li {
   margin-right: 0;
 }
 
+.filter.active {
+  border-bottom: 2px solid #e33d3a;
+}
+
 @media (max-width: 767px) {
   .menu-bg .logo {
     padding-top: 1.2em;

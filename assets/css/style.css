@@ -886,3 +886,11 @@ ul.work li.active {
   border-bottom: 2px solid #e33d3a;
   padding-bottom: 1em !important;
 }
+
+a.thumbnail:hover figcaption {
+  color: #0082c8;
+}
+
+footer a:hover {
+  color: #e33d3a;
+}

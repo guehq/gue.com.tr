@@ -926,8 +926,9 @@ footer li {
 
   .buttons .btn {
     margin-right: 0;
-    width: 100%;
     margin-bottom: 1em;
+    margin-left: 0;
+    width: 100%;
   }
 
   .margin-top-footer > div {

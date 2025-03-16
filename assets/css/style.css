@@ -495,11 +495,13 @@ fieldset {
   background: #F2F4EC;
 }
 
-.single-mission {
+.single-mission,
+.single-member {
   text-align: center;
 }
 
-.single-mission i {
+.single-mission i,
+.single-member i {
   font-size: 60px;
   margin-bottom: 10px;
   -webkit-transition: .3s;
@@ -513,7 +515,8 @@ fieldset {
   line-height: 130px;
 }
 
-.single-mission h2 {
+.single-mission h2,
+.single-member h2 {
   font-size: 22px;
   text-transform: capitalize;
   margin: 20px 0px;
@@ -523,8 +526,13 @@ fieldset {
   font-weight: 700;
 }
 
-.single-mission p {
+.single-mission p,
+.single-member p {
   color: #222;
+}
+
+.single-member {
+  min-height: 340px;
 }
 
 

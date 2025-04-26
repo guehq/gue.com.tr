@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" class="has-navbar-fixed-top" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Nevcan Uludas">
+  <title>GUE Fitness Challenge - Strava Club Visualizer</title>
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body class="m-0">
+	<nav class="navbar is-fixed-top is-dark">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="/">
+				<img src="images/Logo-gue-long-black.png" alt="Logo" style="filter: invert();">
+			</a>
+			<div class="navbar-burger js-burger" data-target="navbarExampleTransparentExample">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	
+		<div id="navbarExampleTransparentExample" class="navbar-menu">
+			<div class="navbar-start">
+				<a class="navbar-item" href="index.html"> Recent Activities</a>
+				<a class="navbar-item" href="members.html"> Members</a>
+				<a class="navbar-item" href="leaderboard.html"> Leaderboard</a>
+			</div>
+	
+			<div class="navbar-end">
+				<div class="navbar-item">
+					<div class="field is-grouped">
+						<p class="control">
+							<a
+								class="bd-tw-button button is-small"
+								data-social-network="Strava"
+								data-social-action="strava"
+								data-social-target="https://www.strava.com/clubs/960343/recent_activity"
+								target="_blank"
+								href="https://www.strava.com/clubs/960343/recent_activity"
+								style="background-color: orangered; color: white;"
+							>
+								<span class="icon">
+									<i class="fab fa-strava"></i>
+								</span>
+								<span> Strava </span>
+							</a>
+						</p>
+						<p class="control">
+							<a class="button is-white is-small" href="https://tables.zapier.com/app/tables/t/01JQVYM71VXTRV4BCB6DNWWRD5" target="_blank">
+								<span class="icon">
+									<i class="fa-solid fa-window-minimize" style="color: orangered;"></i>
+								</span>
+								<span>Zapier</span>
+							</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<section class="hero is-warning">
+		<div class="hero-body">
+			<p class="title">Recent Activities</p>
+			<p class="subtitle">
+				Strava Club - Global Underwater Explorers (GUE)
+				<a
+					class="bd-tw-button button is-small"
+					data-social-network="Strava"
+					data-social-action="strava"
+					data-social-target="https://www.strava.com/clubs/960343"
+					target="_blank"
+					href="https://www.strava.com/clubs/960343"
+					style="background-color: orangered; color: white;"
+					>
+					<span class="icon">
+						<i class="fab fa-strava"></i>
+					</span>
+					<span> Strava </span>
+				</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="hero is-light">
+		<div class="hero-body py-4 ">
+			<div class="field is-grouped is-justify-content-center">
+				<input type="text" id="athleteSearch" placeholder="Search Athlete..." style="width: 100%; padding: 10px; font-size: 1rem;">
+
+        <div style="display: flex; gap: 10px;">
+          <input type="date" id="startDate" style="flex: 1; padding: 10px; font-size: 1rem;">
+          <input type="date" id="endDate" style="flex: 1; padding: 10px; font-size: 1rem;">
+        </div>
+
+        <div>
+          <select id="sortOrder" style="padding: 10px; font-size: 1rem;">
+            <option value="desc">Newest to Oldest</option>
+            <option value="asc">Oldest to Newest</option>
+          </select>
+        </div>
+
+        <a id="clearFilters" class="button is-light">Clear Filters</a>
+			</div>
+		</div>
+	</section>
+
+	<div class="container is-max-widescreen my-5">
+		<main class="mt-5">
+      <h1 class="title">Recent Activities</h1>
+			
+			<table id="dataTable" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+        <thead>
+          <tr>
+            <th><abbr title="Number of Activity">No</abbr></th>
+            <th></th>
+            <th>Athlete</th>
+						<th><abbr title="Activity Date">Date</abbr></th>
+            <th>Duration</th>
+            <th>Activities</th>
+            <th>Distance</th>
+            <th><abbr title="Elevation Gain">Elev.</abbr></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+		</main>
+	</div>
+
+	<footer class="footer">
+		<div class="content has-text-centered">
+			<p>
+				<strong>This App</strong> designed and developed by <a href="https://nevcan.com" target="_blank">Nevcan Uludaş</a>.
+			</p>
+		</div>
+	</footer>
+  
+	<!-- SCRIPTS -->
+	<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+	<script src="./src/athleteProfiles.js"></script>
+	<script src="src/zapier.js"></script>
+
+</body>
+</html>

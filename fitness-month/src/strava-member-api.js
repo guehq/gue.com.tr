@@ -1,5 +1,5 @@
 async function loadMembers() {
-  const accessToken = 'e7a7c92144c1d198b745b89fb1517fedcfcec615'; // Replace with your token!
+  const accessToken = STRAVA_ACCESS_TOKEN;
   const perPage = 100;
   let page = 1;
   let members = [];

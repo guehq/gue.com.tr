@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
       </td>
       <td>
         ${stravaLink 
-          ? `<a href="${stravaLink}" target="_blank">${profile.fullName}</a>`
+          ? `<a href="${stravaLink}" class="has-text-dark" target="_blank">${profile.fullName}</a>`
           : `<span>${profile.fullName}</span>`
         }
       </td>

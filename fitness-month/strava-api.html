@@ -66,10 +66,10 @@
 		</div>
 	</nav>
 
-	<section class="hero is-warning">
+	<section class="hero is-danger">
 		<div class="hero-body">
 			<img src="./images/GUE_community.png" alt="GUE Community Logo" style="float: left; width: 90px; margin-right: 2em;">
-			<p class="title">Members</p>
+			<p class="title">Recent Activities by API</p>
 			<p class="subtitle">
 				Strava Club - Global Underwater Explorers (GUE)
 				<a
@@ -90,40 +90,47 @@
 		</div>
 	</section>
 
-	<div class="notification is-warning is-light">
-  <button class="delete"></button>
-		<div class="content is-normal">
-			<p><strong>How Member Information Works:</strong></p>
-			<p>This page displays athlete information collected from Strava. Due to Strava’s privacy settings, we only receive each athlete’s <strong>first name and the first letter of their surname</strong> (e.g., “John D.”).</p>
-			<ul>
-				<li>To enhance your experience, I created a mapping file: <strong>when a match is found</strong>, the athlete’s <strong>full name, profile picture and location information</strong> are shown here. If no match exists, you will see the original limited information from Strava.</li>
-				<li><strong>Important:</strong> If an athlete changes their name or profile information on Strava, and we do not have the updated data, the display may become outdated. We can only update information if we recognize and match it again.</li>
-				<li>Additionally, you can see the current <strong>total number of members</strong> displayed next to the title above. This allows you to easily compare it with the member count shown on the official <a href="https://www.strava.com/clubs/960343/members" target="_blank">Strava club page</a>.</li>
-			</ul>
-		</div>
-	</div>
-
 	<div class="container is-max-widescreen my-6">
 		<main class="mt-5">
       <p class="mb-5">
-				<span class="title">Members List</span>
+				<span class="title">Activity List</span>
 				<span class="subtitle ml-1">
-					(<i id="memberCount">0</i>)
+					(<i id="activityCount">0</i>)
 				</span>
 			</p>
 			
-			<table id="membersDataTable" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+			<table id="apiDataTable" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
         <thead>
           <tr>
-            <th><abbr title="Number of Members">No</abbr></th>
-            <th></th>
+            <th>No</th>
             <th>Athlete</th>
-            <th>City</th>
-            <th>Country</th>
+            <th><abbr title="Activity Name">Activity</abbr></th>
+            <th><abbr title="Sport Type">Type</abbr></th>
+            <th>Distance</th>
+            <th><abbr title="Total Elevation Gain">Elevation</abbr></th>
+            <th><abbr title="Moving Time">Duration</abbr></th>
+            <!-- <th>elapsed_time</th> -->
+            <!-- <th>type</th> -->
+            <!-- <th>workout_type</th> -->
           </tr>
         </thead>
         <tbody></tbody>
       </table>
+
+      <!-- <p class="mb-5 mt-6">
+        <span class="title">Raw Activity Data</span>
+        <span class="subtitle ml-1">(Debug View)</span>
+      </p>
+
+      <table id="rawDataTable" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table> -->
 		</main>
 	</div>
 
@@ -149,8 +156,7 @@
   
 	<!-- SCRIPTS -->
 	<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-	<script src="./src/athleteProfiles.js"></script>
-	<script src="src/members.js"></script>
+	<script src="./src/strava-api.js"></script>
 
 </body>
 </html>

@@ -94,11 +94,11 @@ function renderLeaderboard(title, data, containerId, statKey) {
           return `
             <tr>
               <td>${index + 1}</td>
-              <td style="display: flex; align-items: center; gap: 10px; vertical-align: middle;">
-                <img src="${imgSrc}" alt="${fullName}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 30px; border-radius: 50%;">
+              <td style="display: flex; align-items: center; gap: 10px; vertical-align: middle; border-width: 0; border-bottom-width: 1px;">
+                <img src="${imgSrc}" alt="${fullName}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 30px; height: 30px; border-radius: 50%;">
                 ${fullName}
               </td>
-              <td>${value}</td>
+              <td class="has-text-right">${value}</td>
             </tr>
           `;
         }).join('')}

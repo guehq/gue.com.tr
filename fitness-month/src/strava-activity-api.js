@@ -28,13 +28,12 @@ async function loadActivities() {
   }
 
   function formatDuration(seconds) {
-  const hrs = Math.floor(seconds / 3600);
-  const mins = Math.floor((seconds % 3600) / 60);
-  const secs = seconds % 60;
-  return `${hrs}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-}
+    const hrs = Math.floor(seconds / 3600);
+    const mins = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+    return `${hrs}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  }
 
-  const table = document.getElementById('apiDataTable');
   const tableBody = document.getElementById('apiDataTable').querySelector('tbody');
 
   activities.forEach((activity, index) => {

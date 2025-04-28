@@ -1,4 +1,14 @@
 window.athleteProfiles = {
+  'Henrik 🤡': {
+    gueId: null,
+    stravaId: 3657050,
+    fullName: '🤪 Henrik 🤡',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/3657050/1567431/1/medium.jpg',
+    city: 'Oslo',
+    country: 'Oslo, Norge',
+    isAdmin: false,
+    isActive: true
+  },
   'Adam M.': {
     gueId: null,
     stravaId: 32478034,
@@ -339,16 +349,6 @@ window.athleteProfiles = {
     isAdmin: true,
     isActive: true
   },
-  'Henrik 🤡': {
-    gueId: null,
-    stravaId: 3657050,
-    fullName: '🤪 Henrik 🤡',
-    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/3657050/1567431/1/medium.jpg',
-    city: 'Oslo',
-    country: 'Oslo, Norge',
-    isAdmin: false,
-    isActive: true
-  },
   'Ingrid Ø.': {
     gueId: null,
     stravaId: 89792633,
@@ -399,6 +399,16 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'João L.': {
+    gueId: null,
+    stravaId: 11228766,
+    fullName: 'João Lobo',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/11228766/3397656/1/medium.jpg',
+    city: 'Lisbon',
+    country: 'Lisbon, Portugal',
+    isAdmin: false,
+    isActive: true
+  },
   'John K.': {
     gueId: null,
     stravaId: 74285124,
@@ -426,16 +436,6 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/481293/23479404/4/medium.jpg',
     city: 'Murcia',
     country: 'Region of Murcia, Spain',
-    isAdmin: false,
-    isActive: true
-  },
-  'João L.': {
-    gueId: null,
-    stravaId: 11228766,
-    fullName: 'João Lobo',
-    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/11228766/3397656/1/medium.jpg',
-    city: 'Lisbon',
-    country: 'Lisbon, Portugal',
     isAdmin: false,
     isActive: true
   },
@@ -699,16 +699,6 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Richard T.': {
-    gueId: null,
-    stravaId: 108978139,
-    fullName: 'Richard Tessell',
-    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/108978139/25835281/1/medium.jpg',
-    city: 'Chicago',
-    country: 'IL',
-    isAdmin: false,
-    isActive: true
-  },
   'Rich W.': {
     gueId: null,
     stravaId: 18471179,
@@ -716,6 +706,16 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/18471179/15157521/1/medium.jpg',
     city: '',
     country: '',
+    isAdmin: false,
+    isActive: true
+  },
+  'Richard T.': {
+    gueId: null,
+    stravaId: 108978139,
+    fullName: 'Richard Tessell',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/108978139/25835281/1/medium.jpg',
+    city: 'Chicago',
+    country: 'IL',
     isAdmin: false,
     isActive: true
   },

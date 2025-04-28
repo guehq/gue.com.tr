@@ -31,7 +31,6 @@
 				<a class="navbar-item" href="members.html">Members</a>
 				<a class="navbar-item" href="leaderboard.html">Leaderboard</a>
 				<a class="navbar-item" href="strava-activity-api.html" disabled>Recent Activities API</a>
-				<a class="navbar-item" href="strava-member-api.html" disabled>Members API</a>
 			</div>
 	
 			<div class="navbar-end">
@@ -70,7 +69,7 @@
 	<section class="hero is-warning">
 		<div class="hero-body">
 			<img src="./images/GUE_community.png" alt="GUE Community Logo" style="float: left; width: 90px; margin-right: 2em;">
-			<p class="title">Members</p>
+			<p class="title">Member List</p>
 			<p class="subtitle">
 				Strava Club - Global Underwater Explorers (GUE)
 				<a
@@ -104,27 +103,68 @@
 		</div>
 	</div>
 
-	<div class="container is-max-widescreen my-6">
+	<div id="members-api" class="container is-max-widescreen my-6">
+		<div class="columns">
+			<div id="apiColumn" class="column is-3">
+				<p class="mb-5">
+					<span class="title"><i class="fab fa-strava fa-lg" style="color: orangered;"></i> Members</span>
+					<span class="subtitle ml-1">
+						(<i id="memberCountAPI">0</i>)
+					</span>
+				</p>
+				
+				<table id="apiDataTable" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>Athlete</th>
+							<!-- <th>Membership</th> -->
+							<!-- <th>Admin</th> -->
+							<!-- <th>Owner</th> -->
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+
+			<div class="column">
+				<p class="mb-5">
+					<span class="title">Member List (Mapping)</span>
+					<span class="subtitle ml-1">
+						(<i id="memberCount">0</i>)
+					</span>
+				</p>
+				
+				<table id="membersDataTable" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+					<thead>
+						<tr>
+							<th><abbr title="Number of Members">No</abbr></th>
+							<th></th>
+							<th>Athlete</th>
+							<th>City</th>
+							<th>Country</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+
 		<main class="mt-5">
-      <p class="mb-5">
-				<span class="title">Members List</span>
-				<span class="subtitle ml-1">
-					(<i id="memberCount">0</i>)
-				</span>
-			</p>
-			
-			<table id="membersDataTable" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+      <!-- <p class="mb-5 mt-6">
+        <span class="title">Raw Member Data</span>
+        <span class="subtitle ml-1">(Debug View)</span>
+      </p>
+
+      <table id="rawDataTable" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
         <thead>
           <tr>
-            <th><abbr title="Number of Members">No</abbr></th>
-            <th></th>
-            <th>Athlete</th>
-            <th>City</th>
-            <th>Country</th>
+            <th>No</th>
+            <th>Data</th>
           </tr>
         </thead>
         <tbody></tbody>
-      </table>
+      </table> -->
 		</main>
 	</div>
 
@@ -151,7 +191,8 @@
 	<!-- SCRIPTS -->
 	<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 	<script src="./src/athleteProfiles.js"></script>
-	<script src="src/members.js"></script>
+	<script src="./src/members.js"></script>
+	<script src="./src/strava-member-api.js"></script>
 
 </body>
 </html>

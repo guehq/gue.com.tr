@@ -30,3 +30,15 @@
 table.table td {
   vertical-align: middle;
 }
+
+#members-api .table td {
+  white-space: nowrap;        /* Prevent text wrapping */
+  overflow: hidden;           /* Hide overflowed content */
+  text-overflow: ellipsis;    /* Show ellipsis (...) */
+  max-width: 200px;           /* Limit the width of the cell */
+}
+
+#members-api .table td img {
+  width: 16px!important;
+  height: 16px;
+}

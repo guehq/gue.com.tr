@@ -27,10 +27,11 @@
 	
 		<div id="navbarExampleTransparentExample" class="navbar-menu">
 			<div class="navbar-start">
-				<a class="navbar-item" href="index.html">Activities</a>
+				<a class="navbar-item has-text-link" href="index.html">Home</a>
+				<a class="navbar-item" href="zapier-activities.html">Activities</a>
 				<a class="navbar-item" href="members.html">Members</a>
 				<a class="navbar-item" href="leaderboard.html">Leaderboard</a>
-				<a class="navbar-item" href="strava-activity-api.html" disabled>Recent Activities API</a>
+				<a class="navbar-item" href="strava-activity-api.html" disabled>Recent Activities</a>
 			</div>
 	
 			<div class="navbar-end">
@@ -66,86 +67,29 @@
 		</div>
 	</nav>
 
-	<section class="has-background-info">
-		<div class="level p-5">
-			<div class="level-left">
-				<div class="level-item">
-					<img src="./images/GUE_community.png" alt="GUE Community Logo" class="ml-5" style="width: 90px;">
-				</div>
-
-				<div class="level-item is-block ml-5">
-					<p class="title">Recent Activities</p>
-					<p class="subtitle">
-						Strava Club - Global Underwater Explorers (GUE)
-						<a
-						class="bd-tw-button button is-small"
-						data-social-network="Strava"
-						data-social-action="strava"
-						data-social-target="https://www.strava.com/clubs/960343/recent_activity"
-						target="_blank"
-						href="https://www.strava.com/clubs/960343/recent_activity"
-						style="background-color: orangered; color: white;"
-						>
-							<span class="icon">
-								<i class="fab fa-strava"></i>
-							</span>
-							<span> Strava </span>
-						</a>
-					</p>
-				</div>
-			</div>
-
-			<div class="level-right">
-				<div class="level-item">
-					<iframe allowtransparency='true' frameborder='0' height='116' scrolling='no' src='https://www.strava.com/clubs/960343/latest-rides/43273001243734220a9430e1f535ae7e68e605fa?show_rides=false&theme=dark' width='320' style="float: right;"></iframe>
-				</div>
+	<!-- Hero Banner -->
+	<section class="hero is-fullheight-with-navbar has-background-info">
+		<div class="hero-body">
+			<div class="container has-text-centered">
+				<img src="./images/GUE_community.png" alt="GUE Community Logo" class="mb-6" style="width: 150px;">
+				<h1 class="title mb-3">Welcome to GUE Fitness Dashboard</h1>
+				<p class="subtitle">Strava Club - Global Underwater Explorers (GUE)</p>
+				<p class="mb-4">Powered by the Global Underwater Explorers Community</p>
+				<a href="strava-activity-api.html" class="button is-warning">View Recent Activities</a>
 			</div>
 		</div>
 	</section>
 
-	<section class="hero is-light">
-		<div class="hero-body py-4">
-			<div class="field is-grouped is-justify-content-center">
-				<input type="text" id="athleteSearch" placeholder="Search Athlete..." style="width: 100%; padding: 10px; font-size: 1rem;">
-
-        <div style="display: flex; gap: 10px;">
-          <input type="date" id="startDate" style="flex: 1; padding: 10px; font-size: 1rem;">
-          <input type="date" id="endDate" style="flex: 1; padding: 10px; font-size: 1rem;">
-        </div>
-
-        <div>
-          <select id="sortOrder" style="padding: 10px; font-size: 1rem;">
-            <option value="desc">Newest to Oldest</option>
-            <option value="asc">Oldest to Newest</option>
-          </select>
-        </div>
-
-        <a id="clearFilters" class="button is-light">Clear Filters</a>
-			</div>
+	<!-- Strava Embed Section -->
+	<section class="section has-background-light">
+		<div class="container has-text-centered">
+			<h2 class="title is-5 mb-4">Our Club on Strava</h2>
+			<iframe allowtransparency="true" frameborder="0" height="180" scrolling="no"
+				src="https://www.strava.com/clubs/960343/latest-rides/43273001243734220a9430e1f535ae7e68e605fa?show_rides=false&theme=light"
+				width="320">
+			</iframe>
 		</div>
 	</section>
-
-	<div class="container is-max-widescreen my-5">
-		<main class="my-6">
-      <h1 class="title">Recent Activities</h1>
-			
-			<table id="dataTable" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-        <thead>
-          <tr>
-            <th><abbr title="Number of Activity">No</abbr></th>
-            <th></th>
-            <th>Athlete</th>
-						<th><abbr title="Activity Date">Date</abbr></th>
-            <th>Duration</th>
-            <th>Activities</th>
-            <th>Distance</th>
-            <th><abbr title="Elevation Gain">Elev.</abbr></th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-		</main>
-	</div>
 
 	<footer class="footer has-background-dark has-text-white-ter">
 		<div class="content has-text-centered">

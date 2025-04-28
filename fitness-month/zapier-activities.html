@@ -28,10 +28,10 @@
 		<div id="navbarExampleTransparentExample" class="navbar-menu">
 			<div class="navbar-start">
 				<a class="navbar-item" href="index.html">Home</a>
-				<a class="navbar-item" href="zapier-activities.html">Activities</a>
+				<a class="navbar-item has-text-link" href="zapier-activities.html">Activities</a>
 				<a class="navbar-item" href="members.html">Members</a>
 				<a class="navbar-item" href="leaderboard.html">Leaderboard</a>
-				<a class="navbar-item has-text-link" href="strava-activity-api.html" disabled>Recent Activities</a>
+				<a class="navbar-item" href="strava-activity-api.html" disabled>Recent Activities</a>
 			</div>
 	
 			<div class="navbar-end">
@@ -67,10 +67,10 @@
 		</div>
 	</nav>
 
-	<section class="hero is-danger">
+	<section class="hero is-info">
 		<div class="hero-body">
 			<img src="./images/GUE_community.png" alt="GUE Community Logo" style="float: left; width: 90px; margin-right: 2em;">
-			<p class="title"><abbr title="Activities Data from Strava (updates automatically)">Recent Activities</abbr></p>
+			<p class="title"><abbr title="Activities Data from Zapier (updates manually by Nev)">Activities</abbr></p>
 			<p class="subtitle">
 				Strava Club - Global Underwater Explorers (GUE)
 				<a
@@ -91,47 +91,47 @@
 		</div>
 	</section>
 
-	<div class="container is-max-widescreen my-6">
-		<main class="mt-5">
-      <p class="mb-5">
-				<span class="title">Activity List</span>
-				<span class="subtitle ml-1">
-					(<i id="activityCount">0</i>)
-				</span>
-			</p>
+	<section class="hero is-light">
+		<div class="hero-body py-4">
+			<div class="field is-grouped is-justify-content-center">
+				<input type="text" id="athleteSearch" placeholder="Search Athlete..." style="width: 100%; padding: 10px; font-size: 1rem;">
+
+        <div style="display: flex; gap: 10px;">
+          <input type="date" id="startDate" style="flex: 1; padding: 10px; font-size: 1rem;">
+          <input type="date" id="endDate" style="flex: 1; padding: 10px; font-size: 1rem;">
+        </div>
+
+        <div>
+          <select id="sortOrder" style="padding: 10px; font-size: 1rem;">
+            <option value="desc">Newest to Oldest</option>
+            <option value="asc">Oldest to Newest</option>
+          </select>
+        </div>
+
+        <a id="clearFilters" class="button is-light">Clear Filters</a>
+			</div>
+		</div>
+	</section>
+
+	<div class="container is-max-widescreen my-5">
+		<main class="my-6">
+      <h1 class="title">Recent Activities</h1>
 			
-			<table id="apiDataTable" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+			<table id="dataTable" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
         <thead>
           <tr>
-            <th>No</th>
+            <th><abbr title="Number of Activity">No</abbr></th>
+            <th></th>
             <th>Athlete</th>
-            <th><abbr title="Activity Name">Activity</abbr></th>
-            <th><abbr title="Sport Type">Type</abbr></th>
+						<th><abbr title="Activity Date">Date</abbr></th>
+            <th>Duration</th>
+            <th>Activities</th>
             <th>Distance</th>
-            <th><abbr title="Total Elevation Gain">Elevation</abbr></th>
-            <th><abbr title="Moving Time">Duration</abbr></th>
-            <!-- <th>elapsed_time</th> -->
-            <!-- <th>type</th> -->
-            <!-- <th>workout_type</th> -->
+            <th><abbr title="Elevation Gain">Elev.</abbr></th>
           </tr>
         </thead>
         <tbody></tbody>
       </table>
-
-      <!-- <p class="mb-5 mt-6">
-        <span class="title">Raw Activity Data</span>
-        <span class="subtitle ml-1">(Debug View)</span>
-      </p>
-
-      <table id="rawDataTable" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Data</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table> -->
 		</main>
 	</div>
 
@@ -157,7 +157,8 @@
   
 	<!-- SCRIPTS -->
 	<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-	<script src="./src/strava-activity-api.js"></script>
+	<script src="./src/athleteProfiles.js"></script>
+	<script src="src/zapier.js"></script>
 
 </body>
 </html>

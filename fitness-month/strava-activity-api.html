@@ -9,6 +9,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="./styles/fitness.css">
+	<script
+  src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+  type="module"
+></script>
 </head>
 
 <body class="m-0">
@@ -118,20 +122,35 @@
         <tbody></tbody>
       </table>
 
-      <!-- <p class="mb-5 mt-6">
-        <span class="title">Raw Activity Data</span>
-        <span class="subtitle ml-1">(Debug View)</span>
-      </p>
+			<div id="noResultsAnimation" style="display: none; text-align: center; margin-top: 2rem;">
+				<dotlottie-player
+					src="https://lottie.host/369be3da-ec2b-45e0-90b0-675598dbfe2a/5h8v2Feo53.lottie"
+					background="transparent"
+					speed="1"
+					style="width: 300px; height: 300px; margin: 0 auto;"
+					loop
+					autoplay
+				></dotlottie-player>
+				<p>Strava connection issue occurred</p>
+			</div>
 
-      <table id="rawDataTable" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Data</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table> -->
+			<section style="display: none;">
+				<p class="mb-5 mt-6">
+					<span class="title">Raw Activity Data</span>
+					<span class="subtitle ml-1">(Debug View)</span>
+				</p>
+				
+				<table id="rawDataTable" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>Data</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</section>
+
 		</main>
 	</div>
 

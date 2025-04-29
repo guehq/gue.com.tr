@@ -57,6 +57,17 @@ async function loadActivities() {
 
   document.getElementById('activityCount').innerText = activities.length;
 
+  // Show or hide table and animation based on activities length
+  const apiDataTable = document.getElementById('apiDataTable');
+  const noResultsAnimation = document.getElementById('noResultsAnimation');
+  if (activities.length === 0) {
+    apiDataTable.style.display = 'none';
+    noResultsAnimation.style.display = 'block';
+  } else {
+    apiDataTable.style.display = '';
+    noResultsAnimation.style.display = 'none';
+  }
+
   // Add raw activity data table (debug view)
   const rawTable = document.getElementById('rawDataTable').querySelector('tbody');
   activities.forEach((activity, index) => {

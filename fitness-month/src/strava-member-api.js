@@ -13,7 +13,7 @@ async function loadMembers() {
     });
 
     if (!response.ok) {
-      console.error("Failed to fetch members:", response.statusText);
+      console.error("⚠️ Failed to fetch members:", response.statusText);
       document.getElementById('apiColumn').style.display = 'none'; // Hide the table
       return; // Stop further execution
     }

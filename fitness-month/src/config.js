@@ -13,4 +13,7 @@ function extractDateFromFilename(filename) {
 }
 
 const lastUpdated = extractDateFromFilename(ZAPIER_CSV_PATH);
-document.getElementById('lastUpdated').textContent = lastUpdated + ' UTC';
+const lastUpdatedElement = document.getElementById('lastUpdated');
+if (lastUpdatedElement) {
+  lastUpdatedElement.textContent = lastUpdated + ' UTC';
+}

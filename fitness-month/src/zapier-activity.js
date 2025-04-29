@@ -78,8 +78,11 @@ function populateTable(data, athleteFilter = '', startDate = '', endDate = '', s
 
   data
     .filter(row => {
-      const fullName = `${row['athlete first name'] || ''} ${row['athlete last name'] || ''}`.toLowerCase();
-      const athleteMatch = fullName.includes(athleteFilter.toLowerCase());
+      const shortName = `${row['athlete first name'] || ''} ${row['athlete last name'] || ''}`.trim();
+      const profile = window.athleteProfiles[shortName] || null;
+      const fullName = profile ? profile.fullName : shortName;
+
+      const athleteMatch = fullName.toLowerCase().includes(athleteFilter.toLowerCase());
 
       const activityDateObj = parseActivityDate(row['formatted start date']);
 

@@ -45,9 +45,9 @@ async function loadActivities() {
       <td>${activity.athlete.firstname} ${activity.athlete.lastname}</td>
       <td>${activity.name}</td>
       <td>${activity.sport_type}</td>
+      <td class="has-text-right">${formatDuration(activity.moving_time)}</td>
       <td class="has-text-right">${(activity.distance / 1000).toFixed(1)} km</td>
       <td class="has-text-right">${(activity.total_elevation_gain).toFixed(0)} m</td>
-      <td class="has-text-right">${formatDuration(activity.moving_time)}</td>
       <!-- <td class="${elapsedClass}">${formatDuration(activity.elapsed_time)}</td> -->
       <!-- <td>${activity.type}</td> -->
       <!-- <td>${activity.workout_type}</td> -->

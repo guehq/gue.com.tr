@@ -3,7 +3,7 @@ let allData = [];
 document.addEventListener('DOMContentLoaded', function () {
 
 
-  fetch('./data/gue strava_2025-04-26T10_54_51.csv')
+  fetch(ZAPIER_CSV_PATH)
     .then(response => response.text())
     .then(text => {
       allData = parseCSV(text);
@@ -131,17 +131,20 @@ function populateTable(data, athleteFilter = '', startDate = '', endDate = '', s
       const country = profile ? profile.country : '';
 
       tr.innerHTML = `
-        <td>${index + 1}</td>
+        <td class="has-text-right">${index + 1}</td>
+        <td class="has-text-center">${row['formatted start date'] || ''}</td>
         <td style="display: flex; align-items: center; gap: 10px; vertical-align: middle;">
           <img src="${imgSrc}" alt="${fullName}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 40px; border-radius: 50%;">
         </td>
-        <td>${row['athlete first name'] || ''} ${row['athlete last name'] || ''}</td>
-        <td>${row['formatted start date'] || ''}</td>
-        <td>${row['moving time pretty'] || ''}</td>
+        <td>${fullName}</td>
         <td>${row['Activity'] || ''}</td>
-        <td>${row['distance in K'] || ''}</td>
-        <td>${row['total elevation gain'] || ''}</td>
+        <td class="has-text-right">${row['moving time pretty'] || ''}</td>
+        <td class="has-text-right">${row['distance in K'] || ''}</td>
+        <td class="has-text-right">${row['total elevation gain'] || ''}</td>
       `;
       tbody.appendChild(tr);
     });
+
+  // Update the total activity count
+  document.getElementById('zapierTotalActivityCount').textContent = document.querySelectorAll('#dataTable tbody tr').length;
 }

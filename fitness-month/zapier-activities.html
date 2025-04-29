@@ -114,18 +114,38 @@
 	</section>
 
 	<div class="container is-max-widescreen my-5">
-		<main class="my-6">
-      <h1 class="title">Recent Activities</h1>
+		<main class="my-5">
+			<div class="level">
+				<div class="level-left">
+					<div class="level-item">
+						<p class="">
+							<span class="title">Recent Activities</span>
+							<span class="subtitle ml-1">
+								(<i id="zapierTotalActivityCount">0</i>)
+							</span>
+						</p>
+					</div>
+				</div>
+				<div class="level-right">
+					<div class="level-item">
+						<p>
+							Logging Since: <b id="loggingSince">2025-04-03</b>
+							<br>
+							Last Updated: <b id="lastUpdated"></b>
+						</p>
+					</div>
+				</div>
+			</div>
 			
 			<table id="dataTable" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
         <thead>
           <tr>
             <th><abbr title="Number of Activity">No</abbr></th>
+						<th><abbr title="Activity Date">Date</abbr></th>
             <th></th>
             <th>Athlete</th>
-						<th><abbr title="Activity Date">Date</abbr></th>
+            <th>Activity</th>
             <th>Duration</th>
-            <th>Activities</th>
             <th>Distance</th>
             <th><abbr title="Elevation Gain">Elev.</abbr></th>
           </tr>
@@ -157,6 +177,7 @@
   
 	<!-- SCRIPTS -->
 	<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+	<script src="./src/config.js"></script>
 	<script src="./src/athlete-profiles.js"></script>
 	<script src="./src/zapier-activity.js"></script>
 

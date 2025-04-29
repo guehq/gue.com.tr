@@ -1,7 +1,7 @@
 let allActivities = [];
 
 document.addEventListener('DOMContentLoaded', function () {
-  fetch('./data/gue strava_2025-04-26T10_54_51.csv')
+  fetch(ZAPIER_CSV_PATH)
     .then(response => response.text())
     .then(text => {
       const parsed = Papa.parse(text.trim(), { header: true, skipEmptyLines: true });

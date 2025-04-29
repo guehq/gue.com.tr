@@ -1,1 +1,0 @@
-const STRAVA_ACCESS_TOKEN = 'e7a7c92144c1d198b745b89fb1517fedcfcec615';

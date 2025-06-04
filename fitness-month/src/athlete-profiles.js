@@ -29,7 +29,7 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Alberto C.': {
+  'Alberto⚡ C.': {
     gueId: null,
     stravaId: 64766763,
     fullName: 'Alberto⚡ Chipolas⚡',
@@ -359,7 +359,7 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'isidro L.G.': {
+  'isidro L.': {
     gueId: null,
     stravaId: 50504665,
     fullName: 'isidro L.G. Rutas XTREME',
@@ -429,7 +429,7 @@ window.athleteProfiles = {
     isAdmin: true,
     isActive: true
   },
-  'Jose A.': {
+  'Jose Ant. "pepetoni" ".': {
     gueId: null,
     stravaId: 7400922,
     fullName: 'Jose Ant. "pepetoni" " El Plato" y Team Rutas Premium 🥑🥙🥘🥪 🍻🍻🔋🔋🪫🪫 Berria',
@@ -539,7 +539,7 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'max f.': {
+  'max F.': {
     gueId: null,
     stravaId: 129197343,
     fullName: 'Max Fahr',
@@ -839,7 +839,7 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'zsolt s.': {
+  'zsolt S.': {
     gueId: null,
     stravaId: 28063987,
     fullName: 'Zsolt Szilagyi',

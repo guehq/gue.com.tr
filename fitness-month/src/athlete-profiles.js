@@ -729,7 +729,7 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Rick v.B.': {
+  'Rick V.B.': {
     gueId: null,
     stravaId: 46233624,
     fullName: 'Rick van Beerendonk',
@@ -739,7 +739,7 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Rick v.D.': {
+  'Rick V.D.': {
     gueId: null,
     stravaId: 47884306,
     fullName: 'Rick van Dijk',

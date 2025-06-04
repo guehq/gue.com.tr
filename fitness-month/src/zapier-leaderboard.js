@@ -60,7 +60,7 @@ function buildAllLeaderboards(activities) {
   renderLeaderboard('Activities', sortedActivities, 'activitiesLB', 'activityCount');
   renderLeaderboard('Duration', sortedDuration, 'durationLB', 'totalDuration');
   renderLeaderboard('Distance', sortedDistance, 'distanceLB', 'totalDistance');
-  renderLeaderboard('Elevation Gain', sortedElevation, 'elevationLB', 'totalElevation');
+  renderLeaderboard('Elev. Gain', sortedElevation, 'elevationLB', 'totalElevation');
 }
 
 function renderLeaderboard(title, data, containerId, statKey) {

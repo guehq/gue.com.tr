@@ -432,7 +432,8 @@ window.athleteProfiles = {
   'Jose Ant. "pepetoni" ".': {
     gueId: null,
     stravaId: 7400922,
-    fullName: 'Jose Ant. "pepetoni" " El Plato" y Team Rutas Premium 🥑🥙🥘🥪 🍻🍻🔋🔋🪫🪫 Berria',
+    // fullName: 'Jose Ant. "pepetoni" " El Plato" y Team Rutas Premium 🥑🥙🥘🥪 🍻🍻🔋🔋🪫🪫 Berria',
+    fullName: 'Jose Ant. "pepetoni" " El Plato"...',
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/7400922/2271072/11/medium.jpg',
     city: 'Tiñosa, S.Jose Del Vega',
     country: 'Región de Murcia, Spain',

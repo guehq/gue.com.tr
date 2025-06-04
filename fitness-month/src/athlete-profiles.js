@@ -399,6 +399,16 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Jenn T.': {
+    gueId: null,
+    stravaId: 24624038,
+    fullName: 'Jenn Thomson',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/24624038/7088451/4/medium.jpg',
+    city: '',
+    country: '',
+    isAdmin: false,
+    isActive: true
+  },
   'João L.': {
     gueId: null,
     stravaId: 11228766,

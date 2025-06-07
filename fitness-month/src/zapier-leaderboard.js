@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const parsed = Papa.parse(text.trim(), { header: true, skipEmptyLines: true });
       allActivities = parsed.data;
       buildAllLeaderboards(allActivities);
+      // Run filter once on load
+      filterActivities();
     })
     .catch(error => {
       console.error('Error loading CSV file:', error);
@@ -29,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function buildAllLeaderboards(activities) {
   // Clear old leaderboard sections
-  ['activitiesLB', 'durationLB', 'distanceLB', 'elevationLB', 'metScoreLB'].forEach(id => {
+  ['activitiesLB', 'durationLB', 'distanceLB', 'elevationLB', 'metScoreLB', 'clubScoreMetLB'].forEach(id => {
     document.getElementById(id).innerHTML = '';
   });
 

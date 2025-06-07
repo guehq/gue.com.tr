@@ -73,6 +73,34 @@ function buildAllLeaderboards(activities) {
   renderLeaderboard('Elev. Gain', sortedElevation, 'elevationLB', 'totalElevation');
   renderLeaderboard('Activities', sortedActivities, 'activitiesLB', 'activityCount');
   renderLeaderboard('MET Score', sortedMET, 'metScoreLB', 'totalMET');
+
+  // Generate Club Leaderboard
+  const clubStats = {};
+
+  activities.forEach(activity => {
+    const shortName = `${activity['athlete first name'] || ''} ${activity['athlete last name'] || ''}`.trim();
+    if (!shortName || !window.athleteProfiles[shortName]) return;
+
+    const profile = window.athleteProfiles[shortName];
+    const clubName = (profile.clubs && profile.clubs.length > 0) ? profile.clubs[0] : 'No Club';
+
+    if (!clubStats[clubName]) {
+      clubStats[clubName] = { totalMET: 0 };
+    }
+
+    const durationMinutes = parseDurationToMinutes(activity['moving time pretty']);
+    const distanceKm = parseFloat(activity['distance in K']) || 0;
+    const elevationGain = parseFloat(activity['total elevation gain']) || 0;
+    const pace = distanceKm > 0 && durationMinutes > 0 ? durationMinutes / distanceKm : 0;
+
+    const sportType = activity['sport type'] || '';
+    const metScore = calculateMETScore(sportType, pace, durationMinutes, elevationGain);
+
+    clubStats[clubName].totalMET += metScore;
+  });
+
+  const sortedClubs = Object.entries(clubStats).sort((a, b) => b[1].totalMET - a[1].totalMET);
+  renderLeaderboard('Club MET Score', sortedClubs, 'clubScoreMetLB', 'totalMET');
 }
 
 function renderLeaderboard(title, data, containerId, statKey) {

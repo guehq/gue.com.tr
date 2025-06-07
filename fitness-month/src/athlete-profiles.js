@@ -6,6 +6,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/3657050/1567431/1/medium.jpg',
     city: 'Oslo',
     country: 'Oslo, Norge',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -16,6 +17,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/2039456749406875/picture?height=256&width=256',
     city: 'Budapest',
     country: 'Hungary',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -26,6 +28,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10216966765360228/picture?height=256&width=256',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -36,6 +39,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/64766763/16231743/9/medium.jpg',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -46,6 +50,7 @@ window.athleteProfiles = {
     stravaImg: '',
     city: 'Vlaardingen',
     country: 'Zuid-Holland, Netherlands',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -56,6 +61,7 @@ window.athleteProfiles = {
     stravaImg: '',
     city: 'Ankara',
     country: 'Türkiye',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -66,6 +72,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/55152689/18253066/2/medium.jpg',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -76,6 +83,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10100777587088883/picture?height=256&width=256',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -86,6 +94,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/52613101/13953529/2/medium.jpg',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -96,6 +105,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/85120907/20409444/2/medium.jpg',
     city: '',
     country: 'England, United Kingdom',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -106,6 +116,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/148697911/35131291/1/medium.jpg',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -116,6 +127,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10224520299733850/picture?height=256&width=256',
     city: 'Bonn',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -126,6 +138,7 @@ window.athleteProfiles = {
     stravaImg: '',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -136,6 +149,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10156291375090733/picture?height=256&width=256',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -146,6 +160,7 @@ window.athleteProfiles = {
     stravaImg: '',
     city: 'Frankfurt am Main',
     country: 'Hessen, Germany',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -156,6 +171,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/4710920/9331485/1/medium.jpg',
     city: '',
     country: 'PL68TG, England, United Kingdom',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -166,6 +182,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/143921216/32557800/1/medium.jpg',
     city: 'Seattle',
     country: 'Washington',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -176,6 +193,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10155781521695057/picture?height=256&width=256',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -186,6 +204,7 @@ window.athleteProfiles = {
     stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocJKV0VXJxwpR2XSuz2UGPT-3IKZ0Tx-oeX46LQCQ9jWFvbfXcdn=s96-c',
     city: 'Lancaster',
     country: 'England, United Kingdom',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -196,6 +215,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/19268182/24476732/1/medium.jpg',
     city: 'Aberdeen',
     country: 'Scotland, United Kingdom',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -206,6 +226,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/22438392/15970427/1/medium.jpg',
     city: 'Vilnius',
     country: 'Vilniaus apskritis, Lithuania',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -216,6 +237,7 @@ window.athleteProfiles = {
     stravaImg: '',
     city: 'Dorgali',
     country: 'Nuoro, Italy',
+    clubs: [],
     isAdmin: true,
     isActive: true
   },
@@ -226,6 +248,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/117536/17488/5/medium.jpg',
     city: 'Seattle',
     country: 'Washington',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -236,6 +259,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/25377421/10421638/2/medium.jpg',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -246,6 +270,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10217039830508061/picture?height=256&width=256',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -256,6 +281,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/93070399/22192938/1/medium.jpg',
     city: 'Singapore',
     country: 'Singapore',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -266,6 +292,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10100743657670866/picture?height=256&width=256',
     city: 'Singapore',
     country: 'Singapore',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -276,6 +303,7 @@ window.athleteProfiles = {
     stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocJbC0zPQeHr6_UuzYM1A2997UzOtoDs6IjF1ISk9oCPNKA=s96-c',
     city: 'New Rochelle',
     country: 'New York',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -286,6 +314,7 @@ window.athleteProfiles = {
     stravaImg: '',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -296,6 +325,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/22249770/13115919/1/medium.jpg',
     city: 'München',
     country: 'Bavaria, Germany',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -306,6 +336,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10158683856751101/picture?height=256&width=256',
     city: 'Bunde',
     country: 'Lower Saxony, Germany',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -316,6 +347,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/20077564/9534445/4/medium.jpg',
     city: 'Malmesbury',
     country: 'England, United Kingdom',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -326,6 +358,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10152346551411043/picture?height=256&width=256',
     city: 'Oslo',
     country: 'NO',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -336,6 +369,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/58167619/14983658/3/medium.jpg',
     city: 'Bristol',
     country: 'United Kingdom',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -346,6 +380,7 @@ window.athleteProfiles = {
     stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocJ32t_SHZxex2r8xIMwhblr0cmD5jJsm2r-UaPzdECG1U1LiYqK=s96-c',
     city: 'Ankara',
     country: 'Türkiye',
+    clubs: [],
     isAdmin: true,
     isActive: true
   },
@@ -356,6 +391,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10157753708656467/picture?height=256&width=256',
     city: 'Oslo',
     country: 'Norway',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -366,6 +402,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/50504665/13788213/3/medium.jpg',
     city: 'Murcia',
     country: 'Murcia - Spain',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -376,6 +413,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/4054553487938859/picture?height=256&width=256',
     city: 'Budapest',
     country: 'Hungary',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -386,6 +424,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10218317655149931/picture?height=256&width=256',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -396,6 +435,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10212320900081514/picture?height=256&width=256',
     city: 'Vinkeveen',
     country: 'UTRECHT, Netherlands',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -406,6 +446,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/24624038/7088451/4/medium.jpg',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -416,6 +457,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/11228766/3397656/1/medium.jpg',
     city: 'Lisbon',
     country: 'Lisbon, Portugal',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -426,6 +468,7 @@ window.athleteProfiles = {
     stravaImg: '',
     city: 'Cambridge',
     country: 'England, United Kingdom',
+    clubs: [],
     isAdmin: true,
     isActive: true
   },
@@ -437,6 +480,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/7400922/2271072/11/medium.jpg',
     city: 'Tiñosa, S.Jose Del Vega',
     country: 'Región de Murcia, Spain',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -447,6 +491,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/481293/23479404/4/medium.jpg',
     city: 'Murcia',
     country: 'Region of Murcia, Spain',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -457,6 +502,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/32147207/9597623/16/medium.jpg',
     city: 'Westbury',
     country: 'England , United Kingdom',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -467,6 +513,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/96232901/22801986/1/medium.jpg',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -477,6 +524,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/16488809/6360140/2/medium.jpg',
     city: 'Abcoude',
     country: 'Utrecht, Nederland',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -487,6 +535,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/142385187/32273652/2/medium.jpg',
     city: 'Playa del Carmen',
     country: 'Quintana Roo, Mexico',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -497,6 +546,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/23980658/28375128/1/medium.jpg',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -507,6 +557,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/3224501550998784/picture?height=256&width=256',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -517,6 +568,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/96861880/27884367/2/medium.jpg',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -527,6 +579,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10209257046720098/picture?height=256&width=256',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -537,6 +590,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/20644523/21989749/3/medium.jpg',
     city: 'Bratislava',
     country: 'SLOVAKIA',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -547,6 +601,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/7282504081780632/picture?height=256&width=256',
     city: 'Montélimar',
     country: 'Auvergne-Rhône-Alpes, France',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -557,6 +612,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/105963017/25189426/1/medium.jpg',
     city: 'Mannheim',
     country: 'Baden-Württemberg',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -567,6 +623,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/13618710/5866792/7/medium.jpg',
     city: '',
     country: 'England, United Kingdom',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -577,6 +634,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/2683171208494454/picture?height=256&width=256',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -587,6 +645,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/103654397/25110944/13/medium.jpg',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -597,6 +656,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/22497909/8988438/2/medium.jpg',
     city: 'Warszawa',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -607,6 +667,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/14948783/4891919/4/medium.jpg',
     city: 'Malé',
     country: 'Malé',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -617,6 +678,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/115078425/27244425/1/medium.jpg',
     city: 'Ottawa',
     country: 'Ontario, Canada',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -627,6 +689,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/85805764/20559739/3/medium.jpg',
     city: 'Istanbul',
     country: 'Türkiye',
+    clubs: ['GUE TR'],
     isAdmin: true,
     isActive: true
   },
@@ -637,6 +700,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/5927108187316251/picture?height=256&width=256',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -647,6 +711,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/154819058/34584957/1/medium.jpg',
     city: 'Schnevern',
     country: 'Niedersachsen, Germany',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -657,6 +722,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/4447938/26168401/5/medium.jpg',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -667,6 +733,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/106468601/25571566/1/medium.jpg',
     city: 'Den Haag',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -677,6 +744,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/17110758/4809232/1/medium.jpg',
     city: 'Mijdrecht',
     country: 'Utrecht, Nederland',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -687,6 +755,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10157518556916110/picture?height=256&width=256',
     city: 'Copenhagen',
     country: 'Denmark',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -697,6 +766,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10217464706395036/picture?height=256&width=256',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -707,6 +777,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/11555230/3503249/2/medium.jpg',
     city: 'Cabo de Palos',
     country: '🇪🇸 , Portugal',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -717,6 +788,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/18471179/15157521/1/medium.jpg',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -727,6 +799,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/108978139/25835281/1/medium.jpg',
     city: 'Chicago',
     country: 'IL',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -737,6 +810,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10220323591267824/picture?height=256&width=256',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -747,6 +821,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10156040921781561/picture?height=256&width=256',
     city: 'Vinkeveen',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -757,6 +832,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/143652257/32597891/1/medium.jpg',
     city: 'Wellington',
     country: 'Wellington, New Zealand',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -767,6 +843,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/2011699/734608/4/medium.jpg',
     city: 'Trittenheim',
     country: 'R-P, Nederland',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -777,6 +854,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10160690510084968/picture?height=256&width=256',
     city: 'Jakarta',
     country: 'Indonesia',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -787,6 +865,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/3284477114897206/picture?height=256&width=256',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -797,6 +876,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/8818297/3027434/2/medium.jpg',
     city: 'Midsomer Norton',
     country: 'Somerset , United Kingdom',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -807,6 +887,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/60535203/15460553/2/medium.jpg',
     city: 'Toronto',
     country: 'Ontario, Canada',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -817,6 +898,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10104819617265228/picture?height=256&width=256',
     city: 'New York',
     country: 'New York',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -827,6 +909,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10153085196733641/picture?height=256&width=256',
     city: '',
     country: 'England, United Kingdom',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -837,6 +920,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/21908800/11623730/1/medium.jpg',
     city: 'Törökbàlint',
     country: 'HU',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -847,6 +931,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/4362550800484608/picture?height=256&width=256',
     city: '',
     country: '',
+    clubs: [],
     isAdmin: false,
     isActive: true
   },
@@ -857,6 +942,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/212130597987152/picture?height=256&width=256',
     city: 'Λευκωσία (Nicosia)',
     country: 'Cyprus',
+    clubs: [],
     isAdmin: false,
     isActive: true
   }

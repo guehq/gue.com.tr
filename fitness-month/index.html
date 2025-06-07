@@ -168,86 +168,77 @@
 	<section class="section has-background-light">
 		<div class="container content" style="max-width: 800px; margin: 0 auto;">
 
-			<h3 class="title is-5">What is MET-based Scoring?</h3>
-			<p>
-				MET (Metabolic Equivalent of Task) is a unit that estimates the amount of energy used by the body during physical activity.
-				In MET-based scoring, each type of activity is assigned a MET value. The final score is calculated by multiplying the activity duration (in minutes) by its MET value.
-				This system offers a more balanced evaluation by recognizing effort intensity, not just duration.
-			</p>
+			<h2 class="title is-4">What is MET-based Scoring?</h2>
+			<p>MET (Metabolic Equivalent of Task) is a unit that estimates how much energy the body uses during different physical activities. Each activity has a baseline MET value, and when available, the pace of the activity is used to assign a more accurate MET rating. The MET score is calculated by multiplying the activity's duration by its MET value. This scoring system allows us to evaluate workouts not just by time, but by effort intensity as well.</p>
 
-			<h3 class="title is-6 mt-6">🧮 MET-Based Scoring: How It Works</h3>
-			<p>
-				<strong>Formula:</strong>
-				<br>
-				<code>MET Score = Activity Duration (minutes) × MET Value</code>
-			</p>
-			<br>
-			<p><strong>Examples:</strong></p>
-			<table class="table is-striped is-fullwidth">
-				<thead>
-					<tr>
-						<th>Activity Type</th>
-						<th>MET Value</th>
-						<th>Duration (minutes)</th>
-						<th>MET Score</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Walking (5 km/h)</td>
-						<td>3.5</td>
-						<td>60</td>
-						<td>210</td>
-					</tr>
-					<tr>
-						<td>Running (8 km/h)</td>
-						<td>8.0</td>
-						<td>30</td>
-						<td>240</td>
-					</tr>
-					<tr>
-						<td>Cycling (moderate)</td>
-						<td>6.0</td>
-						<td>45</td>
-						<td>270</td>
-					</tr>
-					<tr>
-						<td>Swimming (leisure)</td>
-						<td>6.0</td>
-						<td>30</td>
-						<td>180</td>
-					</tr>
-					<tr>
-						<td>Yoga</td>
-						<td>2.5</td>
-						<td>60</td>
-						<td>150</td>
-					</tr>
-					<tr>
-						<td>Strength Training</td>
-						<td>3.8</td>
-						<td>40</td>
-						<td>152</td>
-					</tr>
-				</tbody>
-			</table>
-
-			<br>
-			<h3 class="title is-6 mt-4">🔍 What Do MET Scores Represent?</h3>
+			<h3 class="title is-6 mt-6">What Do MET Scores Represent?</h3>
 			<ul>
 				<li><strong>Higher MET value</strong> → more energy burned per minute.</li>
 				<li><strong>Longer duration</strong> → higher total score.</li>
 				<li>This means short, high-effort workouts can score similarly to long, moderate ones.</li>
 			</ul>
 
-			<hr>
+			<h3 class="title is-6 mt-6">MET-Based Scoring: How It Works</h3>
+			<p><strong>Formula:</strong></p>
+			<ul>
+				<li>If pace is available: <code>MET Score = Duration (min) × MET (adjusted by pace)</code></li>
+				<li>If pace is not available: <code>MET Score = Duration (min) × Default MET (by sport type)</code></li>
+				<li>If elevation gain is available: <code>Final Score = MET Score + (Elevation Gain in meters ÷ 100) × 5</code></li>
+			</ul>
 
-			<h3 class="title is-5 mt-4">What are Team Competitions?</h3>
-			<p>
-				In team competitions, participants are grouped into teams. Each member’s valid activities contribute to the team’s total score.
-				This format encourages collaboration and motivates participants to be consistent, knowing their efforts support a group goal.
-				Team standings may be featured separately on the leaderboard.
-			</p>
+			<h3 class="title is-6 mt-6">What’s NOT Included</h3>
+			<ul>
+				<li>No heart rate (HR) zones or corrections.</li>
+				<li>No adjustment based on sex or age.</li>
+				<li>Activities under 30 minutes duration are excluded.</li>
+			</ul>
+
+			<h3 class="title is-6 mt-6"><strong>Official Strava Sport Type Reference Table (with MET values):</strong></h3>
+			<table class="table is-bordered is-fullwidth is-striped">
+				<thead>
+					<tr>
+						<th>Sport Type</th>
+						<th>Pace Range</th>
+						<th>MET Value</th>
+						<th>Adjustment Notes</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>Walk</td><td>&gt; 12 min/km</td><td>2.5</td><td>Very slow walk</td></tr>
+					<tr><td>Walk</td><td>10–12 min/km</td><td>3.0</td><td>Leisure walk</td></tr>
+					<tr><td>Walk</td><td>8–10 min/km</td><td>3.5</td><td>Brisk walk</td></tr>
+					<tr><td>Walk</td><td>&lt; 8 min/km</td><td>4.3</td><td>Power walk</td></tr>
+					<tr><td>Run</td><td>&gt; 8 min/km</td><td>7.0</td><td>Light jog</td></tr>
+					<tr><td>Run</td><td>6–8 min/km</td><td>8.0</td><td>Moderate run</td></tr>
+					<tr><td>Run</td><td>5–6 min/km</td><td>10.0</td><td>Fast run</td></tr>
+					<tr><td>Run</td><td>&lt; 5 min/km</td><td>11.5</td><td>Race pace</td></tr>
+					<tr><td>Ride</td><td>&gt; 4:30 min/km</td><td>4.0</td><td>Easy</td></tr>
+					<tr><td>Ride</td><td>3:30–4:30 min/km</td><td>6.0</td><td>Moderate</td></tr>
+					<tr><td>Ride</td><td>&lt; 3:30 min/km</td><td>8.0</td><td>Vigorous</td></tr>
+					<tr><td>Yoga</td><td>–</td><td>2.5</td><td>Fixed value</td></tr>
+					<tr><td>Strength Training</td><td>–</td><td>3.8</td><td>General session</td></tr>
+					<tr><td>Swim</td><td>–</td><td>6.0</td><td>Moderate effort</td></tr>
+					<tr><td>Rowing</td><td>–</td><td>7.0</td><td>Outdoor or virtual</td></tr>
+					<tr><td>Hike</td><td>–</td><td>6.0</td><td>Mixed terrain</td></tr>
+					<tr><td>Elliptical</td><td>–</td><td>5.0</td><td>Moderate resistance</td></tr>
+					<tr><td>Stair Stepper</td><td>–</td><td>7.0</td><td>Fixed value</td></tr>
+					<tr><td>HIIT</td><td>–</td><td>8.0</td><td>High intensity</td></tr>
+					<tr><td>Crossfit</td><td>–</td><td>8.0</td><td>High intensity</td></tr>
+					<tr><td>Pilates</td><td>–</td><td>3.0</td><td>Mat-based</td></tr>
+					<tr><td>Other</td><td>–</td><td>3.0</td><td>Fallback/default</td></tr>
+				</tbody>
+			</table>
+		</section>
+
+		<section class="section">
+			<div class="container content" style="max-width: 800px; margin: 0 auto;">
+				<h2 class="title is-4">What are Team Competitions?</h2>
+				<p>
+					In team competitions, participants are grouped into teams. Each member’s valid activities contribute to the team’s total score.
+					This format encourages collaboration and motivates participants to be consistent, knowing their efforts support a group goal.
+					Team standings may be featured separately on the leaderboard.
+				</p>
+			</div>
 		</div>
 	</section>
 
@@ -261,6 +252,12 @@
 				Designed and developed by <a href="https://nevcan.com" target="_blank" class="has-text-info">Nevcan Uludaş</a>.
 			</p>
 			<p>
+				<a href="https://www.gue.com/events#accordion-18" target="_blank" class="icon has-text-info">
+					<i class="fa-solid fa-globe fa-lg"></i>
+				</a>
+				<a href="https://www.facebook.com/groups/guefitness/" target="_blank" class="icon has-text-dark">
+					<i class="fab fa-facebook fa-lg"></i>
+				</a>
 				<a href="https://www.strava.com/clubs/960343" target="_blank" class="icon has-text-warning">
 					<i class="fab fa-strava fa-lg"></i>
 				</a>

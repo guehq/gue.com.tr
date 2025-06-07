@@ -34,10 +34,10 @@ function buildAllLeaderboards(activities) {
 
     if (!athleteStats[shortName]) {
       athleteStats[shortName] = {
-        activityCount: 0,
         totalDuration: 0,
         totalDistance: 0,
         totalElevation: 0,
+        activityCount: 0,
       };
     }
 
@@ -52,15 +52,15 @@ function buildAllLeaderboards(activities) {
     athleteStats[shortName].totalElevation += elevationGain;
   });
 
-  const sortedActivities = Object.entries(athleteStats).sort((a, b) => b[1].activityCount - a[1].activityCount);
   const sortedDuration = Object.entries(athleteStats).sort((a, b) => b[1].totalDuration - a[1].totalDuration);
   const sortedDistance = Object.entries(athleteStats).sort((a, b) => b[1].totalDistance - a[1].totalDistance);
   const sortedElevation = Object.entries(athleteStats).sort((a, b) => b[1].totalElevation - a[1].totalElevation);
+  const sortedActivities = Object.entries(athleteStats).sort((a, b) => b[1].activityCount - a[1].activityCount);
 
-  renderLeaderboard('Activities', sortedActivities, 'activitiesLB', 'activityCount');
   renderLeaderboard('Duration', sortedDuration, 'durationLB', 'totalDuration');
   renderLeaderboard('Distance', sortedDistance, 'distanceLB', 'totalDistance');
   renderLeaderboard('Elev. Gain', sortedElevation, 'elevationLB', 'totalElevation');
+  renderLeaderboard('Activities', sortedActivities, 'activitiesLB', 'activityCount');
 }
 
 function renderLeaderboard(title, data, containerId, statKey) {
@@ -93,7 +93,7 @@ function renderLeaderboard(title, data, containerId, statKey) {
 
           return `
             <tr>
-              <td>${index + 1}</td>
+              <td class="has-text-centered">${index + 1}</td>
               <td style="display: flex; align-items: center; gap: 10px; vertical-align: middle; border-width: 0; border-bottom-width: 1px;">
                 <img src="${imgSrc}" alt="${fullName}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 30px; height: 30px; border-radius: 50%;">
                 ${fullName}

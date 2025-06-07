@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function buildAllLeaderboards(activities) {
   // Clear old leaderboard sections
-  ['activitiesLB', 'durationLB', 'distanceLB', 'elevationLB'].forEach(id => {
+  ['activitiesLB', 'durationLB', 'distanceLB', 'elevationLB', 'metScoreLB'].forEach(id => {
     document.getElementById(id).innerHTML = '';
   });
 
@@ -38,6 +38,7 @@ function buildAllLeaderboards(activities) {
         totalDistance: 0,
         totalElevation: 0,
         activityCount: 0,
+        totalMET: 0,
       };
     }
 
@@ -50,17 +51,28 @@ function buildAllLeaderboards(activities) {
     athleteStats[shortName].totalDuration += durationMinutes;
     athleteStats[shortName].totalDistance += distanceKm;
     athleteStats[shortName].totalElevation += elevationGain;
+
+    let pace = 0;
+    if (distanceKm > 0 && durationMinutes > 0) {
+      pace = durationMinutes / distanceKm; // minutes per km
+    }
+
+    const sportType = activity['sport type'] || '';
+    const metScore = calculateMETScore(sportType, pace, durationMinutes, elevationGain);
+    athleteStats[shortName].totalMET += metScore;
   });
 
   const sortedDuration = Object.entries(athleteStats).sort((a, b) => b[1].totalDuration - a[1].totalDuration);
   const sortedDistance = Object.entries(athleteStats).sort((a, b) => b[1].totalDistance - a[1].totalDistance);
   const sortedElevation = Object.entries(athleteStats).sort((a, b) => b[1].totalElevation - a[1].totalElevation);
   const sortedActivities = Object.entries(athleteStats).sort((a, b) => b[1].activityCount - a[1].activityCount);
+  const sortedMET = Object.entries(athleteStats).sort((a, b) => b[1].totalMET - a[1].totalMET);
 
   renderLeaderboard('Duration', sortedDuration, 'durationLB', 'totalDuration');
   renderLeaderboard('Distance', sortedDistance, 'distanceLB', 'totalDistance');
   renderLeaderboard('Elev. Gain', sortedElevation, 'elevationLB', 'totalElevation');
   renderLeaderboard('Activities', sortedActivities, 'activitiesLB', 'activityCount');
+  renderLeaderboard('MET Score', sortedMET, 'metScoreLB', 'totalMET');
 }
 
 function renderLeaderboard(title, data, containerId, statKey) {
@@ -90,6 +102,7 @@ function renderLeaderboard(title, data, containerId, statKey) {
           if (statKey === 'totalDuration') value = `${Math.round(value)} min`;
           if (statKey === 'totalDistance') value = `${value.toFixed(2)} km`;
           if (statKey === 'totalElevation') value = `${value.toFixed(0)} m`;
+          if (statKey === 'totalMET') value = `${value.toFixed(1)}`;
 
           return `
             <tr>
@@ -190,4 +203,59 @@ function filterActivities() {
   }
 
   buildAllLeaderboards(filteredActivities);
+}
+
+function calculateMETScore(sportType, pace, durationMinutes, elevationGain) {
+  // Default MET value
+  let met = 1;
+
+  // MET values based on sport type and pace (minutes per km)
+  // Example MET values for running based on pace:
+  // pace < 5 min/km: 12.5 MET
+  // 5 <= pace < 6: 11 MET
+  // 6 <= pace < 7: 9.8 MET
+  // 7 <= pace < 8: 8.3 MET
+  // pace >= 8: 7 MET
+  // For cycling or other sports, you can add different logic
+
+  if (sportType.toLowerCase().includes('run')) {
+    if (pace > 0 && pace < 5) {
+      met = 12.5;
+    } else if (pace >= 5 && pace < 6) {
+      met = 11;
+    } else if (pace >= 6 && pace < 7) {
+      met = 9.8;
+    } else if (pace >= 7 && pace < 8) {
+      met = 8.3;
+    } else if (pace >= 8) {
+      met = 7;
+    }
+  } else if (sportType.toLowerCase().includes('cycle') || sportType.toLowerCase().includes('bike')) {
+    // Cycling MET estimate based on average speed (pace converted to speed)
+    let speed = 0;
+    if (pace > 0) {
+      speed = 60 / pace; // km/h
+    }
+    if (speed >= 30) {
+      met = 16;
+    } else if (speed >= 20) {
+      met = 12;
+    } else if (speed >= 16) {
+      met = 10;
+    } else if (speed >= 12) {
+      met = 8;
+    } else {
+      met = 6;
+    }
+  } else {
+    // Default MET for other sports or unknown
+    met = 6;
+  }
+
+  // Adjust MET for elevation gain: add 0.1 MET for every 10m elevation gain per minute
+  const elevationFactor = (elevationGain / durationMinutes) / 10 * 0.1;
+  met += elevationFactor;
+
+  // Total MET score = MET value * duration in minutes
+  return met * durationMinutes;
 }

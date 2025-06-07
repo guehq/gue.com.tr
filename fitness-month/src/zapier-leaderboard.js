@@ -82,10 +82,17 @@ function buildAllLeaderboards(activities) {
     if (!shortName || !window.athleteProfiles[shortName]) return;
 
     const profile = window.athleteProfiles[shortName];
-    const clubName = (profile.clubs && profile.clubs.length > 0) ? profile.clubs[0] : 'No Club';
+    const clubName = (profile.clubs && profile.clubs.length > 0) ? profile.clubs[0] : null;
+    if (!clubName || clubName === 'No Club') return;
 
     if (!clubStats[clubName]) {
-      clubStats[clubName] = { totalMET: 0 };
+      clubStats[clubName] = {
+        totalMET: 0,
+        totalDuration: 0,
+        totalDistance: 0,
+        totalElevation: 0,
+        totalActivities: 0
+      };
     }
 
     const durationMinutes = parseDurationToMinutes(activity['moving time pretty']);
@@ -97,14 +104,67 @@ function buildAllLeaderboards(activities) {
     const metScore = calculateMETScore(sportType, pace, durationMinutes, elevationGain);
 
     clubStats[clubName].totalMET += metScore;
+    clubStats[clubName].totalDuration += durationMinutes;
+    clubStats[clubName].totalDistance += distanceKm;
+    clubStats[clubName].totalElevation += elevationGain;
+    clubStats[clubName].totalActivities += 1;
   });
 
   const sortedClubs = Object.entries(clubStats).sort((a, b) => b[1].totalMET - a[1].totalMET);
-  renderLeaderboard('Club MET Score', sortedClubs, 'clubScoreMetLB', 'totalMET');
+  renderLeaderboard('Team', sortedClubs, 'clubScoreMetLB', 'totalMET');
 }
 
 function renderLeaderboard(title, data, containerId, statKey) {
   const main = document.querySelector(`#${containerId}`);
+
+  if (containerId === 'clubScoreMetLB') {
+    const section = document.createElement('section');
+    section.classList.add('section');
+
+    const top10Data = data.slice(0, 10);
+    const tableHTML = `
+      <h2 class="title is-4">Top 10 - ${title}</h2>
+      <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Club</th>
+            <th>Activities</th>
+            <th>MET</th>
+            <th>Duration</th>
+            <th>Distance</th>
+            <th>Elevation</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${top10Data.map(([clubName, stats], index) => {
+            return `
+              <tr>
+                <td class="has-text-centered">${index + 1}</td>
+                <td>
+                  <div class="is-flex is-align-items-center">
+                    <figure class="image is-32x32 mr-2">
+                      <img class="is-rounded" src="${(window.clubs?.[clubName]?.logoUrl) || './images/default-avatar.png'}" alt="${clubName}" onerror="this.onerror=null; this.src='./images/default-avatar.png';">
+                    </figure>
+                    <span>${clubName}</span>
+                  </div>
+                </td>
+                <td class="has-text-right">${stats.totalActivities}</td>
+                <td class="has-text-right">${stats.totalMET.toFixed(1)}</td>
+                <td class="has-text-right">${Math.round(stats.totalDuration)} min</td>
+                <td class="has-text-right">${stats.totalDistance.toFixed(1)} km</td>
+                <td class="has-text-right">${stats.totalElevation.toFixed(0)} m</td>
+              </tr>
+            `;
+          }).join('')}
+        </tbody>
+      </table>
+    `;
+    section.innerHTML = tableHTML;
+    main.appendChild(section);
+    return;
+  }
+
   const section = document.createElement('section');
   section.classList.add('section');
 

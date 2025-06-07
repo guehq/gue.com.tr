@@ -144,7 +144,7 @@ function renderLeaderboard(title, data, containerId, statKey) {
                 <td>
                   <div class="is-flex is-align-items-center">
                     <figure class="image is-32x32 mr-2">
-                      <img class="is-rounded" src="${(window.clubs?.[clubName]?.logoUrl) || './images/default-avatar.png'}" alt="${clubName}" onerror="this.onerror=null; this.src='./images/default-avatar.png';">
+                      <img class="is-rounded" src="${(window.communities?.[clubName]?.logoUrl) || './images/default-avatar.png'}" alt="${clubName}" onerror="this.onerror=null; this.src='./images/default-avatar.png';">
                     </figure>
                     <span>${clubName}</span>
                   </div>

@@ -1,4 +1,4 @@
-window.clubs = {
+window.communities = {
   'GUE TR': {
     name: 'GUE TR | Commit to Excellence',
     shortName: 'GUE TR',

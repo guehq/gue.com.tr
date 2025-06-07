@@ -30,8 +30,8 @@
 				<a class="navbar-item" href="./index.html">Home</a>
 				<a class="navbar-item" href="./zapier-activities.html">Activities</a>
 				<a class="navbar-item" href="./members.html">Members</a>
-				<a class="navbar-item" href="./communities.html">Communities</a>
-				<a class="navbar-item has-text-link" href="./leaderboard.html">Leaderboard</a>
+				<a class="navbar-item has-text-link" href="./communities.html">Communities</a>
+				<a class="navbar-item" href="./leaderboard.html">Leaderboard</a>
 				<a class="navbar-item" href="./strava-activity-api.html" disabled>Recent Activities</a>
 			</div>
 	
@@ -68,19 +68,19 @@
 		</div>
 	</nav>
 
-	<section class="hero is-success">
+	<section class="hero is-black">
 		<div class="hero-body">
-			<img src="./images/GUE_community.png" alt="GUE Community Logo" style="float: left; width: 90px; margin-right: 2em;">
-			<p class="title">Leaderboard</p>
+			<img src="./images/GUE_community.png" alt="GUE Community Logo" style="float: left; width: 90px; margin-right: 2em; filter:invert()">
+			<p class="title">Community List</p>
 			<p class="subtitle">
 				Strava Club - Global Underwater Explorers (GUE)
 				<a
 					class="bd-tw-button button is-small"
 					data-social-network="Strava"
 					data-social-action="strava"
-					data-social-target="https://www.strava.com/clubs/960343/leaderboard"
+					data-social-target="https://www.strava.com/clubs/960343/members"
 					target="_blank"
-					href="https://www.strava.com/clubs/960343/leaderboard"
+					href="https://www.strava.com/clubs/960343/members"
 					style="background-color: orangered; color: white;"
 					>
 					<span class="icon">
@@ -92,43 +92,46 @@
 		</div>
 	</section>
 
-	<section class="hero is-light">
-		<div class="hero-body py-4 ">
-			<div class="field is-grouped is-justify-content-center">
-				<div class="control">
-					<input id="startDate" type="date" class="input" placeholder="Start Date">
-				</div>
-				<div class="control">
-					<input id="endDate" type="date" class="input" placeholder="End Date">
-				</div>
-				<div class="checkboxes">
-					<label class="checkbox" style="line-height: 2.5;">
-						<input type="checkbox" id="filter30min" /> 30+ Min Activities Only
-					</label>
-					<label class="checkbox" style="line-height: 2.5;">
-						<input type="checkbox" id="filterDaily" /> Daily Activity Streak
-					</label>
-				</div>
-				<div class="control">
-					<button id="filterButton" class="button is-info">Filter</button>
-				</div>
-				<div class="control">
-					<button id="resetButton" class="button is-light">Reset</button>
-				</div>
+	<div class="notification is-warning is-light">
+  <button class="delete"></button>
+		<div class="content is-normal">
+			<p><strong>How Community Information Works:</strong></p>
+			<ul>
+				<li>All communities are manually created and managed. Athletes are manually assigned to their respective communities by <b>Nevcan</b>.</li>
+				<li>An athlete can only be assigned to one team. Participation in multiple communities is not allowed.</li>
+				<li>Community assignment changes must be completed <b>by August 10</b> at the latest.</li>
+			</ul>
+			</ul>
+		</div>
+	</div>
+
+	<div id="members-api" class="container is-max-widescreen my-6">
+		<div class="columns">
+
+			<div class="column">
+				<p class="mb-5">
+					<span class="title">Community List</span>
+					<span class="subtitle ml-1">
+						(<i id="communityCount">0</i>)
+					</span>
+				</p>
+
+				<table id="communitiesDataTable" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+					<thead>
+						<tr>
+							<th><abbr title="Number of Members">No</abbr></th>
+							<th></th>
+							<th>Community</th>
+							<th>PoC</th>
+							<th>Country</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
 			</div>
 		</div>
-	</section>
 
-	<div class="container is-max-widescreen my-5">
 		<main class="mt-5">
-      <div class="columns is-multiline is-tablet">
-				<div id="durationLB" class="column is-half"></div>
-				<div id="distanceLB" class="column is-half"></div>
-				<div id="elevationLB" class="column is-half"></div>
-				<div id="activitiesLB" class="column is-half"></div>
-				<div id="metScoreLB" class="column is-full"></div>
-				<div id="clubScoreMetLB" class="column is-full"></div>
-			</div>
 		</main>
 	</div>
 
@@ -161,9 +164,8 @@
 	<!-- SCRIPTS -->
 	<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 	<script src="./src/config.js"></script>
-	<script src="./src/club-profiles.js"></script>
-	<script src="./src/athlete-profiles.js"></script>
-	<script src="./src/zapier-leaderboard.js"></script>
+	<script src="./src/community-profiles.js"></script>
+	<script src="./src/communities.js"></script>
 
 </body>
 </html>

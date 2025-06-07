@@ -111,7 +111,7 @@ function buildAllLeaderboards(activities) {
   });
 
   const sortedClubs = Object.entries(clubStats).sort((a, b) => b[1].totalMET - a[1].totalMET);
-  renderLeaderboard('Team', sortedClubs, 'clubScoreMetLB', 'totalMET');
+  renderLeaderboard('Community', sortedClubs, 'clubScoreMetLB', 'totalMET');
 }
 
 function renderLeaderboard(title, data, containerId, statKey) {
@@ -128,7 +128,7 @@ function renderLeaderboard(title, data, containerId, statKey) {
         <thead>
           <tr>
             <th>Rank</th>
-            <th>Club</th>
+            <th>Community</th>
             <th>Activities</th>
             <th>MET</th>
             <th>Duration</th>

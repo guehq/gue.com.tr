@@ -1,6 +1,13 @@
 let allActivities = [];
 
 document.addEventListener('DOMContentLoaded', function () {
+  // Set default filter dates to first day of month and today
+  const today = new Date();
+  const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+  const formatDate = (d) => d.toISOString().slice(0, 10);
+  document.getElementById('startDate').value = formatDate(firstDayOfMonth);
+  document.getElementById('endDate').value = formatDate(today);
+
   fetch(ZAPIER_CSV_PATH)
     .then(response => response.text())
     .then(text => {

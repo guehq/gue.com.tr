@@ -615,6 +615,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Gaute S.': {
+    gueId: null,
+    stravaId: 36439080,
+    fullName: 'Gaute Seljestad',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocJBIy7VJyliYSagme-wzSiVx4AbYIOIhoirz4GaXbG5xm48KHpqCQ=s96-c',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Geir A.': {
     gueId: null,
     stravaId: 23504509,
@@ -714,6 +725,39 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'James D.': {
+    gueId: null,
+    stravaId: 11015563,
+    fullName: 'James Draker',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/11015563/25935489/1/medium.jpg',
+    city: 'Fort White, Florida',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'James W.': {
+    gueId: null,
+    stravaId: 5807021,
+    fullName: 'James Wookey',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/5807021/1882231/1/medium.jpg',
+    city: 'London, UK',
+    country: 'Australia',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Jan Henry S. F.': {
+    gueId: null,
+    stravaId: 103065208,
+    fullName: 'Jan Henry S. Fosse',
+    stravaImg: '',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Jenn T.': {
     gueId: null,
     stravaId: 24624038,
@@ -721,6 +765,28 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/24624038/7088451/4/medium.jpg',
     city: '',
     country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Jesper L.': {
+    gueId: null,
+    stravaId: 174638958,
+    fullName: 'Jesper Larsson',
+    stravaImg: '',
+    city: 'Västerås, Västmanlands län',
+    country: 'Sweden',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Johan M.': {
+    gueId: null,
+    stravaId: 178984033,
+    fullName: 'Johan Maheux',
+    stravaImg: '',
+    city: 'Rennes, Bretagne',
+    country: 'France',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -758,6 +824,17 @@ window.athleteProfiles = {
     isAdmin: true,
     isActive: true
   },
+  'John L.': {
+    gueId: null,
+    stravaId: 55205513,
+    fullName: 'John Leeming',
+    stravaImg: '',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Jose Ant. "pepetoni" ".': {
     gueId: null,
     stravaId: 7400922,
@@ -766,6 +843,17 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/7400922/2271072/11/medium.jpg',
     city: 'Tiñosa, S.Jose Del Vega',
     country: 'Región de Murcia, Spain',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Josh H.': {
+    gueId: null,
+    stravaId: 9914495,
+    fullName: 'Josh Hoss',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/9914495/3512002/4/medium.jpg',
+    city: 'Gainesville, Florida',
+    country: 'United States',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -1001,6 +1089,17 @@ window.athleteProfiles = {
     isAdmin: true,
     isActive: true
   },
+  'Nick R.': {
+    gueId: null,
+    stravaId: 4815602,
+    fullName: 'Nick Radov',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/4815602/15383271/1/medium.jpg',
+    city: 'Los Gatos, California',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Oğuz Ö.': {
     gueId: null,
     stravaId: 85824257,
@@ -1023,6 +1122,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Olivia K.': {
+    gueId: null,
+    stravaId: 175065970,
+    fullName: 'Olivia Kuhn',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocJt-E7dyfpTCo6bdrxYvLXt6e8gNSFVAiVV_E8aFpaB2S3wnpFV=s96-c',
+    city: 'High Springs, Florida',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Olli T.': {
     gueId: null,
     stravaId: 154819058,
@@ -1030,6 +1140,17 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/154819058/34584957/1/medium.jpg',
     city: 'Schnevern',
     country: 'Niedersachsen, Germany',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Paige S.': {
+    gueId: null,
+    stravaId: 16582356,
+    fullName: 'Paige Strudwick',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/16582356/24020885/2/medium.jpg',
+    city: '',
+    country: '',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -1107,6 +1228,17 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/18471179/15157521/1/medium.jpg',
     city: '',
     country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Richard H.': {
+    gueId: null,
+    stravaId: 174641016,
+    fullName: 'Richard Harpin',
+    stravaImg: '',
+    city: 'Mitcham, England',
+    country: 'United Kingdom',
     clubs: [],
     isAdmin: false,
     isActive: true

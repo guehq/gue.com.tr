@@ -92,27 +92,34 @@
 		</div>
 	</section>
 
+	<!-- FILTER SECTION -->
 	<section class="hero is-light">
 		<div class="hero-body py-4">
-			<div class="field is-grouped is-justify-content-center">
-				<input type="text" id="athleteSearch" placeholder="Search Athlete..." style="width: 100%; padding: 10px; font-size: 1rem;">
-
-        <div style="display: flex; gap: 10px;">
-          <input type="date" id="startDate" style="flex: 1; padding: 10px; font-size: 1rem;">
-          <input type="date" id="endDate" style="flex: 1; padding: 10px; font-size: 1rem;">
-        </div>
-
-        <div>
-          <select id="sortOrder" style="padding: 10px; font-size: 1rem;">
-            <option value="desc">Newest to Oldest</option>
-            <option value="asc">Oldest to Newest</option>
-          </select>
-        </div>
-
-        <a id="clearFilters" class="button is-light">Clear Filters</a>
+			<div class="columns is-vcentered is-multiline">
+				<div class="column is-12-mobile is-6-tablet is-4-desktop is-4-widescreen is-4-fullhd">
+					<input type="text" id="athleteSearch" class="input" placeholder="Search Athlete...">
+				</div>
+				<div class="column is-6-mobile is-3-tablet is-2-desktop is-2-widescreen is-2-fullhd">
+					<input type="date" id="startDate" class="input">
+				</div>
+				<div class="column is-6-mobile is-3-tablet is-2-desktop is-2-widescreen is-2-fullhd">
+					<input type="date" id="endDate" class="input">
+				</div>
+				<div class="column is-6-mobile is-3-tablet is-2-desktop is-2-widescreen is-2-fullhd">
+					<div class="select is-fullwidth">
+						<select id="sortOrder">
+							<option value="desc">Newest to Oldest</option>
+							<option value="asc">Oldest to Newest</option>
+						</select>
+					</div>
+				</div>
+				<div class="column">
+					<a id="clearFilters" class="button is-light is-fullwidth">Clear Filters</a>
+				</div>
 			</div>
 		</div>
 	</section>
+	<!-- # FILTER SECTION -->
 
 	<div class="container is-max-widescreen my-5">
 		<main class="my-5">

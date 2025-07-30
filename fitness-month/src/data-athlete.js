@@ -226,7 +226,7 @@ window.athleteProfiles = {
     stravaImg: '',
     city: 'Denizli',
     country: 'Türkiye',
-    clubs: [],
+    clubs: ['GUE TR'],
     isAdmin: false,
     isActive: true
   },
@@ -908,6 +908,17 @@ window.athleteProfiles = {
     fullName: 'Nevcan Uludas',
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/85805764/20559739/3/medium.jpg',
     city: 'Istanbul',
+    country: 'Türkiye',
+    clubs: ['GUE TR'],
+    isAdmin: true,
+    isActive: true
+  },
+  'Oğuz Ö.': {
+    gueId: null,
+    stravaId: 85824257,
+    fullName: 'Oğuz Öz',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/85824257/25570948/1/medium.jpg',
+    city: 'Isparta',
     country: 'Türkiye',
     clubs: ['GUE TR'],
     isAdmin: true,

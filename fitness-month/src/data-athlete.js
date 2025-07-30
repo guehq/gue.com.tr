@@ -1232,6 +1232,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Richie D.': {
+    gueId: null,
+    stravaId: 176357981,
+    fullName: 'Richie Denmark',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocLNm0Y9VhlruZtbj3Cht2ca6NWZ1ZnfKC0-35-7I0wiKUeNDr_dQA=s96-c',
+    city: 'Jacksonville, Florida',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Richard H.': {
     gueId: null,
     stravaId: 174641016,
@@ -1327,6 +1338,28 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/3284477114897206/picture?height=256&width=256',
     city: '',
     country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Stretch A.': {
+    gueId: null,
+    stravaId: 23303525,
+    fullName: 'Stretch Altenhein',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/23303525/6675298/1/medium.jpg',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Sven N.': {
+    gueId: null,
+    stravaId: 174618357,
+    fullName: 'Sven Nelles',
+    stravaImg: '',
+    city: 'Hürth, Nordrhein-Westfalen',
+    country: 'Germany',
     clubs: [],
     isAdmin: false,
     isActive: true

@@ -43,6 +43,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Akon D.': {
+    gueId: null,
+    stravaId: 118418715,
+    fullName: 'Akon Dxb',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/118418715/30351905/2/medium.jpg',
+    city: 'Dubai',
+    country: 'United Arab Emirates',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Alba R.': {
     gueId: null,
     stravaId: 177992751,
@@ -538,6 +549,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Evelyn U.': {
+    gueId: null,
+    stravaId: 175062794,
+    fullName: 'Evelyn Unti',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocKubXO5oPsnrS2Ajg_3Q42P9ecz4PnuLLCEvIOzG94tzKnmcg=s96-c',
+    city: 'Florida',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Fabian G.': {
     gueId: null,
     stravaId: 22249770,
@@ -556,6 +578,28 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10158683856751101/picture?height=256&width=256',
     city: 'Bunde',
     country: 'Lower Saxony, Germany',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Frankee D.': {
+    gueId: null,
+    stravaId: 174635816,
+    fullName: 'Frankee Deann Hoss',
+    stravaImg: 'https://graph.facebook.com/970951456288806/picture?height=256&width=256',
+    city: 'Gainesville , Florida',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Gabi S.': {
+    gueId: null,
+    stravaId: 120698386,
+    fullName: 'Gabi Sleeman',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/120698386/39029972/1/medium.jpg',
+    city: 'Grand Rapids, Michigan',
+    country: 'United States',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -589,6 +633,17 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/58167619/14983658/3/medium.jpg',
     city: 'Bristol',
     country: 'United Kingdom',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Graham W.': {
+    gueId: null,
+    stravaId: 7792203,
+    fullName: 'Graham Wheeler',
+    stravaImg: '',
+    city: 'Bray, Wicklow',
+    country: 'Ireland',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -681,6 +736,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Johannes S.': {
+    gueId: null,
+    stravaId: 154970111,
+    fullName: 'Johannes Six',
+    stravaImg: '',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'John K.': {
     gueId: null,
     stravaId: 74285124,
@@ -726,6 +792,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Luis F. A.': {
+    gueId: null,
+    stravaId: 177996489,
+    fullName: 'Luis F. Astudillo',
+    stravaImg: '',
+    city: 'No, Nono',
+    country: 'Spain',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Malte M.': {
     gueId: null,
     stravaId: 96232901,
@@ -766,6 +843,17 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/23980658/28375128/1/medium.jpg',
     city: '',
     country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Mark N.': {
+    gueId: null,
+    stravaId: 174658166,
+    fullName: 'Mark Nicoletti',
+    stravaImg: '',
+    city: 'Miami Gardens, Florida',
+    country: 'United States',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -1074,6 +1162,17 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/2011699/734608/4/medium.jpg',
     city: 'Trittenheim',
     country: 'R-P, Nederland',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Ryan C.': {
+    gueId: null,
+    stravaId: 10882546,
+    fullName: 'Ryan Creswell',
+    stravaImg: 'https://graph.facebook.com/10209424499236138/picture?height=256&width=256',
+    city: 'Plattsburgh, NY',
+    country: 'United States',
     clubs: [],
     isAdmin: false,
     isActive: true

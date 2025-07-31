@@ -274,6 +274,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Chloe T.': {
+    gueId: null,
+    stravaId: 131997165,
+    fullName: 'Chloe Touze',
+    stravaImg: 'https://graph.facebook.com/2709223679128749/picture?height=256&width=256',
+    city: 'Boise, Idaho',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Christian S.': {
     gueId: null,
     stravaId: 92306120,
@@ -292,17 +303,6 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/85120907/20409444/2/medium.jpg',
     city: '',
     country: 'England, United Kingdom',
-    clubs: [],
-    isAdmin: false,
-    isActive: true
-  },
-  'Chloe T.': {
-    gueId: null,
-    stravaId: 131997165,
-    fullName: 'Chloe Touze',
-    stravaImg: 'https://graph.facebook.com/2709223679128749/picture?height=256&width=256',
-    city: 'Boise, Idaho',
-    country: 'United States',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -336,6 +336,17 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10224520299733850/picture?height=256&width=256',
     city: 'Bonn',
     country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Coline M.': {
+    gueId: null,
+    stravaId: 179417453,
+    fullName: 'Coline Martineau',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocJoVYNe1YT3e-39iMANlqqacZAqKybhWObqFxgykFnThGaSHTE=s96-c',
+    city: 'Rezé, Pays de la Loire',
+    country: 'France',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -604,7 +615,7 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Frankee D.': {
+  'Frankee Deann H.': {
     gueId: null,
     stravaId: 174635816,
     fullName: 'Frankee Deann Hoss',
@@ -670,17 +681,6 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Graham W.': {
-    gueId: null,
-    stravaId: 7792203,
-    fullName: 'Graham Wheeler',
-    stravaImg: '',
-    city: 'Bray, Wicklow',
-    country: 'Ireland',
-    clubs: [],
-    isAdmin: false,
-    isActive: true
-  },
   'Gözde A.': {
     gueId: null,
     stravaId: 140743703,
@@ -690,6 +690,17 @@ window.athleteProfiles = {
     country: 'Türkiye',
     clubs: [],
     isAdmin: true,
+    isActive: true
+  },
+  'Graham W.': {
+    gueId: null,
+    stravaId: 7792203,
+    fullName: 'Graham Wheeler',
+    stravaImg: '',
+    city: 'Bray, Wicklow',
+    country: 'Ireland',
+    clubs: [],
+    isAdmin: false,
     isActive: true
   },
   'Ingrid Ø.': {
@@ -813,17 +824,6 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Johan M.': {
-    gueId: null,
-    stravaId: 178984033,
-    fullName: 'Johan Maheux',
-    stravaImg: '',
-    city: 'Rennes, Bretagne',
-    country: 'France',
-    clubs: [],
-    isAdmin: false,
-    isActive: true
-  },
   'João L.': {
     gueId: null,
     stravaId: 11228766,
@@ -831,6 +831,17 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/11228766/3397656/1/medium.jpg',
     city: 'Lisbon',
     country: 'Lisbon, Portugal',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Johan M.': {
+    gueId: null,
+    stravaId: 178984033,
+    fullName: 'Johan Maheux',
+    stravaImg: '',
+    city: 'Rennes, Bretagne',
+    country: 'France',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -1023,6 +1034,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'MANTARAY L.2': {
+    gueId: null,
+    stravaId: 175060377,
+    fullName: 'Mantaray Lee',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/4861742/1562773/6/medium.jpg',
+    city: 'Seoul',
+    country: 'South Korea',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Marcel K.': {
     gueId: null,
     stravaId: 16488809,
@@ -1052,6 +1074,17 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/23980658/28375128/1/medium.jpg',
     city: '',
     country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Mareike T.': {
+    gueId: null,
+    stravaId: 143170836,
+    fullName: 'Mareike Trapp',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/143170836/32422072/1/medium.jpg',
+    city: 'Hamburg',
+    country: 'Germany',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -1107,6 +1140,28 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/20644523/21989749/3/medium.jpg',
     city: 'Bratislava',
     country: 'SLOVAKIA',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Martin N.': {
+    gueId: null,
+    stravaId: 81072437,
+    fullName: 'Martin Naalsund',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/81072437/19484819/1/medium.jpg',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Matt S.': {
+    gueId: null,
+    stravaId: 11049272,
+    fullName: 'Matt S',
+    stravaImg: '',
+    city: '',
+    country: '',
     clubs: [],
     isAdmin: false,
     isActive: true

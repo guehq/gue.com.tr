@@ -32,6 +32,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Adrian B.': {
+    gueId: null,
+    stravaId: 15402818,
+    fullName: 'Adrian Bill',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocLLwyDIVPUXRqeCL1mWgYEhSSJLzTJgu9DU9xP7K1zzaXfHSxIYYg=s96-c',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Ahmed R.': {
     gueId: null,
     stravaId: 96566133,
@@ -120,6 +131,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Alvaro J.': {
+    gueId: null,
+    stravaId: 58131950,
+    fullName: 'Alvaro Jimenez',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/58131950/28025542/1/medium.jpg',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Andreas B.': {
     gueId: null,
     stravaId: 145947660,
@@ -160,6 +182,17 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/55382018/22691839/1/medium.jpg',
     city: '',
     country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Antonio N.': {
+    gueId: null,
+    stravaId: 179518693,
+    fullName: 'Antonio Neves',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocKrUZU-S3EkCuuvWEU5yGQxggU2EH98NKPaeEWJgiXbrYjSloQm=s96-c',
+    city: 'Tampa, Florida',
+    country: 'United States',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -274,6 +307,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Chansong [.': {
+    gueId: null,
+    stravaId: 673466,
+    fullName: 'Chansong [FreeSkier]Moon',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/673466/145029/1/medium.jpg',
+    city: 'Seoul',
+    country: 'South Korea',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Chloe T.': {
     gueId: null,
     stravaId: 131997165,
@@ -281,6 +325,28 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/2709223679128749/picture?height=256&width=256',
     city: 'Boise, Idaho',
     country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Chris H.': {
+    gueId: null,
+    stravaId: 11785417,
+    fullName: 'Chris Hart',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/11785417/3580152/10/medium.jpg',
+    city: 'Washington, District of Columbia',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'CHRISTIAN O.': {
+    gueId: null,
+    stravaId: 60874670,
+    fullName: 'Christian Olsen',
+    stravaImg: '',
+    city: '',
+    country: '',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -318,6 +384,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Claudio P.': {
+    gueId: null,
+    stravaId: 179560449,
+    fullName: 'Claudio Provenzani',
+    stravaImg: '',
+    city: 'Roma, Lazio',
+    country: 'Italy',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Clayton T.': {
     gueId: null,
     stravaId: 148697911,
@@ -329,6 +406,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Cody M.': {
+    gueId: null,
+    stravaId: 179487763,
+    fullName: 'Cody McCord',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocL5QsTb9_BhZAGtdZiQVuTGPmAO1vDMw58ZYKRjOQjnFzDTKyvc=s96-c',
+    city: ' Irvine, California',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Coline M.': {
     gueId: null,
     stravaId: 179417453,
@@ -336,6 +424,17 @@ window.athleteProfiles = {
     stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocJoVYNe1YT3e-39iMANlqqacZAqKybhWObqFxgykFnThGaSHTE=s96-c',
     city: 'Rezé, Pays de la Loire',
     country: 'France',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Connor K.': {
+    gueId: null,
+    stravaId: 179554125,
+    fullName: 'Connor Kwan',
+    stravaImg: '',
+    city: 'Hong Kong Island, Hong Kong',
+    country: 'China',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -373,6 +472,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Cyrill W.': {
+    gueId: null,
+    stravaId: 105740454,
+    fullName: 'Cyrill Wiget',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocLk_bsHiknOEY5MhYr1j8u_IWAQQA_Vaxars93zan8KJTkQf2Uq=s96-c',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Dan W.': {
     gueId: null,
     stravaId: 33932571,
@@ -395,6 +505,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Daniel O.': {
+    gueId: null,
+    stravaId: 154104604,
+    fullName: 'Daniel Ortega',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/154104604/34541445/1/medium.jpg',
+    city: 'Murrieta, California',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Daniel S.': {
     gueId: null,
     stravaId: 4710920,
@@ -413,6 +534,17 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/143921216/32557800/1/medium.jpg',
     city: 'Seattle',
     country: 'Washington',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Darek L.': {
+    gueId: null,
+    stravaId: 74812890,
+    fullName: 'Darek Lutkiewicz',
+    stravaImg: '',
+    city: '',
+    country: '',
     clubs: [],
     isAdmin: false,
     isActive: true

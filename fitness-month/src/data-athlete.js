@@ -527,6 +527,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Daniel H.': {
+    gueId: null,
+    stravaId: 179594742,
+    fullName: 'Daniel Hasak-Lieb',
+    stravaImg: '',
+    city: 'Würzburg, Bayern',
+    country: 'Germany',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Daniel O.': {
     gueId: null,
     stravaId: 154104604,
@@ -611,6 +622,17 @@ window.athleteProfiles = {
     stravaImg: '',
     city: 'Maylands, South Australia',
     country: 'Australia',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Deana F.': {
+    gueId: null,
+    stravaId: 179605632,
+    fullName: 'Deana Fraser',
+    stravaImg: '',
+    city: 'Kent, Washington',
+    country: 'United States',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -879,6 +901,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Fred S.': {
+    gueId: null,
+    stravaId: 179565425,
+    fullName: 'Fred Scubagedoven',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/179565425/39264702/1/medium.jpg',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Gabi S.': {
     gueId: null,
     stravaId: 120698386,
@@ -952,6 +985,50 @@ window.athleteProfiles = {
     stravaImg: '',
     city: 'Bray, Wicklow',
     country: 'Ireland',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Greg B.': {
+    gueId: null,
+    stravaId: 179599775,
+    fullName: 'Greg Barrick',
+    stravaImg: '',
+    city: 'North Richland Hills, Texas',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Hayley S.': {
+    gueId: null,
+    stravaId: 179551853,
+    fullName: 'Hayley Seat',
+    stravaImg: '',
+    city: 'Upland, California',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Heiko S.': {
+    gueId: null,
+    stravaId: 179557109,
+    fullName: 'Heiko Scheepers',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocKAsOwxGpSyiN8FGDGYEw1_vua2gMPDDaRwasTa0qPxmuLmkoFc=s96-c',
+    city: 'Mönchengladbach, North Rhine-Westphalia',
+    country: 'Germany',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Hongyi L.': {
+    gueId: null,
+    stravaId: 179575381,
+    fullName: 'Hongyi Lyu',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocLlpQa_fJ9BnHVBPqgGNqG9oM14cq7FlF6OMPLjlRD3B77wxA=s96-c',
+    city: 'Belmore, New South Wales',
+    country: 'Australia',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -1077,6 +1154,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Jessy T.': {
+    gueId: null,
+    stravaId: 179549464,
+    fullName: 'Jessy Thompson',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocI1O_LhSJHnXNSvLOiSMQ0UfXg2iDKzB-pFeiNleU0ximHK=s96-c',
+    city: 'Muskegon, Michigan',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'João L.': {
     gueId: null,
     stravaId: 11228766,
@@ -1128,6 +1216,17 @@ window.athleteProfiles = {
     stravaImg: '',
     city: '',
     country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Jonas P.': {
+    gueId: null,
+    stravaId: 136447355,
+    fullName: 'Jonas Pröschel',
+    stravaImg: 'https://graph.facebook.com/7840236752663968/picture?height=256&width=256',
+    city: 'Triefenstein, Bayern',
+    country: 'Germany',
     clubs: [],
     isAdmin: false,
     isActive: true

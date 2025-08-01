@@ -1099,6 +1099,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'James F.': {
+    gueId: null,
+    stravaId: 179607932,
+    fullName: 'James Fraser',
+    stravaImg: '',
+    city: 'Kent, Washington',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'James W.': {
     gueId: null,
     stravaId: 5807021,
@@ -1283,6 +1294,39 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/73815465/18176632/2/medium.jpg',
     city: '',
     country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Keith C.': {
+    gueId: null,
+    stravaId: 32211273,
+    fullName: 'Keith Chu',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/32211273/39261196/1/medium.jpg',
+    city: 'Duarte, CA',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Keith N.': {
+    gueId: null,
+    stravaId: 179540145,
+    fullName: 'Keith Nieves',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/179540145/39260065/1/medium.jpg',
+    city: 'Campo Rico, Canóvanas',
+    country: 'Puerto Rico',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Kim Angèle V.': {
+    gueId: null,
+    stravaId: 84147328,
+    fullName: 'Kim Angèle Vallières',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/84147328/20504641/4/medium.jpg',
+    city: 'Montreal',
+    country: 'Canada',
     clubs: [],
     isAdmin: false,
     isActive: true

@@ -43,6 +43,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Adrian L.': {
+    gueId: null,
+    stravaId: 179719378,
+    fullName: 'Adrian Lok',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/179719378/39286682/5/medium.jpg',
+    city: 'Suzhou, Jiangsu',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Ahmed R.': {
     gueId: null,
     stravaId: 96566133,
@@ -142,6 +153,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Amanda H.': {
+    gueId: null,
+    stravaId: 179632543,
+    fullName: 'Amanda Hodgman',
+    stravaImg: '',
+    city: 'Chicago, Illinois',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Andreas B.': {
     gueId: null,
     stravaId: 145947660,
@@ -149,6 +171,17 @@ window.athleteProfiles = {
     stravaImg: '',
     city: 'Zürich',
     country: 'Switzerland',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Andres N.': {
+    gueId: null,
+    stravaId: 47440380,
+    fullName: 'Andres Nötzli',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/47440380/13236150/1/medium.jpg',
+    city: '',
+    country: '',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -241,6 +274,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Attila K.': {
+    gueId: null,
+    stravaId: 8612825,
+    fullName: 'Attila Kerekes',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/8612825/19156522/2/medium.jpg',
+    city: 'Eisenstadt, Burgenland',
+    country: 'Austria',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Bartek T.': {
     gueId: null,
     stravaId: 179617008,
@@ -248,6 +292,17 @@ window.athleteProfiles = {
     stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocKqo7TfvHMfwZsljVgzXgWG35v_JmITvXOSzWXs4R24kr5Ps0aFzA=s96-c',
     city: 'Warszawa, Województwo mazowieckie',
     country: 'Poland',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Bayram D.': {
+    gueId: null,
+    stravaId: 178196570,
+    fullName: 'Bayram Demirekin',
+    stravaImg: '',
+    city: 'Antalya',
+    country: 'Türkiye',
     clubs: [],
     isAdmin: false,
     isActive: true

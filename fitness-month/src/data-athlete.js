@@ -439,6 +439,28 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Chris M.': {
+    gueId: null,
+    stravaId: 51173630,
+    fullName: 'Chris Mills',
+    stravaImg: 'https://graph.facebook.com/10158699851963274/picture?height=256&width=256',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Chris W.': {
+    gueId: null,
+    stravaId: 124293247,
+    fullName: 'Chris Walker',
+    stravaImg: '',
+    city: 'Seattle, Washington',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Christiaan B.': {
     gueId: null,
     stravaId: 152255777,
@@ -582,6 +604,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Craig R.': {
+    gueId: null,
+    stravaId: 153908264,
+    fullName: 'Craig Reames',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/153908264/39280740/1/medium.jpg',
+    city: 'Seattle, Washington',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Csaba S.': {
     gueId: null,
     stravaId: 69345764,
@@ -604,13 +637,24 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Dan W.': {
+  'Dan W.eb': {
     gueId: null,
     stravaId: 33932571,
     fullName: 'Dan Webster',
     stravaImg: 'https://graph.facebook.com/10156291375090733/picture?height=256&width=256',
     city: '',
     country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Dan W.ein': {
+    gueId: null,
+    stravaId: 16880447,
+    fullName: 'Dan Weinberger',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/16880447/10368597/1/medium.jpg',
+    city: 'Vancouver, British Columbia',
+    country: 'Canada',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -672,6 +716,17 @@ window.athleteProfiles = {
   },
   'Danny T.': {
     gueId: null,
+    stravaId: 179631779,
+    fullName: 'Danny T',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocK_9me4KX_Rb8h4z3yI7hKMp7x-hngTGs3yiLuGqzuFQdgvC8k=s96-c',
+    city: 'Sammamish, Washington',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Danny T.o': {
+    gueId: null,
     stravaId: 143921216,
     fullName: 'Danny Tong',
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/143921216/32557800/1/medium.jpg',
@@ -721,6 +776,17 @@ window.athleteProfiles = {
     stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocJKV0VXJxwpR2XSuz2UGPT-3IKZ0Tx-oeX46LQCQ9jWFvbfXcdn=s96-c',
     city: 'Lancaster',
     country: 'England, United Kingdom',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'David J.': {
+    gueId: null,
+    stravaId: 179667041,
+    fullName: 'David Jordan',
+    stravaImg: '',
+    city: 'Las Vegas, Nevada',
+    country: 'United States',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -791,6 +857,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Donald C.': {
+    gueId: null,
+    stravaId: 146412997,
+    fullName: 'Donald Chan',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocLg5zL7Mk9NnavbYHpK2s8MlcaWd470ey7_NkXkq-0k71hfYXeF=s96-c',
+    city: 'Hong Kong Island',
+    country: 'Hong Kong',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Dorota C.': {
     gueId: null,
     stravaId: 114274230,
@@ -839,7 +916,7 @@ window.athleteProfiles = {
     gueId: null,
     stravaId: 179621183,
     fullName: 'Eigher M',
-    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/179621183/39271689/1/large.jpg',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/179621183/39271689/1/medium.jpg',
     city: '',
     country: '',
     clubs: [],
@@ -1154,6 +1231,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Hayley S.v2': {
+    gueId: null,
+    stravaId: 42937954,
+    fullName: 'Hayley Seat',
+    stravaImg: 'https://graph.facebook.com/2398940000158707/picture?height=256&width=256',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Heiko S.': {
     gueId: null,
     stravaId: 179557109,
@@ -1249,6 +1337,28 @@ window.athleteProfiles = {
     stravaImg: '',
     city: 'Kent, Washington',
     country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'James S.al': {
+    gueId: null,
+    stravaId: 112131403,
+    fullName: 'James Salmon',
+    stravaImg: '',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'James S.an': {
+    gueId: null,
+    stravaId: 179766727,
+    fullName: 'James Sanderson',
+    stravaImg: '',
+    city: 'High Wycombe',
+    country: 'England, United Kingdom',
     clubs: [],
     isAdmin: false,
     isActive: true

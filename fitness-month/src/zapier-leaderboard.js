@@ -177,6 +177,7 @@ function renderLeaderboard(title, data, containerId, statKey) {
   const section = document.createElement('section');
   section.classList.add('section');
 
+  // const top10Data = data; /* FULL DATA */
   const top10Data = data.slice(0, 10);
 
   const tableHTML = `

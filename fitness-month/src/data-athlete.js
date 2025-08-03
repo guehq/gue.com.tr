@@ -231,7 +231,7 @@ window.athleteProfiles = {
     isActive: true
   },
   'Annika P.': {
-    gueId: null,
+    gueId: 9662,
     stravaId: 174873980,
     fullName: 'Annika Persson',
     stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocLBHchk0M9MapX0hSwEHfQVHIGcCYF6rkYC6dK2VhDQXhUI5yk=s96-c',
@@ -286,7 +286,7 @@ window.athleteProfiles = {
     isActive: true
   },
   'Bartek T.': {
-    gueId: null,
+    gueId: 25915,
     stravaId: 179617008,
     fullName: 'Bartek Trzcinski',
     stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocKqo7TfvHMfwZsljVgzXgWG35v_JmITvXOSzWXs4R24kr5Ps0aFzA=s96-c',
@@ -902,7 +902,7 @@ window.athleteProfiles = {
     isActive: true
   },
   'Dorota C.': {
-    gueId: null,
+    gueId: 2276,
     stravaId: 114274230,
     fullName: 'Dorota Czerny',
     stravaImg: '',
@@ -1485,7 +1485,7 @@ window.athleteProfiles = {
     isActive: true
   },
   'Jenn T.': {
-    gueId: null,
+    gueId: 68474,
     stravaId: 24624038,
     fullName: 'Jenn Thomson',
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/24624038/7088451/4/medium.jpg',
@@ -1573,7 +1573,7 @@ window.athleteProfiles = {
     isActive: true
   },
   'John K.': {
-    gueId: null,
+    gueId: 1956,
     stravaId: 74285124,
     fullName: 'John Kendall',
     stravaImg: '',

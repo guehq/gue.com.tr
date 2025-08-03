@@ -1,5 +1,5 @@
-const ZAPIER_CSV_PATH = './data/gue strava_2025-08-03T08_14_26.csv';
-const STRAVA_ACCESS_TOKEN = '4c86a7bf1fd1ce6add10e0c3c8bdca24d7586b80';
+const ZAPIER_CSV_PATH = './data/gue strava_2025-08-03T12_41_36.csv';
+const STRAVA_ACCESS_TOKEN = '3c049ed986309d88375b06b08f0d8c7374f19d4a';
 
 function extractDateFromFilename(filename) {
   const match = filename.match(/\d{4}-\d{2}-\d{2}T\d{2}_\d{2}_\d{2}/);

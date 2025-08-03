@@ -329,6 +329,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Benita W.': {
+    gueId: null,
+    stravaId: 26361142,
+    fullName: 'Benita Weis',
+    stravaImg: 'https://graph.facebook.com/1609155592464379/picture?height=256&width=256',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Benjamin S.': {
     gueId: null,
     stravaId: 176017859,
@@ -681,6 +692,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Daniel L.': {
+    gueId: null,
+    stravaId: 125031270,
+    fullName: 'Daniel L.🇨🇵🇵🇭👣🏃🏊🏍🏎',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/125031270/28647922/1/medium.jpg',
+    city: 'Menton, Provence-Alpes-Côte d\'Azur',
+    country: 'France',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Daniel O.': {
     gueId: null,
     stravaId: 154104604,
@@ -820,6 +842,17 @@ window.athleteProfiles = {
     stravaImg: '',
     city: 'Kent, Washington',
     country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Dietmar R.': {
+    gueId: null,
+    stravaId: 179799681,
+    fullName: 'Dietmar Ranik',
+    stravaImg: 'https://graph.facebook.com/24113743318267047/picture?height=256&width=256',
+    city: 'Henstedt-Ulzburg, Schleswig-Holstein',
+    country: 'Germany',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -1033,6 +1066,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Ewan A.': {
+    gueId: null,
+    stravaId: 13049212,
+    fullName: 'Ewan Anderson',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/13049212/4446348/4/medium.jpg',
+    city: 'Victoria, British Columbia',
+    country: 'Canada',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Fabian G.': {
     gueId: null,
     stravaId: 22249770,
@@ -1220,6 +1264,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Hannah H.': {
+    gueId: null,
+    stravaId: 179917933,
+    fullName: 'Hannah Hasak-Lieb',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocI-xXfnhQw7eBiR591IaSDQXHWCjdA8esw3baAYTv9gyMAIwQ=s96-c',
+    city: 'Offenbach am Main, Hessen',
+    country: 'Germany',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Hayley S.': {
     gueId: null,
     stravaId: 179551853,
@@ -1385,6 +1440,50 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Janice M.': {
+    gueId: null,
+    stravaId: 179681441,
+    fullName: 'Janice Marquez de la plata',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/179681441/39281520/1/medium.jpg',
+    city: 'Guayaquil, Guayas',
+    country: 'Ecuador',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Jason C.': {
+    gueId: null,
+    stravaId: 179662517,
+    fullName: 'Jason Cook',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/179662517/39282669/1/medium.jpg',
+    city: 'British Columbia',
+    country: 'Canada',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Jason W.': {
+    gueId: null,
+    stravaId: 179922950,
+    fullName: 'Jason Winter',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocIZHcI6FAvpqC8wlgbBgbruSt-erAB4z7_J0T90q0uQR9TKgA=s96-c',
+    city: 'Zürich',
+    country: 'Switzerland',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Jason W.': {
+    gueId: null,
+    stravaId: 179922950,
+    fullName: 'Jason Winter',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocIZHcI6FAvpqC8wlgbBgbruSt-erAB4z7_J0T90q0uQR9TKgA=s96-c',
+    city: 'Zürich',
+    country: 'Switzerland',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Jenn T.': {
     gueId: null,
     stravaId: 24624038,
@@ -1407,17 +1506,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Jesper L.': {
-    gueId: null,
-    stravaId: 174638958,
-    fullName: 'Jesper Larsson',
-    stravaImg: '',
-    city: 'Västerås, Västmanlands län',
-    country: 'Sweden',
-    clubs: [],
-    isAdmin: false,
-    isActive: true
-  },
+  // 'Jesper L.': {
+  //   gueId: null,
+  //   stravaId: 174638958,
+  //   fullName: 'Jesper Larsson',
+  //   stravaImg: '',
+  //   city: 'Västerås, Västmanlands län',
+  //   country: 'Sweden',
+  //   clubs: [],
+  //   isAdmin: false,
+  //   isActive: false
+  // },
   'Jessy T.': {
     gueId: null,
     stravaId: 179549464,
@@ -1540,6 +1639,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Josh P.': {
+    gueId: null,
+    stravaId: 22373852,
+    fullName: 'Josh Palinkas',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/22373852/25045593/7/medium.jpg',
+    city: 'Hanahan, South Carolina',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Jota P.': {
     gueId: null,
     stravaId: 481293,
@@ -1595,6 +1705,28 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Kerry C.': {
+    gueId: null,
+    stravaId: 85144718,
+    fullName: 'Kerry Cao',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/85144718/20414772/2/medium.jpg',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Kevin R.': {
+    gueId: null,
+    stravaId: 162236689,
+    fullName: 'Kevin Rodriguez',
+    stravaImg: '',
+    city: 'Los Angeles, California',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Kim Angèle V.': {
     gueId: null,
     stravaId: 84147328,
@@ -1602,6 +1734,61 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/84147328/20504641/4/medium.jpg',
     city: 'Montreal',
     country: 'Canada',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Kimbert R.': {
+    gueId: null,
+    stravaId: 18391651,
+    fullName: 'Kimbert Robinson',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/18391651/37917925/1/medium.jpg',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Kristie T.': {
+    gueId: null,
+    stravaId: 179713946,
+    fullName: 'Kristie Tom',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocIlOwl3QANVzNz3ThNsYH4DYEQdwiVlb7FSyFpMS5LJiguhEIE=s96-c',
+    city: 'Westminster, California',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'kudo C.': {
+    gueId: null,
+    stravaId: 24232167,
+    fullName: 'Kudo Choi',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/24232167/25028384/1/medium.jpg',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Kudo C.': {
+    gueId: null,
+    stravaId: 18495309,
+    fullName: 'Kudo Choi',
+    stravaImg: 'https://graph.facebook.com/1427264673968387/picture?height=256&width=256',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Kyle H.': {
+    gueId: null,
+    stravaId: 179517737,
+    fullName: 'Kyle Harmon',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocIyysgrzAstcce5lAqYjkWEVqVIIkoR8OSPMUI4s-Y2Rg6oub8=s96-c',
+    city: 'Gainesville, Florida',
+    country: 'United States',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -1650,6 +1837,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Lester K.': {
+    gueId: null,
+    stravaId: 179548550,
+    fullName: 'Lester Kwok',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocLN4GRlDbK25B4hLammG9uo4-SHiztK-3sV8Rs6zuov9RCKBg=s96-c',
+    city: '',
+    country: 'Singapore',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Liam E.': {
     gueId: null,
     stravaId: 32147207,
@@ -1679,6 +1877,17 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/71885525/17556641/2/medium.jpg',
     city: 'Wólka Kozodawska, Masovian Voivodeship',
     country: 'Poland',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Magnus 🇸.': {
+    gueId: null,
+    stravaId: 11522009,
+    fullName: 'Magnus 🇸🇪',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/11522009/9944260/1/medium.jpg',
+    city: 'Stockholm, Stockholms län, Sverige',
+    country: 'Sweden',
     clubs: [],
     isAdmin: false,
     isActive: true

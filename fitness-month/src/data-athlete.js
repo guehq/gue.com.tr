@@ -905,7 +905,7 @@ window.athleteProfiles = {
     gueId: 2276,
     stravaId: 114274230,
     fullName: 'Dorota Czerny',
-    stravaImg: '',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/114274230/39313162/1/medium.jpg',
     city: 'Dorgali, Nuoro',
     country: 'Italy',
     clubs: [],
@@ -1793,6 +1793,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'LA S.': {
+    gueId: null,
+    stravaId: 113949334,
+    fullName: 'LA S.',
+    stravaImg: '',
+    city: 'Kingston, Ontario',
+    country: 'Canada',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Lara I.': {
     gueId: null,
     stravaId: 175954457,
@@ -1800,6 +1811,17 @@ window.athleteProfiles = {
     stravaImg: '',
     city: 'Bern, Bern',
     country: 'Switzerland',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Lara T.': {
+    gueId: null,
+    stravaId: 149920740,
+    fullName: 'Lara Taleb',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocKql8aTnJd_OluAhCSjesIZ66bPBgqceXwdz1dUiz4yucRp3g=s96-c',
+    city: 'Puerto Aventuras, Quintana Roo',
+    country: 'Mexico',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -1822,6 +1844,28 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/175559428/38581438/1/medium.jpg',
     city: 'Florida',
     country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Laurie D.': {
+    gueId: null,
+    stravaId: 175559428,
+    fullName: 'Laurie Dickson',
+    stravaImg: '',
+    city: 'Orange, California',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Leonardo T.': {
+    gueId: null,
+    stravaId: 136258895,
+    fullName: 'Leonardo Tu',
+    stravaImg: '',
+    city: 'Chengdu City, Taiwan',
+    country: 'China',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -1855,6 +1899,17 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/32147207/9597623/16/medium.jpg',
     city: 'Westbury',
     country: 'England, United Kingdom',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Lorenzo V.': {
+    gueId: null,
+    stravaId: 124014509,
+    fullName: 'Lorenzo Vetere',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/124014509/28445358/7/medium.jpg',
+    city: 'Orbassano, Torino',
+    country: 'Italy',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -1925,6 +1980,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Marc Antoine P.': {
+    gueId: null,
+    stravaId: 179992016,
+    fullName: 'Marc Antoine Perreault',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocL-bQlZHZkrrgIfKpGYR3Oz0AVHZc1pHSHll2FFapvq8bTnPngy=s96-c',
+    city: 'Québec City, Quebec',
+    country: 'Canada',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Marcel K.': {
     gueId: null,
     stravaId: 16488809,
@@ -1965,6 +2031,39 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/143170836/32422072/1/medium.jpg',
     city: 'Hamburg',
     country: 'Germany',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Mario G.': {
+    gueId: null,
+    stravaId: 22876029,
+    fullName: 'Mario Gooneratne',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/22876029/23081890/4/medium.jpg',
+    city: 'Colombo',
+    country: 'Sri Lanka',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Marius S.': {
+    gueId: null,
+    stravaId: 10062875,
+    fullName: 'Marius Svanevik',
+    stravaImg: 'https://graph.facebook.com/10153873413511023/picture?height=256&width=256',
+    city: 'Holmestrand, Vestfold',
+    country: 'Spain',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Mark H.': {
+    gueId: null,
+    stravaId: 26964591,
+    fullName: 'Mark Haskins',
+    stravaImg: '',
+    city: '',
+    country: '',
     clubs: [],
     isAdmin: false,
     isActive: true

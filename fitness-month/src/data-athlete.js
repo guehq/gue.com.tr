@@ -102,7 +102,7 @@ window.athleteProfiles = {
     gueId: null,
     stravaId: 178880146,
     fullName: 'Alejandro Escobar',
-    stravaImg: '',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/178880146/39268016/1/medium.jpg',
     city: 'Cape Girardeau, Missouri',
     country: 'United States',
     clubs: [],
@@ -523,6 +523,17 @@ window.athleteProfiles = {
     stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocKlWPS8EnGTmPMYVhH6GyTQNxnzZ2Kwg4QPefGtRZ0fZhjdh00f=s96-c',
     city: 'Zürich',
     country: 'Switzerland',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Clarence S.': {
+    gueId: null,
+    stravaId: 180227619,
+    fullName: 'Clarence S',
+    stravaImg: '',
+    city: 'Fort Worth, Texas',
+    country: 'United States',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -1838,7 +1849,7 @@ window.athleteProfiles = {
     isActive: true
   },
   'Lauren W.': {
-    gueId: null,
+    gueId: 24308,
     stravaId: 175559428,
     fullName: 'Lauren Wilson',
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/175559428/38581438/1/medium.jpg',
@@ -2355,7 +2366,7 @@ window.athleteProfiles = {
     isActive: true
   },
   'Ol G.': {
-    gueId: null,
+    gueId: 65111,
     stravaId: 103267169,
     fullName: 'Ol Ga',
     stravaImg: 'https://graph.facebook.com/5927108187316251/picture?height=256&width=256',
@@ -2454,7 +2465,7 @@ window.athleteProfiles = {
     isActive: true
   },
   'Ricardo C.': {
-    gueId: null,
+    gueId: 1591,
     stravaId: 11555230,
     fullName: 'Ricardo Constantino',
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/11555230/3503249/2/medium.jpg',
@@ -2465,7 +2476,7 @@ window.athleteProfiles = {
     isActive: true
   },
   'Rich W.': {
-    gueId: null,
+    gueId: 755,
     stravaId: 18471179,
     fullName: 'Rich Walker',
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/18471179/15157521/1/medium.jpg',
@@ -2509,7 +2520,7 @@ window.athleteProfiles = {
     isActive: true
   },
   'Rick V.B': {
-    gueId: null,
+    gueId: 21650,
     stravaId: 46233624,
     fullName: 'Rick van Beerendonk',
     stravaImg: 'https://graph.facebook.com/10220323591267824/picture?height=256&width=256',

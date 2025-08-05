@@ -15,9 +15,11 @@ document.addEventListener('DOMContentLoaded', function () {
         <img src="${imgSrc}" alt="${profile.fullName}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 40px; border-radius: 50%;">
       </td>
       <td>
-        ${stravaLink 
-          ? `<a href="${stravaLink}" class="has-text-dark" target="_blank">${profile.fullName}</a>`
-          : `<span>${profile.fullName}</span>`
+        ${stravaLink
+          ? `<a href="${stravaLink}" class="has-text-dark" target="_blank">${profile.fullName}</a>` : `<span>${profile.fullName}</span>`
+        } 
+        ${profile.gueId 
+          ? `<a href="https://www.gue.com/diver-training/gue-instructors/instructor-resume?id=${profile.gueId}" target="_blank" class="ml-3"><img src="./images/gue_logo_96x96.png"></a>` : ''
         }
       </td>
       <td style="width: 100px;">${profile.city || ''}</td>

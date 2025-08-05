@@ -133,14 +133,20 @@ function populateTable(data, athleteFilter = '', startDate = '', endDate = '', s
       const city = profile ? profile.city : '';
       const country = profile ? profile.country : '';
 
+      // Extract Activity Strava ID and create activity link icon if available
+      const activityStravaId = row['Activity Strava ID'];
+      const activityLinkIcon = activityStravaId
+        ? `<a href="https://www.strava.com/activities/${activityStravaId}" target="_blank" rel="noopener noreferrer" title="View on Strava" style="margin-right: 5px;">🔗</a>`
+        : '';
+
       tr.innerHTML = `
         <td class="has-text-right">${index + 1}</td>
         <td class="has-text-center">${row['formatted start date'] || ''}</td>
         <td style="display: flex; align-items: center; gap: 10px; vertical-align: middle;">
-          <img src="${imgSrc}" alt="${fullName}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 40px; border-radius: 50%;">
+          <img src="${imgSrc}" alt="${fullName}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 40px; border-radius: 50%; margin: 0 auto;">
         </td>
         <td>${fullName}</td>
-        <td>${row['Activity'] || ''}</td>
+        <td>${row['Activity'] || ''} ${activityStravaId ? `<a href="https://www.strava.com/activities/${activityStravaId}" target="_blank" rel="noopener noreferrer" title="View on Strava"><i class="fab fa-strava ml-3" style="color: #fc4c02;"></i></a>` : ''}</td>
         <td class="has-text-right">${row['moving time pretty'] || ''}</td>
         <td class="has-text-right">${row['distance in K'] || ''}</td>
         <td class="has-text-right">${row['total elevation gain'] || ''}</td>

@@ -2079,6 +2079,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Markus H.': {
+    gueId: null,
+    stravaId: 179661213,
+    fullName: 'Markus H',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/179661213/39278824/1/large.jpg',
+    city: 'Köln, Nordrhein-Westfalen',
+    country: 'Germany',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Markus S.': {
     gueId: null,
     stravaId: 69537806,
@@ -2141,6 +2152,17 @@ window.athleteProfiles = {
     stravaImg: '',
     city: '',
     country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Maurice B.': {
+    gueId: null,
+    stravaId: 179559504,
+    fullName: 'Maurice Ballard',
+    stravaImg: '',
+    city: 'Handsworth',
+    country: 'England, United Kingdom',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -2486,7 +2508,7 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Rick V.B.': {
+  'Rick V.B': {
     gueId: null,
     stravaId: 46233624,
     fullName: 'Rick van Beerendonk',
@@ -2497,7 +2519,7 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Rick V.D.': {
+  'Rick V.D': {
     gueId: null,
     stravaId: 47884306,
     fullName: 'Rick van Dijk',

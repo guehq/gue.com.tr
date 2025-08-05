@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('filter30min').checked = true;
   document.getElementById('filterDaily').checked = true;
 
+  // Load all activities from the CSV file
   fetch(ZAPIER_CSV_PATH)
     .then(response => response.text())
     .then(text => {
@@ -26,9 +27,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.getElementById('filterButton').addEventListener('click', filterActivities);
   document.getElementById('resetButton').addEventListener('click', () => {
-    document.getElementById('startDate').value = '';
-    document.getElementById('endDate').value = '';
+    document.getElementById('startDate').value = '2025-08-01';
+    document.getElementById('endDate').value = formatDate(yesterday);
+    document.getElementById('filter30min').checked = true;
+    document.getElementById('filterDaily').checked = true;
     buildAllLeaderboards(allActivities);
+    filterActivities();
   });
 });
 

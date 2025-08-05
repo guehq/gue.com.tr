@@ -251,15 +251,22 @@ function renderLeaderboard(title, data, containerId, statKey, athleteActivities)
             <tr><th>Date</th><th>Activity</th><th>Dur</th><th>Dist</th><th>Elev</th></tr>
           </thead>
           <tbody>
-            ${activities.map(act => `
-              <tr>
-                <td>${act.date || '-'}</td>
-                <td>${act.name || '-'}</td>
-                <td>${act.duration || '-'}</td>
-                <td>${parseFloat(act.distance || 0).toFixed(2)}</td>
-                <td>${parseFloat(act.elevation || 0).toFixed(0)}</td>
-              </tr>
-            `).join('')}
+            ${activities.map(act => {
+              const durationMin = parseDurationToMinutes(act.duration);
+              const hrs = Math.floor(durationMin / 60);
+              const mins = Math.floor(durationMin % 60);
+              const secs = Math.round((durationMin - Math.floor(durationMin)) * 60);
+              const formattedDuration = `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+              return `
+                <tr>
+                  <td>${act.date || '-'}</td>
+                  <td>${act.name || '-'}</td>
+                  <td>${formattedDuration}</td>
+                  <td>${parseFloat(act.distance || 0).toFixed(2)}</td>
+                  <td>${parseFloat(act.elevation || 0).toFixed(0)}</td>
+                </tr>
+              `;
+            }).join('')}
           </tbody>
         </table>
       `;

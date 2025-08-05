@@ -1,12 +1,15 @@
 let allActivities = [];
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Set default filter dates to first day of month and today
+  // Set default filter settings as specified
   const today = new Date();
-  const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+  const yesterday = new Date(today);
+  yesterday.setDate(today.getDate() - 1);
   const formatDate = (d) => d.toISOString().slice(0, 10);
-  document.getElementById('startDate').value = formatDate(firstDayOfMonth);
-  document.getElementById('endDate').value = formatDate(today);
+  document.getElementById('startDate').value = '2025-08-01';
+  document.getElementById('endDate').value = formatDate(yesterday);
+  document.getElementById('filter30min').checked = true;
+  document.getElementById('filterDaily').checked = true;
 
   fetch(ZAPIER_CSV_PATH)
     .then(response => response.text())
@@ -14,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const parsed = Papa.parse(text.trim(), { header: true, skipEmptyLines: true });
       allActivities = parsed.data;
       buildAllLeaderboards(allActivities);
-      // Run filter once on load
+      // Apply filters using preset values
       filterActivities();
     })
     .catch(error => {
@@ -36,6 +39,7 @@ function buildAllLeaderboards(activities) {
   });
 
   const athleteStats = {};
+  const athleteActivities = {};
 
   activities.forEach(activity => {
     const shortName = `${activity['athlete first name'] || ''} ${activity['athlete last name'] || ''}`.trim();
@@ -49,11 +53,12 @@ function buildAllLeaderboards(activities) {
         activityCount: 0,
         totalMET: 0,
       };
+      athleteActivities[shortName] = [];
     }
 
     athleteStats[shortName].activityCount++;
 
-    const durationMinutes = parseDurationToMinutes(activity['moving time pretty']);
+    const durationMinutes = parseDurationToMinutes(activity['Duration']);
     const distanceKm = parseFloat(activity['distance in K']) || 0;
     const elevationGain = parseFloat(activity['total elevation gain']) || 0;
 
@@ -69,6 +74,14 @@ function buildAllLeaderboards(activities) {
     const sportType = activity['sport type'] || '';
     const metScore = calculateMETScore(sportType, pace, durationMinutes, elevationGain);
     athleteStats[shortName].totalMET += metScore;
+
+    athleteActivities[shortName].push({
+      name: activity['name'],
+      date: activity['Real Date on Strava'] || activity['formatted start date'] || activity['Date/Time'],
+      duration: activity['Duration'],
+      distance: activity['distance in K'],
+      elevation: activity['total elevation gain']
+    });
   });
 
   const sortedDuration = Object.entries(athleteStats).sort((a, b) => b[1].totalDuration - a[1].totalDuration);
@@ -77,11 +90,11 @@ function buildAllLeaderboards(activities) {
   const sortedActivities = Object.entries(athleteStats).sort((a, b) => b[1].activityCount - a[1].activityCount);
   const sortedMET = Object.entries(athleteStats).sort((a, b) => b[1].totalMET - a[1].totalMET);
 
-  renderLeaderboard('Duration', sortedDuration, 'durationLB', 'totalDuration');
-  renderLeaderboard('Distance', sortedDistance, 'distanceLB', 'totalDistance');
-  renderLeaderboard('Elev. Gain', sortedElevation, 'elevationLB', 'totalElevation');
-  renderLeaderboard('Activities', sortedActivities, 'activitiesLB', 'activityCount');
-  renderLeaderboard('MET Score', sortedMET, 'metScoreLB', 'totalMET');
+  renderLeaderboard('Duration', sortedDuration, 'durationLB', 'totalDuration', athleteActivities);
+  renderLeaderboard('Distance', sortedDistance, 'distanceLB', 'totalDistance', athleteActivities);
+  renderLeaderboard('Elev. Gain', sortedElevation, 'elevationLB', 'totalElevation', athleteActivities);
+  renderLeaderboard('Activities', sortedActivities, 'activitiesLB', 'activityCount', athleteActivities);
+  renderLeaderboard('MET Score', sortedMET, 'metScoreLB', 'totalMET', athleteActivities);
 
   // Generate Club Leaderboard
   const clubStats = {};
@@ -104,7 +117,7 @@ function buildAllLeaderboards(activities) {
       };
     }
 
-    const durationMinutes = parseDurationToMinutes(activity['moving time pretty']);
+    const durationMinutes = parseDurationToMinutes(activity['Duration']);
     const distanceKm = parseFloat(activity['distance in K']) || 0;
     const elevationGain = parseFloat(activity['total elevation gain']) || 0;
     const pace = distanceKm > 0 && durationMinutes > 0 ? durationMinutes / distanceKm : 0;
@@ -123,7 +136,7 @@ function buildAllLeaderboards(activities) {
   renderLeaderboard('Community', sortedClubs, 'clubScoreMetLB', 'totalMET');
 }
 
-function renderLeaderboard(title, data, containerId, statKey) {
+function renderLeaderboard(title, data, containerId, statKey, athleteActivities) {
   const main = document.querySelector(`#${containerId}`);
 
   if (containerId === 'clubScoreMetLB') {
@@ -207,7 +220,7 @@ function renderLeaderboard(title, data, containerId, statKey) {
               <td class="has-text-centered">${index + 1}</td>
               <td style="display: flex; align-items: center; gap: 10px; vertical-align: middle; border-width: 0; border-bottom-width: 1px;">
                 <img src="${imgSrc}" alt="${fullName}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 30px; height: 30px; border-radius: 50%;">
-                ${fullName}
+                <span class="athlete-name" data-athlete="${shortName}">${fullName}</span>
               </td>
               <td class="has-text-right">${value}</td>
             </tr>
@@ -219,19 +232,91 @@ function renderLeaderboard(title, data, containerId, statKey) {
 
   section.innerHTML = tableHTML;
   main.appendChild(section);
+
+  // Add tooltip hover logic
+  const tooltip = document.getElementById('activity-tooltip');
+  if (!tooltip) return;
+
+  document.querySelectorAll('.athlete-name').forEach(el => {
+    el.addEventListener('mouseenter', (e) => {
+      const name = e.target.dataset.athlete;
+      const activities = athleteActivities[name] || [];
+
+      if (activities.length === 0) return;
+
+      const table = `
+        <strong>${name}</strong>
+        <table class="table is-bordered is-narrow mt-1">
+          <thead>
+            <tr><th>Date</th><th>Activity</th><th>Dur</th><th>Dist</th><th>Elev</th></tr>
+          </thead>
+          <tbody>
+            ${activities.map(act => `
+              <tr>
+                <td>${act.date || '-'}</td>
+                <td>${act.name || '-'}</td>
+                <td>${act.duration || '-'}</td>
+                <td>${parseFloat(act.distance || 0).toFixed(2)}</td>
+                <td>${parseFloat(act.elevation || 0).toFixed(0)}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+
+      tooltip.innerHTML = table;
+      tooltip.style.display = 'block';
+    });
+
+    el.addEventListener('mousemove', (e) => {
+      tooltip.style.top = `${e.pageY + 10}px`;
+      tooltip.style.left = `${e.pageX + 10}px`;
+    });
+
+    el.addEventListener('mouseleave', () => {
+      tooltip.style.display = 'none';
+    });
+  });
 }
 
+function isActivityEligible(activity, start, end, only30MinCheckbox) {
+  const isValid = (activity['is Activity Valid'] || '').toLowerCase();
+  if (isValid === 'false') return false;
+
+  let activityDateStr = activity['Real Date on Strava'] || activity['formatted start date'] || activity['Date/Time'];
+  if (!activityDateStr) return false;
+
+  let dateObj;
+  if (activity['Real Date on Strava']) {
+    dateObj = new Date(activityDateStr);
+  } else {
+    const parts = activityDateStr.split('/');
+    if (parts.length !== 3) return false;
+    const dateFormatted = `20${parts[2]}-${parts[1]}-${parts[0]}`;
+    dateObj = new Date(dateFormatted);
+  }
+
+  if (dateObj < start || dateObj > end) return false;
+
+  if (only30MinCheckbox) {
+    const durationMinutes = parseDurationToMinutes(activity['Duration']);
+    if (durationMinutes < 30) return false;
+  }
+
+  return true;
+}
+
+// Parse Duration To Minutes Function
 function parseDurationToMinutes(durationStr) {
   if (!durationStr) return 0;
-  const parts = durationStr.split(':');
-  if (parts.length === 2) { // mm:ss
-    return parseInt(parts[0]);
-  } else if (parts.length === 3) { // hh:mm:ss
-    return parseInt(parts[0]) * 60 + parseInt(parts[1]);
-  }
-  return 0;
+
+  const num = parseFloat(durationStr);
+  if (isNaN(num)) return 0;
+
+  return num; // Duration in minutes as float
 }
 
+// Filter Activities Function
 function filterActivities() {
   const startDateInput = document.getElementById('startDate').value;
   const endDateInput = document.getElementById('endDate').value;
@@ -252,36 +337,30 @@ function filterActivities() {
     dateList.push(new Date(d).toISOString().slice(0, 10)); // yyyy-mm-dd
   }
 
-  let filteredActivities = allActivities.filter(activity => {
-    const activityDateStr = activity['formatted start date'] || activity['Date/Time'];
-    if (!activityDateStr) return false;
-
-    const parts = activityDateStr.split('/');
-    if (parts.length !== 3) return false;
-
-    const dateFormatted = `20${parts[2]}-${parts[1]}-${parts[0]}`; // yyyy-mm-dd
-    const dateObj = new Date(dateFormatted);
-
-    if (dateObj < start || dateObj > end) return false;
-
-    if (only30MinCheckbox) {
-      const durationMinutes = parseDurationToMinutes(activity['moving time pretty']);
-      if (durationMinutes < 30) return false;
-    }
-
-    return true;
-  });
+  let filteredActivities = allActivities.filter(activity =>
+    isActivityEligible(activity, start, end, only30MinCheckbox)
+  );
 
   if (dailyActivityCheckbox) {
-    // Group by athlete
+    // Group by athlete and date
     const athleteDays = {};
 
-    filteredActivities.forEach(activity => {
+    allActivities.forEach(activity => {
+      if (!isActivityEligible(activity, start, end, only30MinCheckbox)) return;
       const shortName = `${activity['athlete first name'] || ''} ${activity['athlete last name'] || ''}`.trim();
       if (!shortName) return;
 
-      const parts = (activity['formatted start date'] || activity['Date/Time']).split('/');
-      const activityDate = `20${parts[2]}-${parts[1]}-${parts[0]}`;
+      let activityDateStr = activity['Real Date on Strava'] || activity['formatted start date'] || activity['Date/Time'];
+      if (!activityDateStr) return;
+
+      let activityDate;
+      if (activity['Real Date on Strava']) {
+        activityDate = new Date(activityDateStr).toISOString().slice(0, 10);
+      } else {
+        const parts = activityDateStr.split('/');
+        if (parts.length !== 3) return;
+        activityDate = `20${parts[2]}-${parts[1]}-${parts[0]}`;
+      }
 
       if (!athleteDays[shortName]) {
         athleteDays[shortName] = new Set();
@@ -289,7 +368,7 @@ function filterActivities() {
       athleteDays[shortName].add(activityDate);
     });
 
-    // Keep only athletes who have at least one activity for each day
+    // Ensure athlete has at least one activity on every day in the range
     const qualifiedAthletes = Object.keys(athleteDays).filter(shortName => {
       return dateList.every(date => athleteDays[shortName].has(date));
     });
@@ -357,3 +436,14 @@ function calculateMETScore(sportType, pace, durationMinutes, elevationGain) {
   // Total MET score = MET value * duration in minutes
   return met * durationMinutes;
 }
+
+const tooltip = document.createElement('div');
+tooltip.id = 'activity-tooltip';
+tooltip.style.position = 'absolute';
+tooltip.style.zIndex = 9999;
+tooltip.style.padding = '10px';
+tooltip.style.border = '1px solid #ccc';
+tooltip.style.background = 'white';
+tooltip.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+tooltip.style.display = 'none';
+document.body.appendChild(tooltip);

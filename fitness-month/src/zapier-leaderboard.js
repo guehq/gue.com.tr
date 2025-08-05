@@ -47,7 +47,10 @@ function buildAllLeaderboards(activities) {
 
   activities.forEach(activity => {
     const shortName = `${activity['athlete first name'] || ''} ${activity['athlete last name'] || ''}`.trim();
-    if (!shortName) return;
+    if (
+      !shortName ||
+      activity['is Activity Valid']?.toLowerCase() === 'false'
+    ) return;
 
     if (!athleteStats[shortName]) {
       athleteStats[shortName] = {
@@ -79,9 +82,10 @@ function buildAllLeaderboards(activities) {
     const metScore = calculateMETScore(sportType, pace, durationMinutes, elevationGain);
     athleteStats[shortName].totalMET += metScore;
 
+    const dateValue = activity['Real Date on Strava'] || activity['formatted start date'] || activity['Date/Time'];
     athleteActivities[shortName].push({
       name: activity['name'],
-      date: activity['Real Date on Strava'] || activity['formatted start date'] || activity['Date/Time'],
+      date: dateValue,
       duration: activity['Duration'],
       distance: activity['distance in K'],
       elevation: activity['total elevation gain']
@@ -165,7 +169,7 @@ function renderLeaderboard(title, data, containerId, statKey, athleteActivities)
         <tbody>
           ${top10Data.map(([clubName, stats], index) => {
             return `
-              <tr>
+              <tr data-club="${clubName}">
                 <td class="has-text-centered">${index + 1}</td>
                 <td>
                   <div class="is-flex is-align-items-center">
@@ -188,6 +192,82 @@ function renderLeaderboard(title, data, containerId, statKey, athleteActivities)
     `;
     section.innerHTML = tableHTML;
     main.appendChild(section);
+
+    // Add hover logic for community names with detailed member stats
+    const tooltip = document.getElementById('activity-tooltip');
+    if (tooltip) {
+      document.querySelectorAll(`#${containerId} tr[data-club]`).forEach(row => {
+        row.addEventListener('mouseenter', (e) => {
+          const clubName = row.dataset.club;
+          const members = Object.entries(window.athleteProfiles || {}).filter(
+            ([, profile]) => profile.clubs?.[0] === clubName
+          );
+          if (members.length === 0) return;
+
+          // For each member, calculate their totalDistance, totalDuration, totalElevation
+          // Only count valid activities for each member
+          const memberStats = members.map(([shortName, profile]) => {
+            // Find all valid activities for this athlete
+            const activities = (window.allActivities || allActivities || []).filter(activity => {
+              const fn = activity['athlete first name'] || '';
+              const ln = activity['athlete last name'] || '';
+              const name = `${fn} ${ln}`.trim();
+              // Check for valid activity and correct athlete
+              return (
+                name === shortName &&
+                (activity['is Activity Valid']?.toLowerCase() !== 'false')
+              );
+            });
+            // Sum stats
+            let totalDistance = 0, totalDuration = 0, totalElevation = 0;
+            activities.forEach(act => {
+              totalDistance += parseFloat(act['distance in K']) || 0;
+              totalDuration += parseDurationToMinutes(act['Duration']);
+              totalElevation += parseFloat(act['total elevation gain']) || 0;
+            });
+            // Format duration as HH:MM:SS
+            const hrs = Math.floor(totalDuration / 60);
+            const mins = Math.floor(totalDuration % 60);
+            const secs = Math.round((totalDuration - Math.floor(totalDuration)) * 60);
+            const formattedDuration = `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            return {
+              name: profile.fullName || shortName,
+              totalDistance,
+              totalDuration,
+              totalElevation,
+              formattedDuration
+            };
+          });
+
+          const table = `
+            <strong>${clubName}</strong>
+            <table class="table is-bordered is-narrow mt-1">
+              <thead><tr><th>#</th><th>Members</th><th>Dist</th><th>Dur</th><th>Elev</th></tr></thead>
+              <tbody>
+                ${memberStats.map((stat, i) => `
+                  <tr>
+                    <td>${i + 1}</td>
+                    <td>${stat.name}</td>
+                    <td>${stat.totalDistance.toFixed(2)} km</td>
+                    <td>${stat.formattedDuration}</td>
+                    <td>${stat.totalElevation.toFixed(0)} m</td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          `;
+          tooltip.innerHTML = table;
+          tooltip.style.display = 'block';
+        });
+        row.addEventListener('mousemove', (e) => {
+          tooltip.style.top = `${e.pageY + 10}px`;
+          tooltip.style.left = `${e.pageX + 10}px`;
+        });
+        row.addEventListener('mouseleave', () => {
+          tooltip.style.display = 'none';
+        });
+      });
+    }
     return;
   }
 
@@ -255,22 +335,44 @@ function renderLeaderboard(title, data, containerId, statKey, athleteActivities)
             <tr><th>Date</th><th>Activity</th><th>Dur</th><th>Dist</th><th>Elev</th></tr>
           </thead>
           <tbody>
-            ${activities.map(act => {
-              const durationMin = parseDurationToMinutes(act.duration);
-              const hrs = Math.floor(durationMin / 60);
-              const mins = Math.floor(durationMin % 60);
-              const secs = Math.round((durationMin - Math.floor(durationMin)) * 60);
-              const formattedDuration = `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-              return `
-                <tr>
-                  <td>${act.date || '-'}</td>
-                  <td>${act.name || '-'}</td>
-                  <td>${formattedDuration}</td>
-                  <td>${parseFloat(act.distance || 0).toFixed(2)}</td>
-                  <td>${parseFloat(act.elevation || 0).toFixed(0)}</td>
+            ${(() => {
+              let totalDuration = 0;
+              let totalDistance = 0;
+              let totalElevation = 0;
+              const rows = activities.map(act => {
+                const durationMin = parseDurationToMinutes(act.duration);
+                const hrs = Math.floor(durationMin / 60);
+                const mins = Math.floor(durationMin % 60);
+                const secs = Math.round((durationMin - Math.floor(durationMin)) * 60);
+                const formattedDuration = `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                const dist = parseFloat(act.distance || 0);
+                const elev = parseFloat(act.elevation || 0);
+                totalDuration += durationMin;
+                totalDistance += dist;
+                totalElevation += elev;
+                return `
+                  <tr>
+                    <td>${act.date || '-'}</td>
+                    <td>${act.name || '-'}</td>
+                    <td>${formattedDuration}</td>
+                    <td>${dist.toFixed(2)}</td>
+                    <td>${elev.toFixed(0)}</td>
+                  </tr>
+                `;
+              }).join('');
+              const totalHours = Math.floor(totalDuration / 60);
+              const totalMinutes = Math.floor(totalDuration % 60);
+              const totalSeconds = Math.round((totalDuration - Math.floor(totalDuration)) * 60);
+              const totalFormatted = `${totalHours.toString().padStart(2, '0')}:${totalMinutes.toString().padStart(2, '0')}:${totalSeconds.toString().padStart(2, '0')}`;
+              return rows + `
+                <tr style="font-weight:bold;">
+                  <td colspan="2">TOTAL</td>
+                  <td>${totalFormatted}</td>
+                  <td>${totalDistance.toFixed(2)}</td>
+                  <td>${totalElevation.toFixed(0)}</td>
                 </tr>
               `;
-            }).join('')}
+            })()}
           </tbody>
         </table>
       `;

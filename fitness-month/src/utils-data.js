@@ -26,6 +26,19 @@ export function parseDurationToMinutes(durationStr) {
   return num;
 }
 
+function minutesToHMS(minutesDecimal) {
+  const totalSeconds = Math.round(minutesDecimal * 60);
+  const hours = Math.floor(totalSeconds / 3600);
+  const mins = Math.floor((totalSeconds % 3600) / 60);
+  const secs = totalSeconds % 60;
+
+  if (hours > 0) {
+    return `${String(hours).padStart(2, '0')}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  } else {
+    return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  }
+}
+
 // Calculate MET score based on sport type, pace, duration, and elevation
 export function calculateMETScore(sportType, pace, durationMinutes, elevationGain) {
   let met = 1;
@@ -66,7 +79,7 @@ export function getDateRange(startDate, endDate) {
   return list;
 }
 
-// Normalize date from activity fields
+// Standardize date from activity fields
 export function standardizeDate(activity) {
   const realDate = (activity['Real Date on Strava'] || '').trim();
   const estimated = (activity['Estimated Activity Start DateTime'] || '').trim();
@@ -91,7 +104,6 @@ export function standardizeActivities(rawActivities) {
     duration = Number.isFinite(duration) ? duration : 0;
     distance = Number.isFinite(distance) ? distance : 0;
     elevation = Number.isFinite(elevation) ? elevation : 0;
-    const isValid = (activity['is Activity Valid'] || '').toString().trim().toLowerCase() !== 'false';
     let sport = activity['type'] || '';
     sport = sport.trim().toLowerCase();
     const pace = distance > 0 ? duration / distance : 0;
@@ -100,15 +112,15 @@ export function standardizeActivities(rawActivities) {
 
     return {
       athlete: (activity['Athlete'] || 'Unknown').trim(),
-      fullName: `${(activity['athlete first name'] || '').trim()} ${(activity['athlete last name'] || '').trim()}`.trim(),
+      activityName: (activity['Activity'] || '').trim(),
+      sport,
+      realTimeStrava: (activity['Real Time on Strava'] || '').trim(),
       date,
       duration,
       distance,
       elevation,
       met,
-      isValid,
-      id: (activity['Activity Strava ID'] || '').trim(),
-      sport
+      stravaID: (activity['Activity Strava ID'] || '').trim()
     };
   });
 

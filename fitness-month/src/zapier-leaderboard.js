@@ -241,7 +241,7 @@ function renderLeaderboard(title, data, containerId, statKey, athleteActivities)
 
           const table = `
             <strong>${clubName}</strong>
-            <table class="table is-bordered is-narrow mt-1">
+            <table class="table is-bordered is-narrow mt-1" style="font-size: .5rem;">
               <thead><tr><th>#</th><th>Members</th><th>Dist</th><th>Dur</th><th>Elev</th></tr></thead>
               <tbody>
                 ${memberStats.map((stat, i) => `
@@ -304,7 +304,7 @@ function renderLeaderboard(title, data, containerId, statKey, athleteActivities)
               <td class="has-text-centered">${index + 1}</td>
               <td style="display: flex; align-items: center; gap: 10px; vertical-align: middle; border-width: 0; border-bottom-width: 1px;">
                 <img src="${imgSrc}" alt="${fullName}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 30px; height: 30px; border-radius: 50%;">
-                <span class="athlete-name" data-athlete="${shortName}">${fullName}</span>
+                <span class="athlete-name" data-athlete="${encodeURIComponent(shortName)}">${fullName}</span>
               </td>
               <td class="has-text-right">${value}</td>
             </tr>
@@ -323,14 +323,14 @@ function renderLeaderboard(title, data, containerId, statKey, athleteActivities)
 
   document.querySelectorAll('.athlete-name').forEach(el => {
     el.addEventListener('mouseenter', (e) => {
-      const name = e.target.dataset.athlete;
+      const name = decodeURIComponent(e.target.dataset.athlete);
       const activities = athleteActivities[name] || [];
 
       if (activities.length === 0) return;
 
       const table = `
         <strong>${name}</strong>
-        <table class="table is-bordered is-narrow mt-1">
+        <table class="table is-bordered is-narrow mt-1" style="font-size: .5rem;">
           <thead>
             <tr><th>Date</th><th>Activity</th><th>Dur</th><th>Dist</th><th>Elev</th></tr>
           </thead>

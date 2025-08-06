@@ -1,6 +1,6 @@
 const ZAPIER_CSV_PATH = './data/Fithness Month 2025 - AUG.csv';
-const STRAVA_ACCESS_TOKEN = '60ea26f51ec57489dbd191302e1119a32b177149+++';
-const STRAVA_ACCESS_TOKEN_expires_at = '2025-08-05T21:41:32Z';
+const STRAVA_ACCESS_TOKEN = '34e772273b39c6fc93f8c692d4d3a2aa52a19bd5+++';
+const STRAVA_ACCESS_TOKEN_expires_at = '2025-08-06T09:30:08Z';
 
 function extractDateFromFilename(filename) {
   const match = filename.match(/\d{4}-\d{2}-\d{2}T\d{2}_\d{2}_\d{2}/);
@@ -14,6 +14,8 @@ function extractDateFromFilename(filename) {
 }
 
 const lastUpdated = extractDateFromFilename(ZAPIER_CSV_PATH);
+// const lastUpdatedDate = new Date(STRAVA_ACCESS_TOKEN_expires_at);
+// const lastUpdated = lastUpdatedDate.toISOString().replace('T', ' ').split('.')[0];
 const lastUpdatedElement = document.getElementById('lastUpdated');
 if (lastUpdatedElement) {
   lastUpdatedElement.textContent = lastUpdated + ' UTC';

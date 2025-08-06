@@ -351,7 +351,7 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Birgul E.': {
+  'Birgül E.': {
     gueId: null,
     stravaId: 179257004,
     fullName: 'Birgül Eker',
@@ -2324,7 +2324,7 @@ window.athleteProfiles = {
   'Nevcan U.': {
     gueId: 20397,
     stravaId: 85805764,
-    fullName: 'Nevcan Uludas',
+    fullName: 'Nevcan Uludaş',
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/85805764/20559739/3/medium.jpg',
     city: 'Istanbul',
     country: 'Türkiye',

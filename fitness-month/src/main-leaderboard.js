@@ -6,12 +6,7 @@
 // ⏩ Result: Filtered activities for mapping.
 
 import {
-  normalizeActivities,
-  parseDurationToMinutes,
-  calculateMETScore,
-  normalizeDate,
-  formatDate,
-  getDateRange
+  standardizeActivities
 } from './utils-data.js';
 
 import { 
@@ -30,11 +25,16 @@ import {
   formatNumber
 } from './utils-render.js';
 
-// Debug flags
+
+
+// ***********************
+// ***   Debug flags   ***
+// ***********************
+
 export const DEBUG = {
   csvData: false,               // Logs when CSV is loaded
-  validation: true,            // Logs invalid reasons
-  normalization: false,         // Logs normalized activity output
+  validation: false,            // Logs invalid reasons
+  standardization: true,       // Logs standardized activity output
   filtering: false,             // Logs filtered activities based on date/duration
   athleteMapping: false,        // Logs athlete activity mapping
   clubMapping: false,           // Logs club activity mapping
@@ -74,11 +74,11 @@ function loadData(csvData) {
   // Step 1: Validate raw activities
   const validated = validateRawActivities(csvData);
 
-  // Step 2: Normalize
-  const normalized = normalizeActivities(validated);
+  // Step 2: Standardize activities
+  const standardized = standardizeActivities(validated);
 
   // Step 3: Filter valid
-  const valid = filterValidActivities(normalized, filterOptions.minDuration);
+  const valid = filterValidActivities(standardized, filterOptions.minDuration);
 
   allActivities = valid;
 

@@ -25,7 +25,7 @@ function isRawActivityValid(activity) {
 }
 
 /**
- * Filter and return valid raw activities (not normalized yet).
+ * Filter and return valid raw activities (not standardized yet).
  */
 export function validateRawActivities(rawActivities) {
   const seenIDs = new Set();
@@ -57,11 +57,18 @@ export function validateRawActivities(rawActivities) {
     seenIDs.add(id);
     validActivities.push(activity);
     if (DEBUG?.validation) {
-      console.info(`[VALID] Accepted activity ID: ${id}`);
+      console.info(`[VALID] Accepted activity:`, {
+        id: activity.id,
+        athlete: activity['Athlete'],
+        name: activity['Activity'],
+        duration: activity['Duration']
+      });
     }
   }
 
-  console.info(`✅ [VALIDATION] Valid activities after deduplication: ${validActivities.length}/${rawActivities.length}`);
+  if (DEBUG?.validation) {
+    console.info(`✅ [VALIDATION] Valid activities after deduplication: ${validActivities.length}/${rawActivities.length}`);
+  }
 
   return validActivities;
 }

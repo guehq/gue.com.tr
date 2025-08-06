@@ -1,14 +1,22 @@
-// 2. 🧽 Normalization
+// 2. 🧽 Standardization
 // ✔ Located in: utils-data.js or utils-activity.js
 // (we can place this where you prefer — utils-data.js would be more logical)
 // Steps:
 // 	•	✅ Standardize date formats → YYYY-MM-DD
 // 	•	✅ Parse durations into minutes
 // 	•	✅ Trim strings (like fullName, clubName, etc.)
-// 	•	✅ Normalize text casing if needed
+// 	•	✅ Standardize text casing if needed
 // 	•	✅ Remove irrelevant fields (like photo, index, etc.)
 // 	•	✅ Calculate MET score per activity
-// ⏩ Output: normalizedActivities
+// ⏩ Output: standardizedActivities
+
+
+
+import { DEBUG } from './main-leaderboard.js';
+
+// ********************************
+// ***   DATA STANDARDIZATION   ***
+// ********************************
 
 // Parse duration string to minutes as float
 export function parseDurationToMinutes(durationStr) {
@@ -59,7 +67,7 @@ export function getDateRange(startDate, endDate) {
 }
 
 // Normalize date from activity fields
-export function normalizeDate(activity) {
+export function standardizeDate(activity) {
   const realDate = (activity['Real Date on Strava'] || '').trim();
   const estimated = (activity['Estimated Activity Start DateTime'] || '').trim();
   const date = realDate || estimated;
@@ -73,29 +81,40 @@ export function normalizeDate(activity) {
   }
 }
 
-// Normalize activities from raw input
-export function normalizeActivities(rawActivities) {
-  return rawActivities.map((activity, index) => {
-    const date = normalizeDate(activity);
-    const duration = parseDurationToMinutes(activity['Duration']);
-    const distance = parseFloat(activity['distance in K']) || 0;
-    const elevation = parseFloat(activity['total elevation gain']) || 0;
+// Standardize activities from raw input
+export function standardizeActivities(rawActivities) {
+  const standardized = rawActivities.map((activity) => {
+    const date = standardizeDate(activity);
+    let duration = parseDurationToMinutes(activity['Duration']);
+    let distance = parseFloat(activity['distance in K']);
+    let elevation = parseFloat(activity['total elevation gain']);
+    duration = Number.isFinite(duration) ? duration : 0;
+    distance = Number.isFinite(distance) ? distance : 0;
+    elevation = Number.isFinite(elevation) ? elevation : 0;
     const isValid = (activity['is Activity Valid'] || '').toString().trim().toLowerCase() !== 'false';
-    const sport = activity['type'] || '';
+    let sport = activity['type'] || '';
+    sport = sport.trim().toLowerCase();
     const pace = distance > 0 ? duration / distance : 0;
-    const met = calculateMETScore(sport, pace, duration, elevation);
+    let met = calculateMETScore(sport, pace, duration, elevation);
+    met = Number.isFinite(met) ? met : 0;
 
     return {
-      athlete: activity['Athlete'] || 'Unknown',
-      fullName: `${activity['athlete first name'] || ''} ${activity['athlete last name'] || ''}`.trim(),
+      athlete: (activity['Athlete'] || 'Unknown').trim(),
+      fullName: `${(activity['athlete first name'] || '').trim()} ${(activity['athlete last name'] || '').trim()}`.trim(),
       date,
       duration,
       distance,
       elevation,
       met,
       isValid,
-      id: activity['Activity Strava ID'] || '',
-      index
+      id: (activity['Activity Strava ID'] || '').trim(),
+      sport
     };
   });
+
+  if (typeof DEBUG !== 'undefined' && DEBUG.standardization) {
+    console.info('[DEBUG] Standardized Activities:', standardized);
+  }
+
+  return standardized;
 }

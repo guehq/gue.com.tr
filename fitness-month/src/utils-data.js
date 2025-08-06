@@ -1,3 +1,15 @@
+// 2. 🧽 Normalization
+// ✔ Located in: utils-data.js or utils-activity.js
+// (we can place this where you prefer — utils-data.js would be more logical)
+// Steps:
+// 	•	✅ Standardize date formats → YYYY-MM-DD
+// 	•	✅ Parse durations into minutes
+// 	•	✅ Trim strings (like fullName, clubName, etc.)
+// 	•	✅ Normalize text casing if needed
+// 	•	✅ Remove irrelevant fields (like photo, index, etc.)
+// 	•	✅ Calculate MET score per activity
+// ⏩ Output: normalizedActivities
+
 // Parse duration string to minutes as float
 export function parseDurationToMinutes(durationStr) {
   if (!durationStr) return 0;

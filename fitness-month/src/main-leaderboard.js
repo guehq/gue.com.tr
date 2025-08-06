@@ -1,3 +1,10 @@
+// 3. Filtering Step
+// ✔ Likely in main-leaderboard.js (or helper in utils-activity.js)
+// ✅ Filtering Rules:
+// 	•	duration >= minDuration
+// 	•	Date between startDate and endDate
+// ⏩ Result: Filtered activities for mapping.
+
 import {
   normalizeActivities,
   parseDurationToMinutes,
@@ -7,9 +14,8 @@ import {
   getDateRange
 } from './utils-data.js';
 
-import {
-  filterValidActivities,
-  deduplicateActivities
+import { 
+  validateRawActivities 
 } from './utils-activity.js';
 
 import {
@@ -24,6 +30,18 @@ import {
   formatNumber
 } from './utils-render.js';
 
+// Debug flags
+export const DEBUG = {
+  csvData: false,               // Logs when CSV is loaded
+  validation: true,            // Logs invalid reasons
+  normalization: false,         // Logs normalized activity output
+  filtering: false,             // Logs filtered activities based on date/duration
+  athleteMapping: false,        // Logs athlete activity mapping
+  clubMapping: false,           // Logs club activity mapping
+  streakCheck: false,           // Logs daily streak checks
+  leaderboard: false            // Logs leaderboard data
+};
+
 // Global state
 let allActivities = [];
 let athleteMap = new Map();
@@ -32,37 +50,48 @@ let filteredAthleteMap = new Map();
 
 // Current filter options (can be hooked up to UI)
 const filterOptions = {
-  startDate: '2025-08-01',
-  endDate: formatDate(new Date(Date.now() - 86400000)), // yesterday
-  minDuration: 30,
-  dailyActivityOnly: true,
-  sortKey: 'duration', // default sort by duration
-  sortOrder: 'desc',
-  maxRank: 10
+  get startDate() {
+    return document.getElementById('startDateInput')?.value || '2025-08-01';
+  },
+  get endDate() {
+    return document.getElementById('endDateInput')?.value || formatDate(new Date(Date.now() - 86400000));
+  },
+  get requireDailyStreak() {
+    return document.getElementById('requireDailyStreakInput')?.checked ?? true;
+  },
+  get maxRank() {
+    return parseInt(document.getElementById('maxRankInput')?.value || 10);
+  },
+  get minDuration() {
+    return parseInt(document.getElementById('minDurationInput')?.value || 30);
+  },
+  sortKey: 'duration',
+  sortOrder: 'desc'
 };
 
 function loadData(csvData) {
-  // 1. Normalize
-  const normalized = normalizeActivities(csvData);
 
-  // 2. Deduplicate
-  const unique = deduplicateActivities(normalized);
+  // Step 1: Validate raw activities
+  const validated = validateRawActivities(csvData);
 
-  // 3. Filter valid
-  const valid = filterValidActivities(unique, filterOptions.minDuration);
+  // Step 2: Normalize
+  const normalized = normalizeActivities(validated);
+
+  // Step 3: Filter valid
+  const valid = filterValidActivities(normalized, filterOptions.minDuration);
 
   allActivities = valid;
 
-  // 4. Build athlete map
+  // Step 4: Build athlete map
   athleteMap = buildAthleteMap(allActivities);
 
-  // 5. Build club map (assuming you have athleteProfiles globally)
+  // Step 5: Build club map (assuming you have athleteProfiles globally)
   clubMap = buildClubMap(athleteMap, window.athleteProfiles || {});
 
-  // 6. Filter athletes by date range and daily activity streak if needed
+  // Step 6: Filter athletes by date range and daily activity streak if needed
   filteredAthleteMap = filterAthletesByDateAndStreak(athleteMap, filterOptions);
 
-  // 7. Render leaderboards
+  // Step 7: Render leaderboards
   renderLeaderboards();
 }
 
@@ -126,20 +155,34 @@ function toggleSort(key, type) {
 
 // Load CSV and start the process (example using PapaParse or your CSV loading method)
 function loadCSVAndInit() {
-  // Your CSV loading logic here, e.g. Papa.parse(...)
-  // Then call loadData with parsed data
-
-  // Example:
-  // Papa.parse(csvFile, {
-  //   download: true,
-  //   header: true,
-  //   complete: function(results) {
-  //     loadData(results.data);
-  //   }
-  // });
+  Papa.parse('./data/Fithness Month 2025 - AUG.csv', {
+    download: true,
+    header: true,
+    complete: function(results) {
+      if (DEBUG.csvData) console.info('CSV data loaded and processed:', results.data);
+      loadData(results.data);
+    },
+    error: function(err) {
+      console.error('CSV parse error:', err);
+    }
+  });
 }
 
-// Initialize
+// **********************
+// ***   INITIALIZE   ***
+// **********************
+
 document.addEventListener('DOMContentLoaded', () => {
   loadCSVAndInit();
+  document.getElementById('minDurationInput')?.addEventListener('change', () => {
+    loadCSVAndInit();
+  });
+  document.getElementById('maxRankInput')?.addEventListener('change', () => {
+    renderLeaderboards();
+  });
+  // Add checkbox listener for daily streak option
+  document.getElementById('requireDailyStreakInput')?.addEventListener('change', () => {
+    filterOptions.requireDailyStreak = document.getElementById('requireDailyStreakInput').checked;
+    loadCSVAndInit();
+  });
 });

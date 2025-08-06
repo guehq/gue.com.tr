@@ -1,3 +1,15 @@
+// 4. 🧍 Mapping
+// ✔ In: utils-leaderboard.js
+// 	•	Build athleteMap
+// 	•	Build clubMap
+
+// 5. 🔁 Streak Check
+// ✔ Done after mapping, only if requireDailyStreak is true
+// ⏩ Remove athletes who miss streak requirement
+
+// 6. 📊 Leaderboard Sorting + Rendering
+// ✔ In main-leaderboard.js
+
 // utils-leaderboard.js
 
 /**

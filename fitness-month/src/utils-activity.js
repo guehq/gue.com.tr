@@ -1,25 +1,67 @@
-import { parseDurationToMinutes } from './data-utils.js';
+// 1. Validation Step
+// ✔ Done in utils-activity.js
+// ✅ Validation Rules:
+// 	•	isValidActivity !== 'false'
+// 	•	Not a duplicate (based on Activity ID)
+// ⏩ Result: A list of valid but unfiltered activities.
 
-// Check if an activity is valid based on 'is Activity Valid' column and min duration (default 30 min)
-export function isActivityValid(activity, minDuration = 30) {
-  const isValidFlag = (activity['is Activity Valid'] || '').toString().trim().toLowerCase();
-  const duration = parseDurationToMinutes(activity['Duration']);
-  return isValidFlag !== 'false' && duration >= minDuration;
+
+
+import { DEBUG } from './main-leaderboard.js';
+
+// ***************************
+// ***   DATA VALIDATION   ***
+// ***************************
+
+/** 
+ * Check if a raw activity is valid based on "is Activity Valid" column and presence of Activity ID ("id" column).
+ */
+function isRawActivityValid(activity) {
+  return (
+    activity['is Activity Valid']?.trim().toLowerCase() !== 'false' &&
+    activity['id'] &&
+    activity['id'].trim() !== ''
+  );
 }
 
-// Filter activities to keep only valid ones
-export function filterValidActivities(activities, minDuration = 30) {
-  return activities.filter(activity => isActivityValid(activity, minDuration));
-}
+/**
+ * Filter and return valid raw activities (not normalized yet).
+ */
+export function validateRawActivities(rawActivities) {
+  const seenIDs = new Set();
+  const validActivities = [];
 
-// Remove duplicate activities by 'Activity Strava ID' (keep first occurrence)
-export function deduplicateActivities(activities) {
-  const seenIds = new Set();
-  return activities.filter(activity => {
-    const id = activity['Activity Strava ID'] || activity.id || null;
-    if (!id) return true; // keep if no id (or you can choose to exclude)
-    if (seenIds.has(id)) return false;
-    seenIds.add(id);
-    return true;
-  });
+  for (const activity of rawActivities) {
+    const id = activity['id'];
+
+    if (!isRawActivityValid(activity)) {
+      if (DEBUG?.validation) {
+        if (activity['is Activity Valid']?.trim().toLowerCase() === 'false') {
+          console.warn(`[INVALID] Skipped activity — Marked as invalid by column`, activity);
+        } else if (!activity['id'] || activity['id'].trim() === '') {
+          console.warn(`[INVALID] Skipped activity — Missing or empty Activity ID`, activity);
+        } else {
+          console.warn(`[INVALID] Skipped activity — Unknown reason`, activity);
+        }
+      }
+      continue;
+    }
+
+    if (seenIDs.has(id)) {
+      if (DEBUG?.validation) {
+        console.warn(`[DUPLICATE] Skipped duplicate Activity ID: ${id}`);
+      }
+      continue;
+    }
+
+    seenIDs.add(id);
+    validActivities.push(activity);
+    if (DEBUG?.validation) {
+      console.info(`[VALID] Accepted activity ID: ${id}`);
+    }
+  }
+
+  console.info(`✅ [VALIDATION] Valid activities after deduplication: ${validActivities.length}/${rawActivities.length}`);
+
+  return validActivities;
 }

@@ -5,6 +5,8 @@
 // 	•	Date between startDate and endDate
 // ⏩ Result: Filtered activities for mapping.
 
+
+
 import {
   standardizeActivities
 } from './utils-data.js';
@@ -29,11 +31,12 @@ export const DEBUG = {
   csvData: false,               // Logs when CSV is loaded
   validation: false,            // Logs invalid reasons
   standardization: false,       // Logs standardized activity output
-  filtering: true,             // Logs filtered activities based on date/duration
+  filtering: false,             // Logs filtered activities based on date/duration
   athleteMapping: false,        // Logs athlete activity mapping
   clubMapping: false,           // Logs club activity mapping
   streakCheck: false,           // Logs daily streak checks
-  leaderboard: false            // Logs leaderboard data
+  leaderboard: false,           // Logs leaderboard data
+  summary: true                // Logs summary data
 };
 
 // *******************************
@@ -84,7 +87,7 @@ const DEFAULT_END_DATE = '2025-08-31';
 // Current filter options (can be hooked up to UI)
 const filterOptions = {
   get startDate() {
-    return document.getElementById('startDateInput')?.value || '2025-08-01';
+    return document.getElementById('startDateInput')?.value || DEFAULT_START_DATE;
   },
   get endDate() {
     return document.getElementById('endDateInput')?.value || formatDate(new Date(Date.now() - 86400000));
@@ -114,12 +117,14 @@ function loadData(csvData) {
   const valid = filterValidActivities(standardized, filterOptions);
 
   // Log summary counts
-  console.info('=== Activity Processing Summary ===');
-  console.info('Raw activity count:', csvData.length);
-  console.info('Valid activity count:', validated.length);
-  console.info('Standardized activity count:', standardized.length);
-  console.info('Filtered (pass) activity count:', valid.length);
-  console.info('Filtered (excluded) activity count:', standardized.length - valid.length);
+  if (DEBUG.summary) {
+    console.info('=== Activity Processing Summary ===');
+    console.info('Raw activity count:', csvData.length);
+    console.info('Valid activity count:', validated.length);
+    console.info('Standardized activity count:', standardized.length);
+    console.info('Filtered (pass) activity count:', valid.length);
+    console.info('Filtered (excluded) activity count:', standardized.length - valid.length);
+  }
 
   allActivities = valid;
 
@@ -227,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const minDurationInput = document.getElementById('minDurationInput');
   const requireDailyStreakInput = document.getElementById('requireDailyStreakInput');
 
-  if (startDateInput) startDateInput.value = '2025-08-01';
+  if (startDateInput) startDateInput.value = DEFAULT_START_DATE;
   if (endDateInput) endDateInput.value = yesterdayStr;
   if (minDurationInput) minDurationInput.value = DEFAULT_MIN_DURATION;
   if (requireDailyStreakInput) requireDailyStreakInput.checked = true;
@@ -288,7 +293,7 @@ function resetFilters() {
   const minDurationInput = document.getElementById('minDurationInput');
   const requireDailyStreakInput = document.getElementById('requireDailyStreakInput');
 
-  if (startDateInput) startDateInput.value = '2025-08-01';
+  if (startDateInput) startDateInput.value = DEFAULT_START_DATE;
   if (endDateInput) endDateInput.value = yesterdayStr;
   if (minDurationInput) minDurationInput.value = DEFAULT_MIN_DURATION;
   if (requireDailyStreakInput) requireDailyStreakInput.checked = true;

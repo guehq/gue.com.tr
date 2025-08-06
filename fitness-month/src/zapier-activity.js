@@ -78,13 +78,18 @@ function populateTable(data, athleteFilter = '', startDate = '', endDate = '', s
 
   data
     .filter(row => {
+      // Exclude rows where "is Activity Valid" is explicitly "false"
+      if (row['is Activity Valid'] && row['is Activity Valid'].toLowerCase() === 'false') {
+        return false;
+      }
       const shortName = `${row['athlete first name'] || ''} ${row['athlete last name'] || ''}`.trim();
       const profile = window.athleteProfiles[shortName] || null;
       const fullName = profile ? profile.fullName : shortName;
 
       const athleteMatch = fullName.toLowerCase().includes(athleteFilter.toLowerCase());
 
-      const activityDateObj = parseActivityDate(row['formatted start date']);
+      const activityDateStr = row['Real Date on Strava'] || row['Estimated Activity Start DateTime'];
+      const activityDateObj = activityDateStr ? new Date(activityDateStr) : null;
 
       let startDateObj = startDate ? new Date(startDate) : null;
       let endDateObj = endDate ? new Date(endDate) : null;
@@ -110,8 +115,10 @@ function populateTable(data, athleteFilter = '', startDate = '', endDate = '', s
       return athleteMatch && dateMatch;
     })
     .sort((a, b) => {
-      const dateA = parseActivityDate(a['formatted start date']);
-      const dateB = parseActivityDate(b['formatted start date']);
+      const dateAStr = a['Real Date on Strava'] || a['Estimated Activity Start DateTime'];
+      const dateBStr = b['Real Date on Strava'] || b['Estimated Activity Start DateTime'];
+      const dateA = dateAStr ? new Date(dateAStr) : null;
+      const dateB = dateBStr ? new Date(dateBStr) : null;
 
       if (!dateA || isNaN(dateA.getTime())) return 1;
       if (!dateB || isNaN(dateB.getTime())) return -1;
@@ -139,15 +146,17 @@ function populateTable(data, athleteFilter = '', startDate = '', endDate = '', s
         ? `<a href="https://www.strava.com/activities/${activityStravaId}" target="_blank" rel="noopener noreferrer" title="View on Strava" style="margin-right: 5px;">🔗</a>`
         : '';
 
+      const activityDateStr = row['Real Date on Strava'] || row['Estimated Activity Start DateTime'];
+
       tr.innerHTML = `
         <td class="has-text-right">${index + 1}</td>
-        <td class="has-text-center">${row['formatted start date'] || ''}</td>
+        <td class="has-text-center">${activityDateStr ? new Date(activityDateStr).toLocaleDateString() : ''}</td>
         <td style="display: flex; align-items: center; gap: 10px; vertical-align: middle;">
           <img src="${imgSrc}" alt="${fullName}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 40px; border-radius: 50%; margin: 0 auto;">
         </td>
         <td>${fullName}</td>
         <td>${row['Activity'] || ''} ${activityStravaId ? `<a href="https://www.strava.com/activities/${activityStravaId}" target="_blank" rel="noopener noreferrer" title="View on Strava"><i class="fab fa-strava ml-3" style="color: #fc4c02;"></i></a>` : ''}</td>
-        <td class="has-text-right">${row['moving time pretty'] || ''}</td>
+        <td class="has-text-right">${formatMinutesToHHMMSS(row['Duration'])}</td>
         <td class="has-text-right">${row['distance in K'] || ''}</td>
         <td class="has-text-right">${row['total elevation gain'] || ''}</td>
       `;
@@ -156,4 +165,12 @@ function populateTable(data, athleteFilter = '', startDate = '', endDate = '', s
 
   // Update the total activity count
   document.getElementById('zapierTotalActivityCount').textContent = document.querySelectorAll('#dataTable tbody tr').length;
+}
+
+function formatMinutesToHHMMSS(minutes) {
+  const totalSeconds = Math.round(parseFloat(minutes || 0) * 60);
+  const hrs = Math.floor(totalSeconds / 3600);
+  const mins = Math.floor((totalSeconds % 3600) / 60);
+  const secs = totalSeconds % 60;
+  return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 }

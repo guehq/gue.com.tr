@@ -138,9 +138,9 @@
 					<div class="level-item">
 						<p>
 							<!-- Logging Since: <b id="loggingSince">2025-04-03</b> -->
-							Logging Since: <b id="loggingSince">2025-07-29</b>
+							Logging Since: <b id="loggingSince">2025-08-01 00:00 AM</b>
 							<br>
-							Last Updated: <b id="lastUpdated"></b>
+							Last Updated: <b id="lastUpdated+">2025-08-06 03:00 AM</b>
 						</p>
 					</div>
 				</div>
@@ -198,6 +198,27 @@
 	<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 	<script src="./src/config.js"></script>
 	<script src="./src/data-athlete.js"></script>
+	<script>
+		// Patch the image rendering logic in zapier-activity.js with fallback handler
+		// Assuming zapier-activity.js defines a function or code that creates img elements for athlete images,
+		// we override or patch the logic here for fallback handling.
+		// If zapier-activity.js is modularized, this code should be inside it.
+		// Since we cannot modify zapier-activity.js directly here, we add a patch inline.
+
+		document.addEventListener('DOMContentLoaded', () => {
+			const originalCreateImage = window.createAthleteImage || function(row) {
+				const img = document.createElement('img');
+				img.src = row['stravaImg'] || '';
+				img.alt = row['Athlete'];
+				img.onerror = function() {
+					this.onerror = null;
+					this.src = './images/default-avatar.jpg'; // Replace with actual fallback path
+				};
+				return img;
+			};
+			window.createAthleteImage = originalCreateImage;
+		});
+	</script>
 	<script src="./src/zapier-activity.js"></script>
 
 </body>

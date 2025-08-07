@@ -6,6 +6,10 @@
 // ⏩ Result: Filtered activities for mapping.
 
 
+// 6. 📊 Leaderboard Sorting + Rendering
+// ✔ In main-leaderboard.js
+
+
 
 import {
   standardizeActivities
@@ -21,10 +25,6 @@ import {
   sortLeaderboardData
 } from './utils-leaderboard.js';
 
-import { 
-  renderLeaderboardTable
-} from './utils-render.js';
-
 
 
 // ***********************
@@ -37,10 +37,10 @@ export const DEBUG = {
   standardization: false,       // Logs standardized activity output
   filteringOptions: false,      // Logs current filtering options
   filteringActivities: false,   // Logs filtered activities based on date/duration
-  athleteMapping: false,        // Logs athlete activity mapping
-  clubMapping: false,           // Logs club activity mapping
-  streakCheck: false,           // Logs daily streak checks
-  leaderboard: false,           // Logs leaderboard data
+  athleteMapping: true,        // Logs athlete activity mapping
+  clubMapping: true,           // Logs club activity mapping
+  streakCheck: true,           // Logs daily streak checks
+  leaderboard: true,           // Logs leaderboard data
   summary: false                // Logs summary data
 };
 
@@ -183,15 +183,6 @@ function renderLeaderboards() {
     { key: 'met', label: 'MET Score' }
   ];
 
-  // Render athlete leaderboard
-  renderLeaderboardTable(sortedAthletes, athleteColumns, 'athleteLeaderboard', key => {
-    toggleSort(key, 'athlete');
-  });
-
-  // Render club leaderboard
-  renderLeaderboardTable(sortedClubs, clubColumns, 'clubLeaderboard', key => {
-    toggleSort(key, 'club');
-  });
 }
 
 function toggleSort(key, type) {

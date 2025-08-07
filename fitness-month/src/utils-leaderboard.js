@@ -1,4 +1,15 @@
-// utils-leaderboard.js
+// 4. 🧍 Mapping
+// ✔ In: utils-leaderboard.js
+// 	•	Build athleteMap
+// 	•	Build clubMap
+
+// 5. 🔁 Streak Check
+// ✔ Done after mapping, only if requireDailyStreak is true
+// ⏩ Remove athletes who miss streak requirement
+
+
+
+import { DEBUG } from './main-leaderboard.js';
 
 /**
  * Calculate totals for an array of activities.
@@ -16,30 +27,6 @@ export function calculateTotals(activities) {
     },
     { duration: 0, distance: 0, elevation: 0, met: 0, count: 0 }
   );
-}
-
-/**
- * Build a map of athletes keyed by athlete name.
- * Each entry includes the athlete's activities and totals.
- */
-export function buildAthleteMap(activities) {
-  const map = new Map();
-
-  activities.forEach(act => {
-    const name = act.athlete || 'Unknown';
-
-    if (!map.has(name)) {
-      map.set(name, { activities: [], totals: null });
-    }
-    map.get(name).activities.push(act);
-  });
-
-  // Calculate totals for each athlete
-  map.forEach(athlete => {
-    athlete.totals = calculateTotals(athlete.activities);
-  });
-
-  return map;
 }
 
 /**
@@ -84,4 +71,41 @@ export function sortLeaderboardData(data, sortKey, sortOrder = 'desc') {
     const bVal = b.totals[sortKey] || 0;
     return sortOrder === 'asc' ? aVal - bVal : bVal - aVal;
   });
+}
+
+/**
+ * Build athlete map from filtered activities.
+ * Returns a Map where:
+ * - Key: athlete name (string)
+ * - Value: {
+ *     activities: Array of activity objects,
+ *     totals: { duration, distance, elevation, met, count }
+ *   }
+ */
+export function buildAthleteMap(filteredActivities) {
+  const athleteMap = new Map();
+
+  filteredActivities.forEach(activity => {
+    const athlete = activity.athlete || 'Unknown';
+
+    if (!athleteMap.has(athlete)) {
+      athleteMap.set(athlete, { activities: [], totals: { duration: 0, distance: 0, elevation: 0, met: 0, count: 0 } });
+    }
+
+    const athleteData = athleteMap.get(athlete);
+    athleteData.activities.push(activity);
+
+    // Update totals
+    athleteData.totals.duration += activity.duration || 0;
+    athleteData.totals.distance += activity.distance || 0;
+    athleteData.totals.elevation += activity.elevation || 0;
+    athleteData.totals.met += activity.met || 0;
+    athleteData.totals.count += 1;
+  });
+
+  if (DEBUG.athleteMapping) {
+    console.log('Athlete Map:', athleteMap);
+  }
+
+  return athleteMap;
 }

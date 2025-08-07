@@ -171,14 +171,3 @@ export function renderAthleteMapTable(athleteMap) {
     tbody.appendChild(row);
   });
 }
-
-// Tooltip CSS for Bulma-style activity table tooltips on athlete names
-// (Consider moving to main stylesheet if desired)
-const style = document.createElement('style');
-style.textContent = `
-
-`;
-if (typeof window !== "undefined" && !document.getElementById('athlete-tooltip-css')) {
-  style.id = 'athlete-tooltip-css';
-  document.head.appendChild(style);
-}

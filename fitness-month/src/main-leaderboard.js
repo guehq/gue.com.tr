@@ -21,6 +21,10 @@ import {
   sortLeaderboardData
 } from './utils-leaderboard.js';
 
+import { 
+  renderLeaderboardTable
+} from './utils-render.js';
+
 
 
 // ***********************
@@ -31,17 +35,18 @@ export const DEBUG = {
   csvData: false,               // Logs when CSV is loaded
   validation: false,            // Logs invalid reasons
   standardization: false,       // Logs standardized activity output
-  filtering: false,             // Logs filtered activities based on date/duration
+  filteringOptions: false,      // Logs current filtering options
+  filteringActivities: false,   // Logs filtered activities based on date/duration
   athleteMapping: false,        // Logs athlete activity mapping
   clubMapping: false,           // Logs club activity mapping
   streakCheck: false,           // Logs daily streak checks
   leaderboard: false,           // Logs leaderboard data
-  summary: true                // Logs summary data
+  summary: false                // Logs summary data
 };
 
-// *******************************
-// ***   FILTERING ACTIVITIES  ***
-// *******************************
+// ********************************
+// ***   FILTERING ACTIVITIES   ***
+// ********************************
 
 // Filter activities by minDuration and date range
 function filterValidActivities(activities, options) {
@@ -52,7 +57,7 @@ function filterValidActivities(activities, options) {
     const meetsDuration = duration >= options.minDuration;
     const withinDateRange = date >= options.startDate && date <= options.endDate;
 
-    if (DEBUG.filtering) {
+    if (DEBUG.filteringActivities) {
       if (!meetsDuration || !withinDateRange) {
         console.warn(`[FILTER] Excluded activity`, {
           athlete: activity.athlete,
@@ -238,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (requireDailyStreakInput) requireDailyStreakInput.checked = true;
 
   // Check filtering options
-  if (DEBUG?.filtering) {
+  if (DEBUG?.filteringOptions) {
     console.info('Current filter options:', {
       startDate: filterOptions.startDate,
       endDate: filterOptions.endDate,
@@ -248,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Run initial filtering with default filter values
-  if (DEBUG?.filtering) {
+  if (DEBUG?.filteringOptions) {
     console.info('Running initial filtering with:', {
       startDate: filterOptions.startDate,
       endDate: filterOptions.endDate,

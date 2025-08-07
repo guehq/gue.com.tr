@@ -134,10 +134,12 @@ export function renderAthleteMapTable(athleteMap) {
 
   tbody.innerHTML = ''; // Clear existing rows
 
+  let idx = 1;
   athleteMap.forEach((data, athlete) => {
     const row = document.createElement('tr');
 
     row.innerHTML = `
+      <th>${idx}</th>
       <td class="has-tooltip-right" data-tooltip="">
         <div class="tooltip-container">
           <span class="athlete-name">${athlete}</span>
@@ -177,6 +179,7 @@ export function renderAthleteMapTable(athleteMap) {
       <td class="has-text-right">${data.totals.met.toFixed(1)}</td>
     `;
 
+    idx++;
     tbody.appendChild(row);
   });
 }

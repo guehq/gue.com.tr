@@ -23,6 +23,14 @@ import {
 
 
 
+// ***************************************************
+// ***   DEFAULT VALUES for filtering activities   ***
+// ***************************************************
+
+const DEFAULT_MIN_DURATION = 30;
+const DEFAULT_START_DATE = '2025-08-01';
+const DEFAULT_END_DATE = '2025-08-31';
+
 // ***********************
 // ***   DEBUG FLAGS   ***
 // ***********************
@@ -31,13 +39,13 @@ export const DEBUG = {
   csvData: false,               // Logs when CSV is loaded
   validation: false,            // Logs invalid reasons
   standardization: false,       // Logs standardized activity output
-  filteringOptions: false,      // Logs current filtering options
+  filteringOptions: true,      // Logs current filtering options
   filteringActivities: false,   // Logs filtered activities based on date/duration
-  athleteMapping: true,        // Logs athlete activity mapping
-  clubMapping: true,           // Logs club activity mapping
-  streakCheck: true,           // Logs daily streak checks
-  leaderboard: true,           // Logs leaderboard data
-  summary: false                // Logs summary data
+  athleteMapping: false,        // Logs athlete activity mapping
+  // clubMapping: true,           // Logs club activity mapping
+  streakCheck: false,           // Logs daily streak checks
+  // leaderboard: true,           // Logs leaderboard data
+  summary: true                // Logs summary data
 };
 
 // ********************************
@@ -77,13 +85,8 @@ function filterValidActivities(activities, options) {
 // Global state
 let allActivities = [];
 let athleteMap = new Map();
-let clubMap = new Map();
 let filteredAthleteMap = new Map();
-
-// Default values for filtering activities
-const DEFAULT_MIN_DURATION = 30;
-const DEFAULT_START_DATE = '2025-08-01';
-const DEFAULT_END_DATE = '2025-08-31';
+let clubMap = new Map();
 
 // Current filter options (can be hooked up to UI)
 const filterOptions = {
@@ -117,21 +120,10 @@ function loadData(csvData) {
   // Step 3: Filter standardized activities
   const valid = filterValidActivities(standardized, filterOptions);
 
-  // Log summary counts
-  if (DEBUG.summary) {
-    console.info('=== Activity Processing Summary ===');
-    console.info('Raw activity count:', csvData.length);
-    console.info('Valid activity count:', validated.length);
-    console.info('Standardized activity count:', standardized.length);
-    console.info('Filtered (pass) activity count:', valid.length);
-    console.info('Filtered (excluded) activity count:', standardized.length - valid.length);
-  }
-
   allActivities = valid;
 
   // Step 4: Build athlete map
   athleteMap = buildAthleteMap(allActivities);
-  renderAthleteMapTable(athleteMap);
 
   // Step 5: Build club map (assuming you have athleteProfiles globally)
 
@@ -144,51 +136,22 @@ function loadData(csvData) {
   }
 
   // Step 7: Render leaderboards
-  renderLeaderboards();
-}
+  renderAthleteMapTable(athleteMap);
 
-
-function renderLeaderboards() {
-  // Convert Map to array for sorting and slicing
-  const athletesArr = Array.from(filteredAthleteMap.values());
-  const clubsArr = Array.from(clubMap.values());
-
-  // Sort athlete leaderboard
-  // const sortedAthletes = sortLeaderboardData(athletesArr, filterOptions.sortKey, filterOptions.sortOrder).slice(0, filterOptions.maxRank);
-
-  // Sort club leaderboard
-  // const sortedClubs = sortLeaderboardData(clubsArr, filterOptions.sortKey, filterOptions.sortOrder).slice(0, filterOptions.maxRank);
-
-  // Define columns for athlete leaderboard
-  const athleteColumns = [
-    { key: 'athlete', label: 'Athlete' },
-    { key: 'duration', label: 'Total Duration (min)' },
-    { key: 'distance', label: 'Total Distance (km)' },
-    { key: 'count', label: 'Activities' },
-    { key: 'elevation', label: 'Elevation Gain (m)' },
-    { key: 'met', label: 'MET Score' }
-  ];
-
-  // Define columns for club leaderboard
-  const clubColumns = [
-    { key: 'club', label: 'Club' },
-    { key: 'duration', label: 'Total Duration (min)' },
-    { key: 'distance', label: 'Total Distance (km)' },
-    { key: 'count', label: 'Activities' },
-    { key: 'elevation', label: 'Elevation Gain (m)' },
-    { key: 'met', label: 'MET Score' }
-  ];
-
-}
-
-function toggleSort(key, type) {
-  if (filterOptions.sortKey === key) {
-    filterOptions.sortOrder = filterOptions.sortOrder === 'asc' ? 'desc' : 'asc';
-  } else {
-    filterOptions.sortKey = key;
-    filterOptions.sortOrder = 'desc';
+  // Log summary counts
+  if (DEBUG.summary) {
+    console.info('===   Processing Summary   ===');
+    console.info('Raw activity count:', csvData.length);
+    console.info('Valid activity count:', validated.length);
+    console.info('Standardized activity count:', standardized.length);
+    console.info('Filtered (pass) activity count:', valid.length);
+    console.info('Filtered (excluded) activity count:', standardized.length - valid.length);
+    console.info('Athletes count:', valid.reduce((acc, activity) => {
+      acc.add(activity.athlete);
+      return acc;
+    }, new Set()).size);
+    // console.info('Qualified Athletes count:', filteredAthleteMap?.size ?? 0); - TODO: this one is not working
   }
-  renderLeaderboards();
 }
 
 // Load CSV and start the process (example using PapaParse or your CSV loading method)

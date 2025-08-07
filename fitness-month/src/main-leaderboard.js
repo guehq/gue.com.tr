@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Reset button click handler
-  document.getElementById('resetButton')?.addEventListener('click', () => {
+  document.getElementById('resetFiltersBtn')?.addEventListener('click', () => {
     resetFilters();
     loadCSVAndInit();
   });

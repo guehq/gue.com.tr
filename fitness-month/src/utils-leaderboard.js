@@ -128,14 +128,12 @@ export function renderAthleteMapTable(athleteMap) {
   athleteMap.forEach((data, athlete) => {
     const row = document.createElement('tr');
 
-    // No more row.title (remove title attribute)
-
     row.innerHTML = `
       <td class="has-tooltip-right" data-tooltip="">
         <div class="tooltip-container">
           <span class="athlete-name">${athlete}</span>
-          <div class="tooltip-content" style="width: 700px; max-height: 1000px;">
-            <table class="table is-bordered is-narrow is-fullwidth" style="font-size: .6em;">
+          <div class="tooltip-content">
+            <table class="table is-bordered is-narrow is-fullwidth">
               <thead>
                 <tr>
                   <th></th>
@@ -174,31 +172,11 @@ export function renderAthleteMapTable(athleteMap) {
   });
 }
 
-
 // Tooltip CSS for Bulma-style activity table tooltips on athlete names
 // (Consider moving to main stylesheet if desired)
 const style = document.createElement('style');
 style.textContent = `
-.tooltip-container {
-  position: relative;
-  display: inline-block;
-}
-.tooltip-container:hover .tooltip-content {
-  display: block;
-}
-.tooltip-content {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1000;
-  background: white;
-  border: 1px solid #dbdbdb;
-  padding: 0.5em;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  display: none;
-  max-height: 300px;
-  overflow: auto;
-}
+
 `;
 if (typeof window !== "undefined" && !document.getElementById('athlete-tooltip-css')) {
   style.id = 'athlete-tooltip-css';

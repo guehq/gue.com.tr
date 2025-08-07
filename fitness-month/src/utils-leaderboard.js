@@ -180,3 +180,47 @@ export function renderAthleteMapTable(athleteMap) {
     tbody.appendChild(row);
   });
 }
+
+/**
+ * Filter athletes by daily streak requirement.
+ * Removes athletes from the map who do not meet the streak requirement.
+ * Only runs if DEBUG.streakCheck is true.
+ */
+export function filterAthletesByStreak(athleteMap, startDate, endDate) {
+  if (DEBUG.streakCheck) {
+    console.log('Filtering athletes by streak requirement...');
+  }
+
+  let removedCount = 0;
+
+  for (const [athlete, data] of athleteMap.entries()) {
+    const activeDates = new Set(data.activities.map(a => a.date));
+    const current = new Date(startDate);
+    const end = new Date(endDate);
+    let hasGap = false;
+
+    while (current <= end) {
+      const dayStr = current.toISOString().slice(0, 10);
+      if (!activeDates.has(dayStr)) {
+        hasGap = true;
+        break;
+      }
+      current.setDate(current.getDate() + 1);
+    }
+
+    if (hasGap) {
+      athleteMap.delete(athlete);
+      removedCount++;
+      if (DEBUG.streakCheck) {
+        console.warn(`[Athlete Removed] ${athlete} (did not meet streak requirement)`);
+      }
+    }
+  }
+
+  if (DEBUG.streakCheck) {
+    const remainingCount = athleteMap.size;
+    const totalCount = removedCount + remainingCount;
+    console.log(`Filtered athletes by streak requirement. Removed ${removedCount} athletes.`);
+    console.info(`[Streak Summary] ${remainingCount} passed / ${removedCount} removed / ${totalCount} total`);
+  }
+}

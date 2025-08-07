@@ -17,6 +17,7 @@ import {
 
 import {
   buildAthleteMap,
+  filterAthletesByStreak,
   renderAthleteMapTable
 } from './utils-leaderboard.js';
 
@@ -136,17 +137,16 @@ function loadData(csvData) {
 
 
   // Step 6: Filter athletes by date range and daily activity streak if needed
-  filteredAthleteMap = filterAthletesByDateAndStreak(athleteMap, filterOptions);
+  if (filterOptions.requireDailyStreak) {
+    filteredAthleteMap = filterAthletesByStreak(athleteMap, filterOptions.startDate, filterOptions.endDate);
+  } else {
+    filteredAthleteMap = athleteMap;
+  }
 
   // Step 7: Render leaderboards
   renderLeaderboards();
 }
 
-function filterAthletesByDateAndStreak(athleteMap, options) {
-  // Implement date range and daily streak filtering here
-  // For now, return the original map
-  return athleteMap;
-}
 
 function renderLeaderboards() {
   // Convert Map to array for sorting and slicing

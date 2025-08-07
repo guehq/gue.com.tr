@@ -232,12 +232,12 @@
 				<table id="athleteTable" class="table is-striped is-hoverable is-fullwidth is-narrow mb-6">
 					<thead>
 						<tr>
-							<th>Athlete</th>
-							<th>Activities</th>
-							<th>Total Duration (min)</th>
-							<th>Total Distance (km)</th>
-							<th>Total Elevation (m)</th>
-							<th>Total MET</th>
+							<th class="has-text-left" onclick="sortTableByColumn('athleteLeaderboardTable', 0)">Athlete</th>
+							<th class="has-text-right" onclick="sortTableByColumn('athleteLeaderboardTable', 1)">Activities</th>
+							<th class="has-text-right" onclick="sortTableByColumn('athleteLeaderboardTable', 2)">Duration</th>
+							<th class="has-text-right" onclick="sortTableByColumn('athleteLeaderboardTable', 3)">Distance</th>
+							<th class="has-text-right" onclick="sortTableByColumn('athleteLeaderboardTable', 4)">Elevation</th>
+							<th class="has-text-right" onclick="sortTableByColumn('athleteLeaderboardTable', 5)">MET</th>
 						</tr>
 					</thead>
 					<tbody id="athleteTableBody">

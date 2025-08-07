@@ -1,3 +1,12 @@
+function formatDuration(minutes = 0) {
+  const totalSeconds = Math.round(minutes * 60);
+  const hrs = Math.floor(totalSeconds / 3600);
+  const mins = Math.floor((totalSeconds % 3600) / 60);
+  const secs = totalSeconds % 60;
+  return [hrs, mins, secs]
+    .map(val => String(val).padStart(2, '0'))
+    .join(':');
+}
 // 4. 🧍 Mapping
 // ✔ In: utils-leaderboard.js
 // 	•	Build athleteMap
@@ -137,12 +146,12 @@ export function renderAthleteMapTable(athleteMap) {
               <thead>
                 <tr>
                   <th></th>
-                  <th>Date</th>
-                  <th>Activity</th>
-                  <th>Dur</th>
-                  <th>Elev</th>
-                  <th>Dist</th>
-                  <th>MET</th>
+                  <th class="has-text-centered">Date</th>
+                  <th class="has-text-left">Activity</th>
+                  <th class="has-text-right">Dur.</th>
+                  <th class="has-text-right">Dist.</th>
+                  <th class="has-text-right">Elev.</th>
+                  <th class="has-text-right">MET</th>
                 </tr>
               </thead>
               <tbody>
@@ -151,9 +160,9 @@ export function renderAthleteMapTable(athleteMap) {
                     <th class="has-text-right">${index + 1}</th>
                     <td class="has-text-centered">${act.date || ''}</td>
                     <td class="has-text-left">${act.activityName || ''}</td>
-                    <td class="has-text-right">${act.duration?.toFixed(1) || 0}</td>
-                    <td class="has-text-right">${act.distance || 0}</td>
-                    <td class="has-text-right">${act.elevation || 0}</td>
+                    <td class="has-text-right">${formatDuration(act.duration)}</td>
+                    <td class="has-text-right">${act.distance.toFixed(2) || 0} km</td>
+                    <td class="has-text-right">${act.elevation.toFixed(1) || 0} m</td>
                     <td class="has-text-right">${act.met?.toFixed(1) || 0}</td>
                   </tr>`).join('')}
               </tbody>
@@ -161,11 +170,11 @@ export function renderAthleteMapTable(athleteMap) {
           </div>
         </div>
       </td>
-      <td>${data.totals.count}</td>
-      <td>${data.totals.duration.toFixed(2)}</td>
-      <td>${data.totals.distance.toFixed(2)}</td>
-      <td>${data.totals.elevation.toFixed(2)}</td>
-      <td>${data.totals.met.toFixed(2)}</td>
+      <td class="has-text-right">${data.totals.count}</td>
+      <td class="has-text-right">${formatDuration(data.totals.duration)}</td>
+      <td class="has-text-right">${data.totals.distance.toFixed(2)} km</td>
+      <td class="has-text-right">${data.totals.elevation.toFixed(1)} m</td>
+      <td class="has-text-right">${data.totals.met.toFixed(1)}</td>
     `;
 
     tbody.appendChild(row);

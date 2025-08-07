@@ -128,8 +128,41 @@ export function renderAthleteMapTable(athleteMap) {
   athleteMap.forEach((data, athlete) => {
     const row = document.createElement('tr');
 
+    // No more row.title (remove title attribute)
+
     row.innerHTML = `
-      <td>${athlete}</td>
+      <td class="has-tooltip-right" data-tooltip="">
+        <div class="tooltip-container">
+          <span class="athlete-name">${athlete}</span>
+          <div class="tooltip-content" style="width: 700px; max-height: 1000px;">
+            <table class="table is-bordered is-narrow is-fullwidth" style="font-size: .6em;">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Date</th>
+                  <th>Activity</th>
+                  <th>Dur</th>
+                  <th>Elev</th>
+                  <th>Dist</th>
+                  <th>MET</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${data.activities.map((act, index) => `
+                  <tr>
+                    <th class="has-text-right">${index + 1}</th>
+                    <td class="has-text-centered">${act.date || ''}</td>
+                    <td class="has-text-left">${act.activityName || ''}</td>
+                    <td class="has-text-right">${act.duration?.toFixed(1) || 0}</td>
+                    <td class="has-text-right">${act.distance || 0}</td>
+                    <td class="has-text-right">${act.elevation || 0}</td>
+                    <td class="has-text-right">${act.met?.toFixed(1) || 0}</td>
+                  </tr>`).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </td>
       <td>${data.totals.count}</td>
       <td>${data.totals.duration.toFixed(2)}</td>
       <td>${data.totals.distance.toFixed(2)}</td>
@@ -139,4 +172,35 @@ export function renderAthleteMapTable(athleteMap) {
 
     tbody.appendChild(row);
   });
+}
+
+
+// Tooltip CSS for Bulma-style activity table tooltips on athlete names
+// (Consider moving to main stylesheet if desired)
+const style = document.createElement('style');
+style.textContent = `
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+.tooltip-container:hover .tooltip-content {
+  display: block;
+}
+.tooltip-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  background: white;
+  border: 1px solid #dbdbdb;
+  padding: 0.5em;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: none;
+  max-height: 300px;
+  overflow: auto;
+}
+`;
+if (typeof window !== "undefined" && !document.getElementById('athlete-tooltip-css')) {
+  style.id = 'athlete-tooltip-css';
+  document.head.appendChild(style);
 }

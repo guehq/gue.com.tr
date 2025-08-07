@@ -39,7 +39,7 @@ export const DEBUG = {
   csvData: false,               // Logs when CSV is loaded
   validation: false,            // Logs invalid reasons
   standardization: false,       // Logs standardized activity output
-  filteringOptions: true,      // Logs current filtering options
+  filteringOptions: false,      // Logs current filtering options
   filteringActivities: false,   // Logs filtered activities based on date/duration
   athleteMapping: false,        // Logs athlete activity mapping
   // clubMapping: true,           // Logs club activity mapping
@@ -146,11 +146,11 @@ function loadData(csvData) {
     console.info('Standardized activity count:', standardized.length);
     console.info('Filtered (pass) activity count:', valid.length);
     console.info('Filtered (excluded) activity count:', standardized.length - valid.length);
-    console.info('Athletes count:', valid.reduce((acc, activity) => {
+    console.info('Total Athletes count:', valid.reduce((acc, activity) => {
       acc.add(activity.athlete);
       return acc;
     }, new Set()).size);
-    // console.info('Qualified Athletes count:', filteredAthleteMap?.size ?? 0); - TODO: this one is not working
+    console.info('Qualified Athletes count:', filteredAthleteMap?.size ?? 0); // TODO: this one is not working
   }
 }
 

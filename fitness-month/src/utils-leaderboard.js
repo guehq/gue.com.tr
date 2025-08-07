@@ -7,6 +7,8 @@
 // ✔ Done after mapping, only if requireDailyStreak is true
 // ⏩ Remove athletes who miss streak requirement
 
+// 6. 📊 Leaderboard Sorting + Rendering
+// ✔ In main-leaderboard.js
 
 
 import { DEBUG } from './main-leaderboard.js';
@@ -108,4 +110,33 @@ export function buildAthleteMap(filteredActivities) {
   }
 
   return athleteMap;
+}
+
+// ************************************
+// ***   RENDER ATHLETE MAP TABLE   ***
+// ************************************
+
+export function renderAthleteMapTable(athleteMap) {
+  const tbody = document.getElementById('athleteTableBody');
+  if (!tbody) {
+    console.warn('renderAthleteMapTable: Table body element not found');
+    return;
+  }
+
+  tbody.innerHTML = ''; // Clear existing rows
+
+  athleteMap.forEach((data, athlete) => {
+    const row = document.createElement('tr');
+
+    row.innerHTML = `
+      <td>${athlete}</td>
+      <td>${data.totals.count}</td>
+      <td>${data.totals.duration.toFixed(2)}</td>
+      <td>${data.totals.distance.toFixed(2)}</td>
+      <td>${data.totals.elevation.toFixed(2)}</td>
+      <td>${data.totals.met.toFixed(2)}</td>
+    `;
+
+    tbody.appendChild(row);
+  });
 }

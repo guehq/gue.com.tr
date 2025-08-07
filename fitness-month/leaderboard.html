@@ -229,12 +229,20 @@
 
 				<hr>
 
-				<table>
-					<tbody id="athleteTableBody"></tbody>
-				</table>
-				
-				<table>
-					<tbody id="clubTableBody"></tbody>
+				<table id="athleteTable" class="table is-striped is-hoverable is-fullwidth">
+					<thead>
+						<tr>
+							<th>Athlete</th>
+							<th>Activities</th>
+							<th>Total Duration (min)</th>
+							<th>Total Distance (km)</th>
+							<th>Total Elevation (m)</th>
+							<th>Total MET</th>
+						</tr>
+					</thead>
+					<tbody id="athleteTableBody">
+						<!-- Rows will be dynamically added here -->
+					</tbody>
 				</table>
 
 			</div>

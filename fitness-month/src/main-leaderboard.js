@@ -6,10 +6,6 @@
 // ⏩ Result: Filtered activities for mapping.
 
 
-// 6. 📊 Leaderboard Sorting + Rendering
-// ✔ In main-leaderboard.js
-
-
 
 import {
   standardizeActivities
@@ -21,8 +17,7 @@ import {
 
 import {
   buildAthleteMap,
-  buildClubMap,
-  sortLeaderboardData
+  renderAthleteMapTable
 } from './utils-leaderboard.js';
 
 
@@ -135,9 +130,10 @@ function loadData(csvData) {
 
   // Step 4: Build athlete map
   athleteMap = buildAthleteMap(allActivities);
+  renderAthleteMapTable(athleteMap);
 
   // Step 5: Build club map (assuming you have athleteProfiles globally)
-  clubMap = buildClubMap(athleteMap, window.athleteProfiles || {});
+
 
   // Step 6: Filter athletes by date range and daily activity streak if needed
   filteredAthleteMap = filterAthletesByDateAndStreak(athleteMap, filterOptions);
@@ -158,10 +154,10 @@ function renderLeaderboards() {
   const clubsArr = Array.from(clubMap.values());
 
   // Sort athlete leaderboard
-  const sortedAthletes = sortLeaderboardData(athletesArr, filterOptions.sortKey, filterOptions.sortOrder).slice(0, filterOptions.maxRank);
+  // const sortedAthletes = sortLeaderboardData(athletesArr, filterOptions.sortKey, filterOptions.sortOrder).slice(0, filterOptions.maxRank);
 
   // Sort club leaderboard
-  const sortedClubs = sortLeaderboardData(clubsArr, filterOptions.sortKey, filterOptions.sortOrder).slice(0, filterOptions.maxRank);
+  // const sortedClubs = sortLeaderboardData(clubsArr, filterOptions.sortKey, filterOptions.sortOrder).slice(0, filterOptions.maxRank);
 
   // Define columns for athlete leaderboard
   const athleteColumns = [
@@ -274,6 +270,9 @@ document.addEventListener('DOMContentLoaded', () => {
     resetFilters();
     loadCSVAndInit();
   });
+
+  // Render the athlete map table
+  renderAthleteMapTable(athleteMap);
 });
 
 // Reset filter inputs to defaults

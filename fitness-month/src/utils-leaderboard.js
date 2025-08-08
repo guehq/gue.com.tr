@@ -32,7 +32,7 @@ export function renderAllLeaderboards(athleteMap) {
   renderLeaderboardSection(athleteMap, 'distance', 'distanceLB', '🏆 Distance Leaderboard');
   renderLeaderboardSection(athleteMap, 'elevation', 'elevationLB', '🏆 Elevation Leaderboard');
   renderLeaderboardSection(athleteMap, 'count', 'activitiesLB', '🏆 Activity Count Leaderboard');
-  renderLeaderboardSection(athleteMap, 'met', 'metScoreLB', '🏆 MET Score Leaderboard');
+  renderLeaderboardSection(athleteMap, 'MET', 'metScoreLB', '🏆 MET Score Leaderboard');
 }
 
 /**
@@ -332,7 +332,9 @@ export function renderLeaderboardSection(athleteMap, sortKey, containerId, title
     const val = entry.totals[sortKey];
     html += `
       <tr>
-        <th class="has-text-centered">${idx + 1}</th>
+        <th class="has-text-centered">${
+          idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : idx + 1
+        }</th>
         <td class="has-text-left">
           <div class="is-flex is-align-items-center">
             <figure class="image is-24x24 mr-2">

@@ -18,7 +18,8 @@ import {
 import {
   buildAthleteMap,
   filterAthletesByStreak,
-  renderAthleteMapTable
+  renderAthleteMapTable,
+  renderAllLeaderboards
 } from './utils-leaderboard.js';
 
 
@@ -45,7 +46,7 @@ export const DEBUG = {
   // clubMapping: true,           // Logs club activity mapping
   streakCheck: false,           // Logs daily streak checks
   // leaderboard: true,           // Logs leaderboard data
-  summary: false                // Logs summary data
+  summary: true                // Logs summary data
 };
 
 // ********************************
@@ -137,6 +138,7 @@ function loadData(csvData) {
 
   // Step 7: Render leaderboards
   renderAthleteMapTable(athleteMap);
+  renderAllLeaderboards(athleteMap);
 
   // Log summary counts
   if (DEBUG.summary) {
@@ -150,7 +152,7 @@ function loadData(csvData) {
       acc.add(activity.athlete);
       return acc;
     }, new Set()).size);
-    console.info('Qualified Athletes count:', filteredAthleteMap?.size ?? 0); // TODO: this one is not working
+    console.info('Qualified Athletes count:', filteredAthleteMap?.size ?? 0, '🚩 (not working)'); // TODO: this one is not working
   }
 }
 

@@ -1,12 +1,3 @@
-function formatDuration(minutes = 0) {
-  const totalSeconds = Math.round(minutes * 60);
-  const hrs = Math.floor(totalSeconds / 3600);
-  const mins = Math.floor((totalSeconds % 3600) / 60);
-  const secs = totalSeconds % 60;
-  return [hrs, mins, secs]
-    .map(val => String(val).padStart(2, '0'))
-    .join(':');
-}
 // 4. 🧍 Mapping
 // ✔ In: utils-leaderboard.js
 // 	•	Build athleteMap
@@ -20,7 +11,29 @@ function formatDuration(minutes = 0) {
 // ✔ In main-leaderboard.js
 
 
+
 import { DEBUG } from './main-leaderboard.js';
+
+
+
+function formatDuration(minutes = 0) {
+  const totalSeconds = Math.round(minutes * 60);
+  const hrs = Math.floor(totalSeconds / 3600);
+  const mins = Math.floor((totalSeconds % 3600) / 60);
+  const secs = totalSeconds % 60;
+  return [hrs, mins, secs]
+    .map(val => String(val).padStart(2, '0'))
+    .join(':');
+}
+
+// Render top 10 leaderboards for each category
+export function renderAllLeaderboards(athleteMap) {
+  renderLeaderboardSection(athleteMap, 'duration', 'durationLB', '🏆 Duration Leaderboard');
+  renderLeaderboardSection(athleteMap, 'distance', 'distanceLB', '🏆 Distance Leaderboard');
+  renderLeaderboardSection(athleteMap, 'elevation', 'elevationLB', '🏆 Elevation Leaderboard');
+  renderLeaderboardSection(athleteMap, 'count', 'activitiesLB', '🏆 Activity Count Leaderboard');
+  renderLeaderboardSection(athleteMap, 'met', 'metScoreLB', '🏆 MET Score Leaderboard');
+}
 
 /**
  * Calculate totals for an array of activities.
@@ -233,4 +246,96 @@ export function filterAthletesByStreak(athleteMap, startDate, endDate) {
     console.log(`Filtered athletes by streak requirement. Removed ${removedCount} athletes.`);
     console.info(`[Streak Summary] ${remainingCount} passed / ${removedCount} removed / ${totalCount} total`);
   }
+}
+
+/**
+ * Capitalizes the first letter of a string
+ */
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+/**
+ * Format numbers differently depending on sort key
+ */
+function formatNumber(value, sortKey) {
+  if (!value && value !== 0) return '-';
+  switch (sortKey) {
+    case 'duration':
+      return formatDuration(value); // assuming value is in minutes
+    case 'distance':
+      return `${value.toFixed(2)} km`;
+    case 'elevation':
+      return `${value.toFixed(1)} m`;
+    case 'count':
+      return value;
+    case 'met':
+      return value.toFixed(1);
+    default:
+      return value;
+  }
+}
+
+/**
+ * Render a top 10 leaderboard table into given container
+ * @param {Map} athleteMap - Map of athletes with totals and activities
+ * @param {string} sortKey - Key to sort by ('duration', 'distance', 'elevation', 'count', 'met')
+ * @param {string} containerId - The HTML container id to render the table into
+ * @param {string} title - The leaderboard title to display
+ */
+export function renderLeaderboardSection(athleteMap, sortKey, containerId, title) {
+  const container = document.getElementById(containerId);
+  if (!container) {
+    console.warn(`Container #${containerId} not found`);
+    return;
+  }
+
+  // Convert Map to Array for sorting
+  const athleteArray = Array.from(athleteMap.entries()).map(([athlete, data]) => ({
+    athlete,
+    totals: data.totals
+  }));
+
+  // Sort descending by sortKey, tie-break by MET descending
+  athleteArray.sort((a, b) => {
+    const aVal = a.totals[sortKey] || 0;
+    const bVal = b.totals[sortKey] || 0;
+
+    if (bVal === aVal) {
+      return (b.totals.met || 0) - (a.totals.met || 0);
+    }
+    return bVal - aVal;
+  });
+
+  // Take top 10
+  const top10 = athleteArray.slice(0, 10);
+
+  // Build table HTML
+  let html = `
+    <h3 class="title is-5 mb-4">${title}</h3>
+    <table class="table is-bordered is-striped table is-narrow is-hoverable is-fullwidth">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Athlete</th>
+          <th class="has-text-right">${capitalizeFirstLetter(sortKey)}</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
+
+  top10.forEach((entry, idx) => {
+    const val = entry.totals[sortKey];
+    const met = entry.totals.met;
+    html += `
+      <tr>
+        <th class="has-text-centered">${idx + 1}</th>
+        <td class="has-text-left">${entry.athlete}</td>
+        <td class="has-text-right">${formatNumber(val, sortKey)}</td>
+      </tr>
+    `;
+  });
+
+  html += `</tbody></table>`;
+  container.innerHTML = html;
 }

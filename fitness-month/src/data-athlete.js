@@ -87,6 +87,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Alberto P.': {
+    gueId: null,
+    stravaId: 72831712,
+    fullName: 'Alberto Pindozzi',
+    stravaImg: 'https://graph.facebook.com/10225805743957594/picture?height=256&width=256',
+    city: 'Trieste, Friuli-Venezia Giulia',
+    country: 'Italy',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Alberto⚡ C.': {
     gueId: null,
     stravaId: 64766763,

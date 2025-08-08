@@ -45,7 +45,7 @@ export const DEBUG = {
   // clubMapping: true,           // Logs club activity mapping
   streakCheck: false,           // Logs daily streak checks
   // leaderboard: true,           // Logs leaderboard data
-  summary: true                // Logs summary data
+  summary: false                // Logs summary data
 };
 
 // ********************************

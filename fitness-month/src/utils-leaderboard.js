@@ -45,7 +45,7 @@ export function calculateTotals(activities) {
  * athleteProfiles should be an object keyed by athlete name, containing club arrays.
  * Each club entry includes member list, activities, and totals.
  */
-export function buildClubMap(athleteMap, athleteProfiles) {
+export function buildClubMap(athleteMap, athleteProfiles = window.athleteProfiles || {}) {
   const clubMap = new Map();
 
   athleteMap.forEach((athleteData, athleteName) => {
@@ -125,7 +125,7 @@ export function buildAthleteMap(filteredActivities) {
 // ***   RENDER ATHLETE MAP TABLE   ***
 // ************************************
 
-export function renderAthleteMapTable(athleteMap) {
+export function renderAthleteMapTable(athleteMap, athleteProfiles = window.athleteProfiles || {}) {
   const tbody = document.getElementById('athleteTableBody');
   if (!tbody) {
     console.warn('renderAthleteMapTable: Table body element not found');
@@ -136,39 +136,46 @@ export function renderAthleteMapTable(athleteMap) {
 
   let idx = 1;
   athleteMap.forEach((data, athlete) => {
-    const row = document.createElement('tr');
+    const profile = athleteProfiles?.[athlete];
+    const fullName = profile?.fullName || athlete;
+    const stravaUrl = profile?.stravaId ? `https://www.strava.com/athletes/${profile.stravaId}` : '#';
+    const stravaImg = profile?.stravaImg || './images/default-avatar.png';
 
+    const row = document.createElement('tr');
     row.innerHTML = `
       <th>${idx}</th>
       <td class="has-tooltip-right" data-tooltip="">
-        <div class="tooltip-container">
-          <span class="athlete-name">${athlete}</span>
-          <div class="tooltip-content">
-            <table class="table is-bordered is-narrow is-fullwidth">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th class="has-text-centered">Date</th>
-                  <th class="has-text-left">Activity</th>
-                  <th class="has-text-right">Dur.</th>
-                  <th class="has-text-right">Dist.</th>
-                  <th class="has-text-right">Elev.</th>
-                  <th class="has-text-right">MET</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${data.activities.map((act, index) => `
+        <div class="tooltip-container is-flex is-align-items-center">
+          ${stravaImg ? `<figure class="image is-32x32 mr-2"><img class="is-rounded" src="${stravaImg}" alt="${fullName}"></figure>` : ''}
+          <div>
+            <a href="${stravaUrl}" target="_blank" rel="noopener noreferrer" class="athlete-name has-text-dark">${fullName}</a>
+            <div class="tooltip-content">
+              <table class="table is-bordered is-narrow is-fullwidth">
+                <thead>
                   <tr>
-                    <th class="has-text-right">${index + 1}</th>
-                    <td class="has-text-centered">${act.date || ''}</td>
-                    <td class="has-text-left">${act.activityName || ''}</td>
-                    <td class="has-text-right">${formatDuration(act.duration)}</td>
-                    <td class="has-text-right">${act.distance.toFixed(2) || 0} km</td>
-                    <td class="has-text-right">${act.elevation.toFixed(1) || 0} m</td>
-                    <td class="has-text-right">${act.met?.toFixed(1) || 0}</td>
-                  </tr>`).join('')}
-              </tbody>
-            </table>
+                    <th></th>
+                    <th class="has-text-centered">Date</th>
+                    <th class="has-text-left">Activity</th>
+                    <th class="has-text-right">Dur.</th>
+                    <th class="has-text-right">Dist.</th>
+                    <th class="has-text-right">Elev.</th>
+                    <th class="has-text-right">MET</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${data.activities.map((act, index) => `
+                    <tr>
+                      <th class="has-text-right">${index + 1}</th>
+                      <td class="has-text-centered">${act.date || ''}</td>
+                      <td class="has-text-left">${act.activityName || ''}</td>
+                      <td class="has-text-right">${formatDuration(act.duration)}</td>
+                      <td class="has-text-right">${act.distance.toFixed(2) || 0} km</td>
+                      <td class="has-text-right">${act.elevation.toFixed(1) || 0} m</td>
+                      <td class="has-text-right">${act.met?.toFixed(1) || 0}</td>
+                    </tr>`).join('')}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </td>

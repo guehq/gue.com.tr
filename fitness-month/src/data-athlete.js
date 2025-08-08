@@ -2288,6 +2288,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Michelle K.': {
+    gueId: null,
+    stravaId: 80652398,
+    fullName: 'Michelle Kean',
+    stravaImg: '',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Michiel K.': {
     gueId: null,
     stravaId: 14948783,
@@ -2306,6 +2317,17 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/115078425/27244425/1/medium.jpg',
     city: 'Ottawa, Ontario',
     country: 'Canada',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Nadine T.': {
+    gueId: null,
+    stravaId: 179645537,
+    fullName: 'Nadine Thomas',
+    stravaImg: '',
+    city: 'Sankt Augustin , Nordrhein-Westfalen',
+    country: 'Germany',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -2420,7 +2442,7 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Pascal v.': {
+  'Pascal V.': {
     gueId: null,
     stravaId: 4447938,
     fullName: 'Pascal van Erp',
@@ -2438,6 +2460,28 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/106468601/25571566/1/medium.jpg',
     city: 'Den Haag',
     country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Paul S.': {
+    gueId: null,
+    stravaId: 31999437,
+    fullName: 'Paul Schubert',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/31999437/9556824/2/medium.jpg',
+    city: 'Karlsruhe, Baden-Württemberg',
+    country: 'Germany',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Peter C.': {
+    gueId: null,
+    stravaId: 122865296,
+    fullName: 'Peter Chiang',
+    stravaImg: 'https://graph.facebook.com/10160931684307911/picture?height=256&width=256',
+    city: 'New York',
+    country: 'United States',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -2596,6 +2640,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Sarah S.': {
+    gueId: null,
+    stravaId: 10471795,
+    fullName: 'Sarah S',
+    stravaImg: 'https://graph.facebook.com/861327890654/picture?height=256&width=256',
+    city: 'Parkville , MD',
+    country: 'United States',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Saska M.': {
     gueId: null,
     stravaId: 54497615,
@@ -2603,6 +2658,17 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/3284477114897206/picture?height=256&width=256',
     city: '',
     country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Shahein M.': {
+    gueId: null,
+    stravaId: 90398355,
+    fullName: 'Shahein Moussavi',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/90398355/24286822/3/medium.jpg',
+    city: 'Seattle, WA',
+    country: 'United States',
     clubs: [],
     isAdmin: false,
     isActive: true

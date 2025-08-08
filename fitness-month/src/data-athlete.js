@@ -960,7 +960,7 @@ window.athleteProfiles = {
     gueId: null,
     stravaId: 179621183,
     fullName: 'Eigher M',
-    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/179621183/39271689/1/medium.jpg',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/179621183/39271689/2/medium.jpg',
     city: '',
     country: '',
     clubs: [],

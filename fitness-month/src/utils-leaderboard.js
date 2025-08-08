@@ -325,12 +325,22 @@ export function renderLeaderboardSection(athleteMap, sortKey, containerId, title
   `;
 
   top10.forEach((entry, idx) => {
+    const profile = (window.athleteProfiles || {})[entry.athlete] || {};
+    const fullName = profile.fullName || entry.athlete;
+    const stravaImg = profile.stravaImg || './images/default-avatar.png';
+    const stravaUrl = profile.stravaId ? `https://www.strava.com/athletes/${profile.stravaId}` : '#';
     const val = entry.totals[sortKey];
-    const met = entry.totals.met;
     html += `
       <tr>
         <th class="has-text-centered">${idx + 1}</th>
-        <td class="has-text-left">${entry.athlete}</td>
+        <td class="has-text-left">
+          <div class="is-flex is-align-items-center">
+            <figure class="image is-24x24 mr-2">
+              <img class="is-rounded" src="${stravaImg}" alt="${fullName}">
+            </figure>
+            <p>${fullName}</p>
+          </div>
+        </td>
         <td class="has-text-right">${formatNumber(val, sortKey)}</td>
       </tr>
     `;

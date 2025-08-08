@@ -258,3 +258,31 @@ function resetFilters() {
   if (minDurationInput) minDurationInput.value = DEFAULT_MIN_DURATION;
   if (requireDailyStreakInput) requireDailyStreakInput.checked = true;
 }
+
+// TODO:
+// Generalized leaderboard download buttons
+const leaderboardButtons = [
+  { btnId: 'downloadDurationLBBtn', sectionId: 'durationLB', fileName: 'duration-leaderboard.jpg' },
+  { btnId: 'downloadDistanceLBBtn', sectionId: 'distanceLB', fileName: 'distance-leaderboard.jpg' },
+  { btnId: 'downloadElevationLBBtn', sectionId: 'elevationLB', fileName: 'elevation-leaderboard.jpg' },
+  { btnId: 'downloadActivitiesLBBtn', sectionId: 'activitiesLB', fileName: 'activities-leaderboard.jpg' },
+  { btnId: 'downloadMetScoreLBBtn', sectionId: 'metScoreLB', fileName: 'met-leaderboard.jpg' },
+];
+
+leaderboardButtons.forEach(({ btnId, sectionId, fileName }) => {
+  const button = document.getElementById(btnId);
+  const section = document.getElementById(sectionId);
+  button?.addEventListener('click', () => {
+    if (!section) return console.warn(`Section ${sectionId} not found.`);
+    htmlToImage.toJpeg(section, { quality: 0.95, pixelRatio: 2 })
+      .then((dataUrl) => {
+        const link = document.createElement('a');
+        link.download = fileName;
+        link.href = dataUrl;
+        link.click();
+      })
+      .catch((error) => {
+        console.error(`❌ Failed to generate image for ${sectionId}:`, error);
+      });
+  });
+});

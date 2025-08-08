@@ -32,7 +32,7 @@ export function renderAllLeaderboards(athleteMap) {
   renderLeaderboardSection(athleteMap, 'distance', 'distanceLB', '🏆 Distance Leaderboard');
   renderLeaderboardSection(athleteMap, 'elevation', 'elevationLB', '🏆 Elevation Leaderboard');
   renderLeaderboardSection(athleteMap, 'count', 'activitiesLB', '🏆 Activity Count Leaderboard');
-  renderLeaderboardSection(athleteMap, 'MET', 'metScoreLB', '🏆 MET Score Leaderboard');
+  renderLeaderboardSection(athleteMap, 'met', 'metScoreLB', '🏆 MET Score Leaderboard');
 }
 
 /**
@@ -328,7 +328,6 @@ export function renderLeaderboardSection(athleteMap, sortKey, containerId, title
     const profile = (window.athleteProfiles || {})[entry.athlete] || {};
     const fullName = profile.fullName || entry.athlete;
     const stravaImg = profile.stravaImg || './images/default-avatar.png';
-    const stravaUrl = profile.stravaId ? `https://www.strava.com/athletes/${profile.stravaId}` : '#';
     const val = entry.totals[sortKey];
     html += `
       <tr>

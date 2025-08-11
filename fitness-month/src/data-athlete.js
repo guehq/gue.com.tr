@@ -2750,7 +2750,7 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Travis V.': {
+  'Travis Valcourt': {
     gueId: null,
     stravaId: 175506050,
     fullName: 'Travis Valcourt',

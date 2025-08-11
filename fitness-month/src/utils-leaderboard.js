@@ -12,7 +12,10 @@
 
 
 
-import { DEBUG } from './main-leaderboard.js';
+import { 
+  DEBUG,
+  DEFAULT_MAX_RANK
+} from './main-leaderboard.js';
 
 
 
@@ -139,7 +142,7 @@ export function buildAthleteMap(filteredActivities) {
 // ************************************
 
 export function renderAthleteMapTable(athleteMap, athleteProfiles = window.athleteProfiles || {}) {
-  const tbody = document.getElementById('athleteTableBody');
+  const tbody = document.getElementById('qualifiedAthletesTableBody');
   if (!tbody) {
     console.warn('renderAthleteMapTable: Table body element not found');
     return;
@@ -147,8 +150,20 @@ export function renderAthleteMapTable(athleteMap, athleteProfiles = window.athle
 
   tbody.innerHTML = ''; // Clear existing rows
 
+  // Convert map entries to array for sorting
+  const athleteArray = Array.from(athleteMap.entries());
+
+  // Sort by full name from athleteProfiles if exists, else by athlete key
+  athleteArray.sort((a, b) => {
+    const nameA = (athleteProfiles[a[0]]?.fullName || a[0]).toUpperCase();
+    const nameB = (athleteProfiles[b[0]]?.fullName || b[0]).toUpperCase();
+    if (nameA < nameB) return -1;
+    if (nameA > nameB) return 1;
+    return 0;
+  });
+
   let idx = 1;
-  athleteMap.forEach((data, athlete) => {
+  athleteArray.forEach(([athlete, data]) => {
     const profile = athleteProfiles?.[athlete];
     const fullName = profile?.fullName || athlete;
     const stravaUrl = profile?.stravaId ? `https://www.strava.com/athletes/${profile.stravaId}` : '#';
@@ -308,7 +323,7 @@ export function renderLeaderboardSection(athleteMap, sortKey, containerId, title
   });
 
   // Take top 10
-  const top10 = athleteArray.slice(0, 10);
+  const top10 = athleteArray.slice(0, DEFAULT_MAX_RANK);
 
   // Build table HTML
   let html = `

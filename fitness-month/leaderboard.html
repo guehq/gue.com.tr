@@ -163,7 +163,7 @@
 					<div class="field-body">
 						<div class="field">
 							<p class="control has-icons-left">
-								<input class="input" type="number" id="maxRankInput" value="10" min="1" disabled/>
+								<input class="input" type="number" id="maxRankInput" value="10" min="1" />
 								<span class="icon is-small is-left">
 									<i class="fas fa-user"></i>
 								</span>
@@ -240,19 +240,19 @@
 				<!-- QUALIFIED ATHLETES -->
 				<div class="column is-full">
 					<h2 class="title is-4">Qualified Athletes</h2>
-					<table id="athleteTable" class="table is-striped is-hoverable is-fullwidth is-narrow mb-6">
+					<table id="qualifiedAthletesTable" class="table is-striped is-hoverable is-fullwidth is-narrow mb-6">
 						<thead>
 							<tr>
 								<th></th>
-								<th class="has-text-left" onclick="sortTableByColumn('athleteLeaderboardTable', 0)">Athlete</th>
-								<th class="has-text-right" onclick="sortTableByColumn('athleteLeaderboardTable', 1)">Activities</th>
-								<th class="has-text-right" onclick="sortTableByColumn('athleteLeaderboardTable', 2)">Duration</th>
-								<th class="has-text-right" onclick="sortTableByColumn('athleteLeaderboardTable', 3)">Distance</th>
-								<th class="has-text-right" onclick="sortTableByColumn('athleteLeaderboardTable', 4)">Elevation</th>
-								<th class="has-text-right" onclick="sortTableByColumn('athleteLeaderboardTable', 5)">MET</th>
+								<th class="has-text-left" onclick="sortTableByColumn('qualifiedAthletesTable', 0)">Athlete</th>
+								<th class="has-text-right" onclick="sortTableByColumn('qualifiedAthletesTable', 1)">Activities</th>
+								<th class="has-text-right" onclick="sortTableByColumn('qualifiedAthletesTable', 2)">Duration</th>
+								<th class="has-text-right" onclick="sortTableByColumn('qualifiedAthletesTable', 3)">Distance</th>
+								<th class="has-text-right" onclick="sortTableByColumn('qualifiedAthletesTable', 4)">Elevation</th>
+								<th class="has-text-right" onclick="sortTableByColumn('qualifiedAthletesTable', 5)">MET</th>
 							</tr>
 						</thead>
-						<tbody id="athleteTableBody">
+						<tbody id="qualifiedAthletesTableBody">
 							<!-- Rows will be dynamically added here -->
 						</tbody>
 					</table>

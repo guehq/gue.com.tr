@@ -2750,7 +2750,18 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Travis Valcourt': {
+  'Travis V': {
+    gueId: null,
+    stravaId: 130731003,
+    fullName: 'Travis V',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocIi4_WHEZby-cd5bQQ7XQNt9HbhDzaO7XGl6Ms2yKe63H66Yg=s96-c',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Travis V.': {
     gueId: null,
     stravaId: 175506050,
     fullName: 'Travis Valcourt',

@@ -31,7 +31,7 @@ import {
 const DEFAULT_MIN_DURATION = 30;
 const DEFAULT_START_DATE = '2025-08-01';
 const DEFAULT_END_DATE = '2025-08-31';
-export const DEFAULT_MAX_RANK = 10;
+export const DEFAULT_MAX_RANK = 30;
 
 // ***********************
 // ***   DEBUG FLAGS   ***
@@ -102,7 +102,7 @@ const filterOptions = {
     return document.getElementById('requireDailyStreakInput')?.checked ?? true;
   },
   get maxRank() {
-    return parseInt(document.getElementById('maxRankInput')?.value || 10);
+    return parseInt(document.getElementById('maxRankInput')?.value || DEFAULT_MAX_RANK);
   },
   get minDuration() {
     return parseInt(document.getElementById('minDurationInput')?.value || DEFAULT_MIN_DURATION);

@@ -292,7 +292,7 @@ function formatNumber(value, sortKey) {
 }
 
 /**
- * Render a top 10 leaderboard table into given container
+ * Render a leaderboard table for the top N athletes into given container
  * @param {Map} athleteMap - Map of athletes with totals and activities
  * @param {string} sortKey - Key to sort by ('duration', 'distance', 'elevation', 'count', 'met')
  * @param {string} containerId - The HTML container id to render the table into
@@ -322,8 +322,8 @@ export function renderLeaderboardSection(athleteMap, sortKey, containerId, title
     return bVal - aVal;
   });
 
-  // Take top 10
-  const top10 = athleteArray.slice(0, DEFAULT_MAX_RANK);
+  // Take top N (DEFAULT_MAX_RANK)
+  const topN = athleteArray.slice(0, DEFAULT_MAX_RANK);
 
   // Build table HTML
   let html = `
@@ -339,7 +339,7 @@ export function renderLeaderboardSection(athleteMap, sortKey, containerId, title
       <tbody>
   `;
 
-  top10.forEach((entry, idx) => {
+  topN.forEach((entry, idx) => {
     const profile = (window.athleteProfiles || {})[entry.athlete] || {};
     const fullName = profile.fullName || entry.athlete;
     const stravaImg = profile.stravaImg || './images/default-avatar.png';

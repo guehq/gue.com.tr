@@ -1,6 +1,6 @@
 const ZAPIER_CSV_PATH = './data/Fithness Month 2025 - AUG.csv';
-const STRAVA_ACCESS_TOKEN = 'ae98a5af76687cf252ed53bcf530a095fff4d9cb';
-const STRAVA_ACCESS_TOKEN_expires_at = '2025-08-12T19:03:12Z';
+const STRAVA_ACCESS_TOKEN = 'd80ced36c69fa7c28484f5588d7cc3fe8b503133';
+const STRAVA_ACCESS_TOKEN_expires_at = '2025-08-13T04:22:08Z';
 
 function extractDateFromFilename(filename) {
   const match = filename.match(/\d{4}-\d{2}-\d{2}T\d{2}_\d{2}_\d{2}/);

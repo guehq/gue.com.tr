@@ -56,37 +56,6 @@ export function calculateTotals(activities) {
   );
 }
 
-/**
- * Build a map of clubs keyed by club name.
- * athleteProfiles should be an object keyed by athlete name, containing club arrays.
- * Each club entry includes member list, activities, and totals.
- */
-export function buildClubMap(athleteMap, athleteProfiles = window.athleteProfiles || {}) {
-  const clubMap = new Map();
-
-  athleteMap.forEach((athleteData, athleteName) => {
-    const clubs = (athleteProfiles[athleteName]?.clubs) || [];
-
-    clubs.forEach(clubName => {
-      if (!clubMap.has(clubName)) {
-        clubMap.set(clubName, { members: new Set(), activities: [], totals: null });
-      }
-
-      const club = clubMap.get(clubName);
-      club.members.add(athleteName);
-      club.activities.push(...athleteData.activities);
-    });
-  });
-
-  // Calculate totals for each club
-  clubMap.forEach(club => {
-    club.totals = calculateTotals(club.activities);
-    // Convert members Set to Array for easier rendering
-    club.members = Array.from(club.members);
-  });
-
-  return clubMap;
-}
 
 /**
  * Sort leaderboard data (array of objects) by a key in ascending or descending order.
@@ -358,6 +327,99 @@ export function renderLeaderboardSection(athleteMap, sortKey, containerId, title
           </div>
         </td>
         <td class="has-text-right">${formatNumber(val, sortKey)}</td>
+      </tr>
+    `;
+  });
+
+  html += `</tbody></table>`;
+  container.innerHTML = html;
+}
+
+export function buildClubMap(activities, athleteProfiles, communities) {
+  const clubMap = {};
+
+  activities.forEach(act => {
+    const athleteKey = (act.athlete || '').trim();
+    const athleteProfile = athleteProfiles[athleteKey];
+    if (!athleteProfile || !Array.isArray(athleteProfile.clubs) || athleteProfile.clubs.length === 0) {
+      if (DEBUG.clubMapping) {
+        console.warn(`Skipping athlete "${athleteKey}" due to missing or invalid club data.`);
+      }
+      return;
+    }
+
+    athleteProfile.clubs.forEach(clubName => {
+      if (!clubMap[clubName]) {
+        clubMap[clubName] = {
+          ...communities[clubName],
+          totalDuration: 0,
+          totalDistance: 0,
+          totalElevation: 0,
+          totalMET: 0,
+          athletes: new Set()
+        };
+      }
+      clubMap[clubName].totalDuration += act.duration;
+      clubMap[clubName].totalDistance += act.distance || 0;
+      clubMap[clubName].totalElevation += act.elevation || 0;
+      clubMap[clubName].totalMET += act.met || 0;
+      clubMap[clubName].athletes.add(act.athlete);
+    });
+  });
+
+  // Convert Sets to counts
+  Object.values(clubMap).forEach(club => {
+    club.athleteCount = club.athletes.size;
+    delete club.athletes;
+  });
+
+  return clubMap;
+}
+
+export function renderClubLeaderboard(clubMap) {
+  const container = document.getElementById('communitiesLB');
+  if (!container) {
+    console.warn('Community leaderboard container not found');
+    return;
+  }
+
+  const clubsArray = Object.values(clubMap);
+
+  // Sort by total MET as default (you can change)
+  clubsArray.sort((a, b) => b.totalMET - a.totalMET);
+
+  let html = `
+    <h3 class="title is-5 mb-4">🏅 Community Leaderboard</h3>
+    <table class="table is-bordered is-striped table is-narrow is-hoverable is-fullwidth">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Comm.</th>
+          <th class="has-text-right">Dur.</th>
+          <th class="has-text-right">Dist.</th>
+          <th class="has-text-right">Elev.</th>
+          <th class="has-text-right">Act.</th>
+          <th class="has-text-right">MET</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
+
+  clubsArray.forEach((club, idx) => {
+    html += `
+      <tr>
+        <th>${idx + 1}</th>
+        <td>
+          <div class="is-flex is-align-items-center">
+            ${club.logoUrl ? `<figure class="image is-24x24 mr-2"><img src="${club.logoUrl}" alt="${club.shortName}"></figure>` : ''}
+            <a href="${club.stravaClubUrl || '#'}" target="_blank">${club.shortName || club.name}</a>
+          </div>
+        </td>
+        <td class="has-text-right">${club.athleteCount}</td>
+        <td class="has-text-right">${formatDuration(club.totalDuration)}</td>
+        <td class="has-text-right">${club.totalDistance.toFixed(2)} km</td>
+        <td class="has-text-right">${club.totalElevation.toFixed(1)} m</td>
+        <td class="has-text-right">${club.totalMET.toFixed(1)}</td>
       </tr>
     `;
   });

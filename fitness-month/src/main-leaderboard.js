@@ -19,6 +19,8 @@ import {
   buildAthleteMap,
   filterAthletesByStreak,
   renderAthleteMapTable,
+  buildClubMap,
+  renderClubLeaderboard,
   renderAllLeaderboards
 } from './utils-leaderboard.js';
 
@@ -31,7 +33,7 @@ import {
 const DEFAULT_MIN_DURATION = 30;
 const DEFAULT_START_DATE = '2025-08-01';
 const DEFAULT_END_DATE = '2025-08-31';
-export const DEFAULT_MAX_RANK = 30;
+export const DEFAULT_MAX_RANK = 20;
 
 // ***********************
 // ***   DEBUG FLAGS   ***
@@ -128,7 +130,10 @@ function loadData(csvData) {
   athleteMap = buildAthleteMap(allActivities);
 
   // Step 5: Build club map (assuming you have athleteProfiles globally)
-
+  // clubMap = buildClubMap(allActivities);
+  if (DEBUG.clubMapping) {
+    console.info('Club Map:', clubMap);
+  }
 
   // Step 6: Filter athletes by date range and daily activity streak if needed
   if (filterOptions.requireDailyStreak) {
@@ -140,6 +145,9 @@ function loadData(csvData) {
   // Step 7: Render leaderboards
   renderAthleteMapTable(athleteMap);
   renderAllLeaderboards(athleteMap);
+
+  // Step 8: Render clubs leaderboard
+  renderClubLeaderboard(clubMap);
 
   // Log summary counts
   if (DEBUG.summary) {

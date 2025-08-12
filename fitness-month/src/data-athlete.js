@@ -703,7 +703,7 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Dan W.eb': {
+  'Dan Webster': {
     gueId: null,
     stravaId: 33932571,
     fullName: 'Dan Webster',
@@ -714,7 +714,7 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Dan W.ein': {
+  'Dan W.': {
     gueId: null,
     stravaId: 16880447,
     fullName: 'Dan Weinberger',
@@ -791,7 +791,7 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Danny T.': {
+  'Danny T': {
     gueId: null,
     stravaId: 179631779,
     fullName: 'Danny T',
@@ -802,7 +802,7 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Danny T.o': {
+  'Danny T.': {
     gueId: null,
     stravaId: 143921216,
     fullName: 'Danny Tong',
@@ -1045,7 +1045,7 @@ window.athleteProfiles = {
     isActive: true
   },
   'Emoke W.': {
-    gueId: null,
+    gueId: 20747,
     stravaId: 179518995,
     fullName: 'Emoke Wagner',
     stravaImg: '',
@@ -1330,7 +1330,7 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Hayley S.': {
+  'Hayley Seat': {
     gueId: null,
     stravaId: 179551853,
     fullName: 'Hayley Seat',
@@ -1341,7 +1341,7 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'Hayley S.v2': {
+  'Hayley S.': {
     gueId: null,
     stravaId: 42937954,
     fullName: 'Hayley Seat',
@@ -1451,7 +1451,7 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'James S.al': {
+  'James Salmon': {
     gueId: null,
     stravaId: 112131403,
     fullName: 'James Salmon',
@@ -1462,7 +1462,7 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
-  'James S.an': {
+  'James S.': {
     gueId: null,
     stravaId: 179766727,
     fullName: 'James Sanderson',

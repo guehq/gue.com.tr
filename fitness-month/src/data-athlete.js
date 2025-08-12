@@ -237,7 +237,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/14626268/4139759/3/medium.jpg',
     city: '',
     country: 'Singapore',
-    clubs: [],
+    clubs: ['GUE South East Asia'],
     isAdmin: false,
     isActive: true
   },
@@ -358,7 +358,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10100777587088883/picture?height=256&width=256',
     city: '',
     country: '',
-    clubs: [],
+    clubs: ['GUE Iberia'],
     isAdmin: false,
     isActive: true
   },
@@ -974,7 +974,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/117536/17488/5/medium.jpg',
     city: 'Seattle, Washington',
     country: 'United States',
-    clubs: [],
+    clubs: ['GUE Seattle'],
     isAdmin: false,
     isActive: true
   },
@@ -1062,7 +1062,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/93070399/22192938/1/medium.jpg',
     city: '',
     country: 'Singapore',
-    clubs: [],
+    clubs: ['GUE South East Asia'],
     isAdmin: false,
     isActive: true
   },
@@ -1073,7 +1073,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10100743657670866/picture?height=256&width=256',
     city: '',
     country: 'Singapore',
-    clubs: [],
+    clubs: ['GUE South East Asia'],
     isAdmin: false,
     isActive: true
   },
@@ -1271,7 +1271,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10152346551411043/picture?height=256&width=256',
     city: 'Oslo',
     country: 'Norway',
-    clubs: [],
+    clubs: ['GUE Iberia'],
     isAdmin: false,
     isActive: true
   },
@@ -1800,7 +1800,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/18391651/37917925/1/medium.jpg',
     city: '',
     country: '',
-    clubs: [],
+    clubs: ['GUE Seattle'],
     isAdmin: false,
     isActive: true
   },
@@ -2075,7 +2075,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/23980658/28375128/1/medium.jpg',
     city: '',
     country: '',
-    clubs: [],
+    clubs: ['GUE Iberia'],
     isAdmin: false,
     isActive: true
   },
@@ -2559,7 +2559,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/11555230/3503249/2/medium.jpg',
     city: 'Cabo de Palos',
     country: 'Spain / Portugal',
-    clubs: [],
+    clubs: ['GUE Iberia'],
     isAdmin: false,
     isActive: true
   },
@@ -2570,7 +2570,7 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/18471179/15157521/1/medium.jpg',
     city: '',
     country: '',
-    clubs: [],
+    clubs: ['GUE Iberia'],
     isAdmin: false,
     isActive: true
   },
@@ -2669,7 +2669,7 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10160690510084968/picture?height=256&width=256',
     city: 'Jakarta',
     country: 'Indonesia',
-    clubs: [],
+    clubs: ['GUE South East Asia'],
     isAdmin: false,
     isActive: true
   },
@@ -2702,6 +2702,17 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/90398355/24286822/3/medium.jpg',
     city: 'Seattle, WA',
     country: 'United States',
+    clubs: ['GUE Seattle'],
+    isAdmin: false,
+    isActive: true
+  },
+  'Shioriko Y.': {
+    gueId: null,
+    stravaId: 163412946,
+    fullName: 'Shioriko Yang',
+    stravaImg: '',
+    city: 'Guangzhou , China, Hong Kong',
+    country: 'China',
     clubs: [],
     isAdmin: false,
     isActive: true

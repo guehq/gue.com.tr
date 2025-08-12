@@ -63,7 +63,7 @@ window.communities = {
       email: ''
     },
     contactPerson: {
-      name: '',
+      name: 'Belen Andres',
       email: '',
       phone: ''
     }
@@ -86,7 +86,7 @@ window.communities = {
       email: ''
     },
     contactPerson: {
-      name: '',
+      name: 'EngHan Ng',
       email: '',
       phone: ''
     }

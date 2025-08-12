@@ -131,6 +131,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Alfredo C.': {
+    gueId: null,
+    stravaId: 179710777,
+    fullName: 'Alfredo Costanzo',
+    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocJWNrQO6C4uiJdCWAXGp680nPrxkNtnmc1WcXjW8Uf-veMdNZqA=s96-c',
+    city: 'Roma, Lazio',
+    country: 'Italy',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Ali Ş.': {
     gueId: null,
     stravaId: 135752437,
@@ -215,6 +226,17 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10101246789301108/picture?height=256&width=256',
     city: '',
     country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Andrew N.': {
+    gueId: null,
+    stravaId: 14626268,
+    fullName: 'Andrew Ng',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/14626268/4139759/3/medium.jpg',
+    city: '',
+    country: 'Singapore',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -347,6 +369,17 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/1609155592464379/picture?height=256&width=256',
     city: '',
     country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Benjamin O.': {
+    gueId: null,
+    stravaId: 181337852,
+    fullName: 'Benjamin Ott',
+    stravaImg: '',
+    city: 'Sardegna',
+    country: 'Italy',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -2395,7 +2428,7 @@ window.athleteProfiles = {
     city: 'Isparta',
     country: 'Türkiye',
     clubs: ['GUE TR'],
-    isAdmin: true,
+    isAdmin: false,
     isActive: true
   },
   'Ol G.': {

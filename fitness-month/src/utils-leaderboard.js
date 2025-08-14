@@ -406,12 +406,12 @@ function renderClubLeaderboard(clubMap) {
     <table class="table is-bordered is-striped table is-narrow is-hoverable is-fullwidth">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Comm.</th>
-          <th class="has-text-right">Dur.</th>
-          <th class="has-text-right">Dist.</th>
-          <th class="has-text-right">Elev.</th>
-          <th class="has-text-right">Act.</th>
+          <th></th>
+          <th style="min-width: 170px;">GUE Communities</th>
+          <th class="has-text-centered"><abbr title="Active Community Athletes">🏃🏽</abbr></th>
+          <th class="has-text-right">Duration</th>
+          <th class="has-text-right" style="min-width: 100px;">Distance</th>
+          <th class="has-text-right">Elevation</th>
           <th class="has-text-right">MET</th>
         </tr>
       </thead>
@@ -425,10 +425,10 @@ function renderClubLeaderboard(clubMap) {
         <td>
           <div class="is-flex is-align-items-center">
             ${club.logoUrl ? `<figure class="image is-24x24 mr-2"><img src="${club.logoUrl}" alt="${club.shortName}"></figure>` : ''}
-            <a href="${club.stravaClubUrl || '#'}" target="_blank">${club.shortName || club.name}</a>
+            <a href="${club.stravaClubUrl || '#'}" class="has-text-dark" target="_blank">${club.shortName || club.name}</a>
           </div>
         </td>
-        <td class="has-text-right">${club.athleteCount}</td>
+        <td class="has-text-centered">${club.athleteCount}</td>
         <td class="has-text-right">${formatDuration(club.totalDuration)}</td>
         <td class="has-text-right">${club.totalDistance.toFixed(2)} km</td>
         <td class="has-text-right">${club.totalElevation.toFixed(1)} m</td>

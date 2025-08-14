@@ -131,7 +131,8 @@ function loadData(csvData) {
   athleteMap = buildAthleteMap(allActivities);
 
   // Step 5: Build club map (assuming you have athleteProfiles globally)
-  // clubMap = buildClubMap(allActivities);
+  const clubMap = buildClubMap(allActivities, window.athleteProfiles, window.communities);
+  renderClubLeaderboard(clubMap);
   if (DEBUG.clubMapping) {
     console.info('Club Map:', clubMap);
   }

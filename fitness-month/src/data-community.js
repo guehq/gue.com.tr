@@ -70,7 +70,7 @@ window.communities = {
   },
   'GUE South East Asia': {
     name: 'GUE South East Asia',
-    shortName: 'GUE South East Asia',
+    shortName: 'GUE SEA',
     description: 'To foster camaraderie and fitness among GUE members in South East Asia',
     motto: '',
     stravaClubUrl: 'https://www.strava.com/clubs/guesea',

@@ -503,10 +503,39 @@ function renderNonQualifiedAthletesTable(nonQualifiedMap, athleteProfiles = wind
     const row = document.createElement('tr');
     row.innerHTML = `
       <th>${idx}</th>
-      <td>
-        <div class="is-flex is-align-items-center">
+      <td class="has-tooltip-right" data-tooltip="">
+        <div class="tooltip-container is-flex is-align-items-center">
           <figure class="image is-32x32 mr-2"><img class="is-rounded" src="${stravaImg}" alt="${fullName}"></figure>
-          <a href="${stravaUrl}" target="_blank" rel="noopener noreferrer" class="${nameClass}">${fullName}</a>
+          <div>
+            <a href="${stravaUrl}" target="_blank" rel="noopener noreferrer" class="${nameClass}">${fullName}</a>
+            <div class="tooltip-content">
+              <table class="table is-bordered is-narrow is-fullwidth">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th class="has-text-centered">Date</th>
+                    <th class="has-text-left">Activity</th>
+                    <th class="has-text-right">Dur.</th>
+                    <th class="has-text-right">Dist.</th>
+                    <th class="has-text-right">Elev.</th>
+                    <th class="has-text-right">MET</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${data.activities.map((act, index) => `
+                    <tr>
+                      <th class="has-text-right">${index + 1}</th>
+                      <td class="has-text-centered">${act.date || ''}</td>
+                      <td class="has-text-left">${act.activityName || ''}</td>
+                      <td class="has-text-right">${formatDuration(act.duration)}</td>
+                      <td class="has-text-right">${act.distance?.toFixed(2) || 0} km</td>
+                      <td class="has-text-right">${act.elevation?.toFixed(1) || 0} m</td>
+                      <td class="has-text-right">${act.met?.toFixed(1) || 0}</td>
+                    </tr>`).join('')}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </td>
       <td class="has-text-right">${data.totals.count}</td>

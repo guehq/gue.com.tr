@@ -225,7 +225,7 @@
 				<div id="elevationLB" class="column is-one-third"></div>
 				<div id="activitiesLB" class="column is-one-third"></div>
 				<div id="metScoreLB" class="column is-one-third"></div>
-				<!-- <div id="communitiesLB" class="column is-one-third"></div> -->
+				<div id="communitiesLB" class="column is-one-third"></div>
 
 				<div class="buttons are-small">
 					<button id="downloadDurationLBBtn" class="button is-light" disabled>Duration <i class="fas fa-download ml-2"></i></button>
@@ -254,6 +254,27 @@
 							</tr>
 						</thead>
 						<tbody id="qualifiedAthletesTableBody">
+							<!-- Rows will be dynamically added here -->
+						</tbody>
+					</table>
+				</div>
+
+				<!-- NON-QUALIFIED ATHLETES -->
+				<div class="column is-full">
+					<h2 class="title is-4">Non-Qualified Athletes</h2>
+					<table id="nonQualifiedAthletesTable" class="table is-striped is-hoverable is-fullwidth is-narrow mb-6">
+						<thead>
+							<tr>
+								<th></th>
+								<th class="has-text-left" onclick="sortTableByColumn('nonQualifiedAthletesTable', 0)">Athlete</th>
+								<th class="has-text-right" onclick="sortTableByColumn('nonQualifiedAthletesTable', 1)">Activities</th>
+								<th class="has-text-right" onclick="sortTableByColumn('nonQualifiedAthletesTable', 2)">Duration</th>
+								<th class="has-text-right" onclick="sortTableByColumn('nonQualifiedAthletesTable', 3)">Distance</th>
+								<th class="has-text-right" onclick="sortTableByColumn('nonQualifiedAthletesTable', 4)">Elevation</th>
+								<th class="has-text-right" onclick="sortTableByColumn('nonQualifiedAthletesTable', 5)">MET</th>
+							</tr>
+						</thead>
+						<tbody id="nonQualifiedAthletesTableBody">
 							<!-- Rows will be dynamically added here -->
 						</tbody>
 					</table>

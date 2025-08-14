@@ -30,7 +30,7 @@ function formatDuration(minutes = 0) {
 }
 
 // Render top 10 leaderboards for each category
-export function renderAllLeaderboards(athleteMap) {
+function renderAllLeaderboards(athleteMap) {
   renderLeaderboardSection(athleteMap, 'duration', 'durationLB', '🏆 Duration Leaderboard');
   renderLeaderboardSection(athleteMap, 'distance', 'distanceLB', '🏆 Distance Leaderboard');
   renderLeaderboardSection(athleteMap, 'elevation', 'elevationLB', '🏆 Elevation Leaderboard');
@@ -42,7 +42,7 @@ export function renderAllLeaderboards(athleteMap) {
  * Calculate totals for an array of activities.
  * Returns object with total duration, distance, elevation, MET, and count.
  */
-export function calculateTotals(activities) {
+function calculateTotals(activities) {
   return activities.reduce(
     (totals, act) => {
       totals.duration += act.duration || 0;
@@ -61,7 +61,7 @@ export function calculateTotals(activities) {
  * Sort leaderboard data (array of objects) by a key in ascending or descending order.
  * sortOrder: 'asc' or 'desc'
  */
-export function sortLeaderboardData(data, sortKey, sortOrder = 'desc') {
+function sortLeaderboardData(data, sortKey, sortOrder = 'desc') {
   return [...data].sort((a, b) => {
     const aVal = a.totals[sortKey] || 0;
     const bVal = b.totals[sortKey] || 0;
@@ -78,7 +78,7 @@ export function sortLeaderboardData(data, sortKey, sortOrder = 'desc') {
  *     totals: { duration, distance, elevation, met, count }
  *   }
  */
-export function buildAthleteMap(filteredActivities) {
+function buildAthleteMap(filteredActivities) {
   const athleteMap = new Map();
 
   filteredActivities.forEach(activity => {
@@ -110,14 +110,14 @@ export function buildAthleteMap(filteredActivities) {
 // ***   RENDER ATHLETE MAP TABLE   ***
 // ************************************
 
-export function renderAthleteMapTable(athleteMap, athleteProfiles = window.athleteProfiles || {}) {
+function renderAthleteMapTable(athleteMap, athleteProfiles = window.athleteProfiles || {}) {
   const tbody = document.getElementById('qualifiedAthletesTableBody');
   if (!tbody) {
     console.warn('renderAthleteMapTable: Table body element not found');
     return;
   }
 
-  tbody.innerHTML = ''; // Clear existing rows
+  tbody.innerHTML = '';
 
   // Convert map entries to array for sorting
   const athleteArray = Array.from(athleteMap.entries());
@@ -183,8 +183,8 @@ export function renderAthleteMapTable(athleteMap, athleteProfiles = window.athle
       <td class="has-text-right">${data.totals.met.toFixed(1)}</td>
     `;
 
-    idx++;
     tbody.appendChild(row);
+    idx++;
   });
 }
 
@@ -193,12 +193,15 @@ export function renderAthleteMapTable(athleteMap, athleteProfiles = window.athle
  * Removes athletes from the map who do not meet the streak requirement.
  * Only runs if DEBUG.streakCheck is true.
  */
-export function filterAthletesByStreak(athleteMap, startDate, endDate) {
+function filterAthletesByStreak(athleteMap, startDate, endDate) {
   if (DEBUG.streakCheck) {
     console.log('Filtering athletes by streak requirement...');
   }
 
+  // Always return a new Map, even if all athletes are filtered out.
+  const filteredMap = new Map();
   let removedCount = 0;
+  let passedCount = 0;
 
   for (const [athlete, data] of athleteMap.entries()) {
     const activeDates = new Set(data.activities.map(a => a.date));
@@ -215,8 +218,10 @@ export function filterAthletesByStreak(athleteMap, startDate, endDate) {
       current.setDate(current.getDate() + 1);
     }
 
-    if (hasGap) {
-      athleteMap.delete(athlete);
+    if (!hasGap) {
+      filteredMap.set(athlete, data);
+      passedCount++;
+    } else {
       removedCount++;
       if (DEBUG.streakCheck) {
         console.warn(`[Athlete Removed] ${athlete} (did not meet streak requirement)`);
@@ -225,11 +230,12 @@ export function filterAthletesByStreak(athleteMap, startDate, endDate) {
   }
 
   if (DEBUG.streakCheck) {
-    const remainingCount = athleteMap.size;
+    const remainingCount = filteredMap.size;
     const totalCount = removedCount + remainingCount;
     console.log(`Filtered athletes by streak requirement. Removed ${removedCount} athletes.`);
     console.info(`[Streak Summary] ${remainingCount} passed / ${removedCount} removed / ${totalCount} total`);
   }
+  return filteredMap;
 }
 
 /**
@@ -267,7 +273,7 @@ function formatNumber(value, sortKey) {
  * @param {string} containerId - The HTML container id to render the table into
  * @param {string} title - The leaderboard title to display
  */
-export function renderLeaderboardSection(athleteMap, sortKey, containerId, title) {
+function renderLeaderboardSection(athleteMap, sortKey, containerId, title) {
   const container = document.getElementById(containerId);
   if (!container) {
     console.warn(`Container #${containerId} not found`);
@@ -335,23 +341,28 @@ export function renderLeaderboardSection(athleteMap, sortKey, containerId, title
   container.innerHTML = html;
 }
 
-export function buildClubMap(activities, athleteProfiles, communities) {
+function buildClubMap(activities, athleteProfiles, communities) {
   const clubMap = {};
 
   activities.forEach(act => {
     const athleteKey = (act.athlete || '').trim();
-    const athleteProfile = athleteProfiles[athleteKey];
-    if (!athleteProfile || !Array.isArray(athleteProfile.clubs) || athleteProfile.clubs.length === 0) {
+    // Safely check for athlete key in athleteProfiles
+    const athleteProfile = athleteProfiles?.[athleteKey];
+    const clubs = athleteProfile?.clubs;
+
+    // If act.athlete is missing or not found in athleteProfiles, skip that activity
+    if (!athleteProfile || !Array.isArray(clubs) || clubs.length === 0) {
       if (DEBUG.clubMapping) {
         console.warn(`Skipping athlete "${athleteKey}" due to missing or invalid club data.`);
       }
       return;
     }
 
-    athleteProfile.clubs.forEach(clubName => {
+    // Use optional chaining for clubs
+    clubs?.forEach(clubName => {
       if (!clubMap[clubName]) {
         clubMap[clubName] = {
-          ...communities[clubName],
+          ...(communities?.[clubName]),
           totalDuration: 0,
           totalDistance: 0,
           totalElevation: 0,
@@ -359,24 +370,26 @@ export function buildClubMap(activities, athleteProfiles, communities) {
           athletes: new Set()
         };
       }
-      clubMap[clubName].totalDuration += act.duration;
-      clubMap[clubName].totalDistance += act.distance || 0;
-      clubMap[clubName].totalElevation += act.elevation || 0;
-      clubMap[clubName].totalMET += act.met || 0;
-      clubMap[clubName].athletes.add(act.athlete);
+      // Ensure Set exists before adding
+      const club = clubMap[clubName];
+      club.totalDuration += act.duration || 0;
+      club.totalDistance += act.distance || 0;
+      club.totalElevation += act.elevation || 0;
+      club.totalMET += act.met || 0;
+      club.athletes?.add(act.athlete);
     });
   });
 
   // Convert Sets to counts
   Object.values(clubMap).forEach(club => {
-    club.athleteCount = club.athletes.size;
+    club.athleteCount = club.athletes?.size || 0;
     delete club.athletes;
   });
 
   return clubMap;
 }
 
-export function renderClubLeaderboard(clubMap) {
+function renderClubLeaderboard(clubMap) {
   const container = document.getElementById('communitiesLB');
   if (!container) {
     console.warn('Community leaderboard container not found');
@@ -427,3 +440,97 @@ export function renderClubLeaderboard(clubMap) {
   html += `</tbody></table>`;
   container.innerHTML = html;
 }
+
+// *******************************************
+// ***   BUILD NON-QUALIFIED ATHLETE MAP   ***
+// *******************************************
+
+/**
+ * Build map of non-qualified athletes
+ * @param {Map} preFilterMap - Athlete map before applying minDuration/daily streak
+ * @param {Map} qualifiedMap - Athlete map after filters applied
+ * @returns {Map} nonQualifiedMap - Map of athletes who did not pass filters
+ */
+function buildNonQualifiedAthleteMap(preFilterMap, qualifiedMap) {
+  const nonQualifiedMap = new Map();
+
+  preFilterMap.forEach((data, athlete) => {
+    // If athlete is NOT in the qualified map, they are non-qualified
+    if (!qualifiedMap.has(athlete)) {
+      nonQualifiedMap.set(athlete, data);
+    }
+  });
+
+  if (DEBUG.nonQualified) {
+    console.log(`Non-qualified athletes count: ${nonQualifiedMap.size}`, nonQualifiedMap);
+  }
+
+  return nonQualifiedMap;
+}
+
+// **************************************************
+// ***   RENDER NON-QUALIFIED ATHLETE MAP TABLE   ***
+// **************************************************
+
+/**
+ * Render Non-Qualified Athletes Table
+ * @param {Map} nonQualifiedMap
+ * @param {Object} athleteProfiles - optional, for full name/photo info
+ */
+function renderNonQualifiedAthletesTable(nonQualifiedMap, athleteProfiles = window.athleteProfiles || {}) {
+  const tbody = document.getElementById('nonQualifiedAthletesTableBody');
+  if (!tbody) {
+    console.warn('renderNonQualifiedAthletesTable: Table body element not found');
+    return;
+  }
+
+  tbody.innerHTML = '';
+
+  // Convert Map to Array & sort by activity count descending
+  const athleteArray = Array.from(nonQualifiedMap.entries());
+  
+  // Sort by activity count descending
+  athleteArray.sort((a, b) => b[1].totals.count - a[1].totals.count);
+
+  let idx = 1;
+  athleteArray.forEach(([athlete, data]) => {
+    const profile = athleteProfiles?.[athlete];
+    const fullName = profile?.fullName || athlete;
+    const stravaUrl = profile?.stravaId ? `https://www.strava.com/athletes/${profile.stravaId}` : '#';
+    const stravaImg = profile?.stravaImg || './images/default-avatar.png';
+
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <th>${idx}</th>
+      <td>
+        <div class="is-flex is-align-items-center">
+          <figure class="image is-32x32 mr-2"><img class="is-rounded" src="${stravaImg}" alt="${fullName}"></figure>
+          <a href="${stravaUrl}" target="_blank" rel="noopener noreferrer">${fullName}</a>
+        </div>
+      </td>
+      <td class="has-text-right">${data.totals.count}</td>
+      <td class="has-text-right">${formatDuration(data.totals.duration)}</td>
+      <td class="has-text-right">${data.totals.distance.toFixed(2)} km</td>
+      <td class="has-text-right">${data.totals.elevation.toFixed(1)} m</td>
+      <td class="has-text-right">${data.totals.met.toFixed(1)}</td>
+    `;
+
+    tbody.appendChild(row);
+    idx++;
+  });
+}
+
+// Explicit named exports for all utility functions
+export {
+  formatDuration,
+  calculateTotals,
+  buildAthleteMap,
+  filterAthletesByStreak,
+  renderAthleteMapTable,
+  renderNonQualifiedAthletesTable,
+  sortLeaderboardData,
+  renderAllLeaderboards,
+  buildClubMap,
+  renderClubLeaderboard,
+  renderLeaderboardSection
+};

@@ -19,6 +19,7 @@ import {
   buildAthleteMap,
   filterAthletesByStreak,
   renderAthleteMapTable,
+  renderNonQualifiedAthletesTable,
   buildClubMap,
   renderClubLeaderboard,
   renderAllLeaderboards
@@ -143,8 +144,18 @@ function loadData(csvData) {
   }
 
   // Step 7: Render leaderboards
-  renderAthleteMapTable(athleteMap);
-  renderAllLeaderboards(athleteMap);
+
+  // Build non-qualified athletes map
+  const nonQualifiedAthleteMap = new Map(
+    Array.from(athleteMap.entries()).filter(([athlete]) => !filteredAthleteMap.has(athlete))
+  );
+
+  // Render non-qualified athletes table
+  renderNonQualifiedAthletesTable(nonQualifiedAthleteMap);
+
+  // Render leaderboards with filtered athlete map
+  renderAthleteMapTable(filteredAthleteMap);
+  renderAllLeaderboards(filteredAthleteMap);
 
   // Step 8: Render clubs leaderboard
   renderClubLeaderboard(clubMap);
@@ -161,7 +172,9 @@ function loadData(csvData) {
       acc.add(activity.athlete);
       return acc;
     }, new Set()).size);
-    console.info('Qualified Athletes count:', filteredAthleteMap?.size ?? 0, '🚩 (not working)'); // TODO: this one is not working
+    const qualifiedAthletesCount = Array.from(filteredAthleteMap.keys()).length;
+    console.info('Qualified Athletes count:', qualifiedAthletesCount);
+    console.info('Non-Qualified Athletes count:', Array.from(athleteMap.keys()).length - qualifiedAthletesCount);
   }
 }
 

@@ -2138,7 +2138,7 @@ window.athleteProfiles = {
     gueId: null,
     stravaId: 179661213,
     fullName: 'Markus H',
-    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/179661213/39278824/1/large.jpg',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/179661213/39278824/1/medium.jpg',
     city: 'Köln, Nordrhein-Westfalen',
     country: 'Germany',
     clubs: [],
@@ -2354,6 +2354,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Morten J.': {
+    gueId: null,
+    stravaId: 37952033,
+    fullName: 'Morten Johannessen',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/37952033/14133624/2/medium.jpg',
+    city: 'Lindesnes, Vest-Agder',
+    country: 'Norway',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Nadine T.': {
     gueId: null,
     stravaId: 179645537,
@@ -2546,6 +2557,17 @@ window.athleteProfiles = {
     stravaId: 33261872,
     fullName: 'Randy Mintz',
     stravaImg: 'https://graph.facebook.com/10217464706395036/picture?height=256&width=256',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Raul L.': {
+    gueId: null,
+    stravaId: 26615016,
+    fullName: 'Raul Lozano',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/26615016/7727133/1/medium.jpg',
     city: '',
     country: '',
     clubs: [],

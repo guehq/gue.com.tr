@@ -498,6 +498,7 @@ function renderNonQualifiedAthletesTable(nonQualifiedMap, athleteProfiles = wind
     const fullName = profile?.fullName || athlete;
     const stravaUrl = profile?.stravaId ? `https://www.strava.com/athletes/${profile.stravaId}` : '#';
     const stravaImg = profile?.stravaImg || './images/default-avatar.png';
+    const nameClass = profile?.stravaId ? 'has-text-dark' : 'has-text-danger';
 
     const row = document.createElement('tr');
     row.innerHTML = `
@@ -505,7 +506,7 @@ function renderNonQualifiedAthletesTable(nonQualifiedMap, athleteProfiles = wind
       <td>
         <div class="is-flex is-align-items-center">
           <figure class="image is-32x32 mr-2"><img class="is-rounded" src="${stravaImg}" alt="${fullName}"></figure>
-          <a href="${stravaUrl}" target="_blank" rel="noopener noreferrer">${fullName}</a>
+          <a href="${stravaUrl}" target="_blank" rel="noopener noreferrer" class="${nameClass}">${fullName}</a>
         </div>
       </td>
       <td class="has-text-right">${data.totals.count}</td>

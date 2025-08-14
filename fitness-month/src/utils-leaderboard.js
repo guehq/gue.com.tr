@@ -146,7 +146,7 @@ function renderAthleteMapTable(athleteMap, athleteProfiles = window.athleteProfi
           ${stravaImg ? `<figure class="image is-32x32 mr-2"><img class="is-rounded" src="${stravaImg}" alt="${fullName}"></figure>` : ''}
           <div>
             <a href="${stravaUrl}" target="_blank" rel="noopener noreferrer" class="athlete-name has-text-dark">${fullName}</a>
-            <div class="tooltip-content">
+            <div class="tooltip-content has-width-750">
               <table class="table is-bordered is-narrow is-fullwidth">
                 <thead>
                   <tr>
@@ -367,22 +367,31 @@ function buildClubMap(activities, athleteProfiles, communities) {
           totalDistance: 0,
           totalElevation: 0,
           totalMET: 0,
-          athletes: new Set()
+          athletes: new Set(),
+          activeAthletes: new Set()
         };
       }
-      // Ensure Set exists before adding
+      // Ensure Sets exist before adding
       const club = clubMap[clubName];
       club.totalDuration += act.duration || 0;
       club.totalDistance += act.distance || 0;
       club.totalElevation += act.elevation || 0;
       club.totalMET += act.met || 0;
       club.athletes?.add(act.athlete);
+      // Add athlete name to activeAthletes set
+      club.activeAthletes?.add(act.athlete);
     });
   });
 
-  // Convert Sets to counts
+  // Convert Sets to counts and arrays
   Object.values(clubMap).forEach(club => {
     club.athleteCount = club.athletes?.size || 0;
+    if (club.activeAthletes) {
+      // Convert Set to Array and sort alphabetically
+      club.activeAthletes = Array.from(club.activeAthletes).sort((a, b) => a.localeCompare(b));
+    } else {
+      club.activeAthletes = [];
+    }
     delete club.athletes;
   });
 
@@ -428,7 +437,19 @@ function renderClubLeaderboard(clubMap) {
             <a href="${club.stravaClubUrl || '#'}" class="has-text-dark" target="_blank">${club.shortName || club.name}</a>
           </div>
         </td>
-        <td class="has-text-centered">${club.athleteCount}</td>
+        <td class="has-tooltip-right" data-tooltip="">
+          <div class="tooltip-container is-flex is-justify-content-center">
+            <span>${club.athleteCount}</span>
+            <div class="tooltip-content has-width-250">
+              <div style="font-weight: bold; margin-bottom: 0.25em;">Active Athletes</div>
+              <ul style="margin: 0; padding-left: 1em;">
+                ${club.activeAthletes && club.activeAthletes.length > 0
+                  ? club.activeAthletes.map(name => `<li>${name}</li>`).join('')
+                  : '<li><em>None</em></li>'}
+              </ul>
+            </div>
+          </div>
+        </td>
         <td class="has-text-right">${formatDuration(club.totalDuration)}</td>
         <td class="has-text-right">${club.totalDistance.toFixed(2)} km</td>
         <td class="has-text-right">${club.totalElevation.toFixed(1)} m</td>
@@ -508,7 +529,7 @@ function renderNonQualifiedAthletesTable(nonQualifiedMap, athleteProfiles = wind
           <figure class="image is-32x32 mr-2"><img class="is-rounded" src="${stravaImg}" alt="${fullName}"></figure>
           <div>
             <a href="${stravaUrl}" target="_blank" rel="noopener noreferrer" class="${nameClass}">${fullName}</a>
-            <div class="tooltip-content">
+            <div class="tooltip-content has-width-750">
               <table class="table is-bordered is-narrow is-fullwidth">
                 <thead>
                   <tr>

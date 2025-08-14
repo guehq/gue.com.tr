@@ -65,8 +65,15 @@ table.table td {
   border: 1px solid #dbdbdb;
   background: white;
   padding: 0.5em;
-  width: 750px;
   max-height: 1000px;
+}
+
+.has-width-250 {
+  width: 250px;
+}
+
+.has-width-750 {
+  width: 750px;
 }
 
 .tooltip-container:hover table.table {

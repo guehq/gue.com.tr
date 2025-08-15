@@ -411,7 +411,7 @@ function renderClubLeaderboard(clubMap) {
   clubsArray.sort((a, b) => b.totalMET - a.totalMET);
 
   let html = `
-    <h3 class="title is-5 mb-4">🏅 Community Leaderboard</h3>
+    <h3 class="title is-5 mb-4">🏆 Community Leaderboard</h3>
     <table class="table is-bordered is-striped table is-narrow is-hoverable is-fullwidth">
       <thead>
         <tr>

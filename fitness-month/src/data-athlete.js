@@ -65,6 +65,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'AJ G.': {
+    gueId: null,
+    stravaId: 137129048,
+    fullName: 'AJ Gonzales',
+    stravaImg: 'https://graph.facebook.com/10152326068573476/picture?height=256&width=256',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Akon D.': {
     gueId: null,
     stravaId: 118418715,
@@ -127,6 +138,17 @@ window.athleteProfiles = {
     stravaImg: '',
     city: 'Vlaardingen, Zuid-Holland',
     country: 'Netherlands',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Alex D.': {
+    gueId: null,
+    stravaId: 4089543,
+    fullName: 'Alex Dimasacat',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/4089543/1353217/2/medium.jpg',
+    city: '',
+    country: 'Singapore',
     clubs: [],
     isAdmin: false,
     isActive: true
@@ -505,6 +527,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'chris T.': {
+    gueId: null,
+    stravaId: 15039346,
+    fullName: 'Chris Tanimoto',
+    stravaImg: 'https://graph.facebook.com/10102371784152613/picture?height=256&width=256',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Chris W.': {
     gueId: null,
     stravaId: 124293247,
@@ -791,6 +824,17 @@ window.athleteProfiles = {
     isAdmin: false,
     isActive: true
   },
+  'Daniel W.': {
+    gueId: null,
+    stravaId: 16977483,
+    fullName: 'Daniel Wenz',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/16977483/39452705/1/medium.jpg',
+    city: '',
+    country: '',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
   'Danny T': {
     gueId: null,
     stravaId: 179631779,
@@ -842,6 +886,17 @@ window.athleteProfiles = {
     stravaImg: 'https://graph.facebook.com/10224791294154342/picture?height=256&width=256',
     city: 'Laksevåg, Vestland',
     country: 'Norway',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Darryl S.': {
+    gueId: null,
+    stravaId: 128611337,
+    fullName: 'Darryl See',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/128611337/29655966/9/medium.jpg',
+    city: '',
+    country: 'Singapore',
     clubs: [],
     isAdmin: false,
     isActive: true

@@ -35,33 +35,37 @@ async function loadMembers() {
     return fullNameA.localeCompare(fullNameB);
   });
 
-  const tableBody = document.getElementById('apiDataTable').querySelector('tbody');
-
-  members.forEach((member, index) => {
-
-    const row = document.createElement('tr');
-    row.innerHTML = `
-      <td class="has-text-right">${index + 1}</td>
-      <td>${member.firstname} ${member.lastname}</td>
-      <!-- <td>${member.membership}</td> -->
-      <!-- <td>${member.admin}</td> -->
-      <!-- <td>${member.owner}</td> -->
-    `;
-    tableBody.appendChild(row);
-  });
+  const apiTable = document.getElementById('apiDataTable');
+  if (apiTable) {
+    const tableBody = apiTable.querySelector('tbody');
+    members.forEach((member, index) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td class="has-text-right">${index + 1}</td>
+        <td>${member.firstname} ${member.lastname}</td>
+        <!-- <td>${member.membership}</td> -->
+        <!-- <td>${member.admin}</td> -->
+        <!-- <td>${member.owner}</td> -->
+      `;
+      tableBody.appendChild(row);
+    });
+  }
 
   document.getElementById('memberCountAPI').innerText = members.length;
 
   // Add raw member data table (debug view)
-  const rawTable = document.getElementById('rawDataTable').querySelector('tbody');
-  members.forEach((member, index) => {
-    const row = document.createElement('tr');
-    row.innerHTML = `
-      <td>${index + 1}</td>
-      <td><pre style="white-space: pre-wrap; word-break: break-word;">${JSON.stringify(member, null, 2)}</pre></td>
-    `;
-    rawTable.appendChild(row);
-  });
+  const rawTableEl = document.getElementById('rawDataTable');
+  if (rawTableEl) {
+    const rawTable = rawTableEl.querySelector('tbody');
+    members.forEach((member, index) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${index + 1}</td>
+        <td><pre style="white-space: pre-wrap; word-break: break-word;">${JSON.stringify(member, null, 2)}</pre></td>
+      `;
+      rawTable.appendChild(row);
+    });
+  }
 }
 
 loadMembers();

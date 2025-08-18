@@ -2380,7 +2380,7 @@ window.athleteProfiles = {
     gueId: null,
     stravaId: 152040350,
     fullName: 'Natalia Egorova',
-    stravaImg: '',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/152040350/39452724/2/medium.jpg',
     city: 'Winter Garden, Florida',
     country: 'United States',
     clubs: [],

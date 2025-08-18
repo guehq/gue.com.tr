@@ -40,20 +40,21 @@ function downloadLeaderboardAsJPG(containerId, filename = 'leaderboard.jpg') {
   clone.style.fontSize = '4rem';
   clone.style.imageRendering = 'crisp-edges';
   document.body.appendChild(clone);
-  
+
+  // REMOVE AVATAR IMAGES
+  clone.querySelectorAll('img').forEach(img => {
+    // img.style.transform = `scale(4)`;
+    // img.style.transformOrigin = 'center left';
+    img.style.display = 'none';
+  });
+
   // SCALE TITLES
   clone.querySelectorAll('h3').forEach(h3 => {
     h3.style.fontSize = '6rem';
     h3.style.margin = '3rem';
   });
 
-  // SCALE IMAGES
-  clone.querySelectorAll('img').forEach(img => {
-    img.style.transform = `scale(4)`;
-    img.style.transformOrigin = 'center left';
-  });
-
-  // SCALE TEXT
+  // SCALE TABLE TEXT
   clone.querySelectorAll('p').forEach(p => {
     p.style.marginLeft = '6rem';
   });

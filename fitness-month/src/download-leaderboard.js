@@ -45,7 +45,7 @@ function downloadLeaderboardAsJPG(containerId, filename = 'leaderboard.jpg') {
   clone.querySelectorAll('img').forEach(img => {
     img.style.transform = `scale(4)`;
     img.style.transformOrigin = 'center left';
-    img.style.display = 'none';
+    // img.style.display = 'none';
   });
 
   // SCALE TITLES
@@ -56,8 +56,17 @@ function downloadLeaderboardAsJPG(containerId, filename = 'leaderboard.jpg') {
 
   // SCALE TABLE TEXT
   clone.querySelectorAll('p').forEach(p => {
-    // p.style.marginLeft = '6rem';
+    p.style.marginLeft = '6rem';
   });
+
+  // Add GUE logo at the bottom center
+  const logo = document.createElement('img');
+  logo.src = './images/GUE-logo_new.png';
+  logo.style.display = 'block';
+  logo.style.margin = '3.5rem auto 0 auto';
+  logo.style.width = '600px';
+  logo.style.height = 'auto';
+  clone.appendChild(logo);
 
   domtoimage.toJpeg(clone, {
     quality: 1,

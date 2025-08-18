@@ -303,7 +303,7 @@ function renderLeaderboardSection(athleteMap, sortKey, containerId, title, btnId
 
   // Build table HTML
   let html = `
-    <button id="${btnId}" class="button is-success is-warning is-small is-pulled-right no-export" disabled><i class="fas fa-download"></i></button>
+    <button id="${btnId}" class="button is-success is-success is-small is-pulled-right no-export is-hidden"><i class="fas fa-download"></i></button>
     <h3 class="title is-5 mb-4">${title}</h3>
     <table class="table is-bordered is-striped table is-narrow is-hoverable is-fullwidth">
       <thead>

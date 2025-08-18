@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="./styles/fitness.css">
+	<!-- Scripts -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
 </head>
 
 <body class="m-0">
@@ -233,12 +235,12 @@
 				</div>
 
 				<div class="buttons are-small">
-					<button id="downloadDurationLBBtn" class="button is-light" disabled>Duration <i class="fas fa-download ml-2"></i></button>
-					<button class="button is-light" disabled>Distance <i class="fas fa-download ml-2"></i></button>
-					<button class="button is-light" disabled>Elevation <i class="fas fa-download ml-2"></i></button>
-					<button class="button is-light" disabled>Activities <i class="fas fa-download ml-2"></i></button>
-					<button class="button is-light" disabled>MET Score <i class="fas fa-download ml-2"></i></button>
-					<button class="button is-light" disabled>Community <i class="fas fa-download ml-2"></i></button>
+					<button id="downloadDurationLBBtn" class="button is-light">Duration <i class="fas fa-download ml-2 no-export"></i></button>
+					<button id="downloadDistanceLBBtn" class="button is-light">Distance <i class="fas fa-download ml-2 no-export"></i></button>
+					<button id="downloadElevationLBBtn" class="button is-light">Elevation <i class="fas fa-download ml-2 no-export"></i></button>
+					<button id="downloadActivitiesLBBtn" class="button is-light">Activities <i class="fas fa-download ml-2 no-export"></i></button>
+					<button id="downloadMetScoreLBBtn" class="button is-light">MET Score <i class="fas fa-download ml-2 no-export"></i></button>
+					<button id="downloadCommunityLBBtn" class="button is-light">Community <i class="fas fa-download ml-2 no-export"></i></button>
 				</div>
 
 				<hr>
@@ -329,6 +331,7 @@
 	<script src="./src/data-community.js"></script>
 	<script src="./src/data-athlete.js"></script>
 	<script type="module" src="./src/main-leaderboard.js"></script>
+	<script src="./src/download-leaderboard.js"></script>
 
 </body>
 </html>

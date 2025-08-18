@@ -31,11 +31,11 @@ function formatDuration(minutes = 0) {
 
 // Render top 10 leaderboards for each category
 function renderAllLeaderboards(athleteMap) {
-  renderLeaderboardSection(athleteMap, 'duration', 'durationLB', '🏆 Duration Leaderboard');
-  renderLeaderboardSection(athleteMap, 'distance', 'distanceLB', '🏆 Distance Leaderboard');
-  renderLeaderboardSection(athleteMap, 'elevation', 'elevationLB', '🏆 Elevation Leaderboard');
-  renderLeaderboardSection(athleteMap, 'count', 'activitiesLB', '🏆 Activity Count Leaderboard');
-  renderLeaderboardSection(athleteMap, 'met', 'metScoreLB', '🏆 MET Score Leaderboard');
+  renderLeaderboardSection(athleteMap, 'duration', 'durationLB', '🏆 Duration Leaderboard', 'downloadDurationLBBtn');
+  renderLeaderboardSection(athleteMap, 'distance', 'distanceLB', '🏆 Distance Leaderboard', 'downloadDistanceLBBtn');
+  renderLeaderboardSection(athleteMap, 'elevation', 'elevationLB', '🏆 Elevation Leaderboard', 'downloadElevationLBBtn');
+  renderLeaderboardSection(athleteMap, 'count', 'activitiesLB', '🏆 Activity Count Leaderboard', 'downloadActivitiesLBBtn');
+  renderLeaderboardSection(athleteMap, 'met', 'metScoreLB', '🏆 MET Score Leaderboard', 'downloadMetScoreLBBtn');
 }
 
 /**
@@ -272,8 +272,9 @@ function formatNumber(value, sortKey) {
  * @param {string} sortKey - Key to sort by ('duration', 'distance', 'elevation', 'count', 'met')
  * @param {string} containerId - The HTML container id to render the table into
  * @param {string} title - The leaderboard title to display
+ * @param {string} btnId - The id to use for the download button
  */
-function renderLeaderboardSection(athleteMap, sortKey, containerId, title) {
+function renderLeaderboardSection(athleteMap, sortKey, containerId, title, btnId) {
   const container = document.getElementById(containerId);
   if (!container) {
     console.warn(`Container #${containerId} not found`);
@@ -302,6 +303,7 @@ function renderLeaderboardSection(athleteMap, sortKey, containerId, title) {
 
   // Build table HTML
   let html = `
+    <button id="${btnId}" class="button is-success is-warning is-small is-pulled-right no-export" disabled><i class="fas fa-download"></i></button>
     <h3 class="title is-5 mb-4">${title}</h3>
     <table class="table is-bordered is-striped table is-narrow is-hoverable is-fullwidth">
       <thead>

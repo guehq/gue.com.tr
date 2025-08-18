@@ -43,8 +43,8 @@ function downloadLeaderboardAsJPG(containerId, filename = 'leaderboard.jpg') {
 
   // REMOVE AVATAR IMAGES
   clone.querySelectorAll('img').forEach(img => {
-    // img.style.transform = `scale(4)`;
-    // img.style.transformOrigin = 'center left';
+    img.style.transform = `scale(4)`;
+    img.style.transformOrigin = 'center left';
     img.style.display = 'none';
   });
 
@@ -56,7 +56,7 @@ function downloadLeaderboardAsJPG(containerId, filename = 'leaderboard.jpg') {
 
   // SCALE TABLE TEXT
   clone.querySelectorAll('p').forEach(p => {
-    p.style.marginLeft = '6rem';
+    // p.style.marginLeft = '6rem';
   });
 
   domtoimage.toJpeg(clone, {

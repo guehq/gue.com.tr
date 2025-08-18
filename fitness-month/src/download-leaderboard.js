@@ -33,15 +33,20 @@ function downloadLeaderboardAsJPG(containerId, filename = 'leaderboard.jpg') {
   const clone = node.cloneNode(true);
   clone.style.transform = 'scale(1)';
   clone.style.transformOrigin = 'top left';
-  // clone.style.width = `${node.offsetWidth}px`;
+  clone.style.paddingLeft = '6rem';
+  clone.style.paddingRight = '6rem';
   clone.style.width = '2000px';
-  // clone.style.height = `${node.offsetHeight}px`;
   clone.style.height = '2000px';
   clone.style.fontSize = '4rem';
   clone.style.imageRendering = 'crisp-edges';
   document.body.appendChild(clone);
 
-  // REMOVE AVATAR IMAGES
+  // TABLE STYLE
+  clone.querySelectorAll('table').forEach(table => {
+    table.style.marginTop = '4rem';
+  });
+
+  // AVATAR IMAGES
   clone.querySelectorAll('img').forEach(img => {
     img.style.transform = `scale(4)`;
     img.style.transformOrigin = 'center left';
@@ -51,7 +56,7 @@ function downloadLeaderboardAsJPG(containerId, filename = 'leaderboard.jpg') {
   // SCALE TITLES
   clone.querySelectorAll('h3').forEach(h3 => {
     h3.style.fontSize = '6rem';
-    h3.style.margin = '3rem';
+    h3.style.margin = '3rem 1rem 6rem';
   });
 
   // SCALE TABLE TEXT
@@ -63,8 +68,8 @@ function downloadLeaderboardAsJPG(containerId, filename = 'leaderboard.jpg') {
   const logo = document.createElement('img');
   logo.src = './images/Logo-gue-long-black.png';
   logo.style.display = 'block';
-  logo.style.margin = '3.5rem auto 0 auto';
-  logo.style.width = '600px';
+  logo.style.margin = '3rem auto 0';
+  logo.style.width = '500px';
   logo.style.height = 'auto';
   logo.style.opacity = '0.2';
   logo.style.imageRendering = 'crisp-edges';

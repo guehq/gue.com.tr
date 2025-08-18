@@ -143,7 +143,7 @@ function renderAthleteMapTable(athleteMap, athleteProfiles = window.athleteProfi
       <th>${idx}</th>
       <td class="has-tooltip-right" data-tooltip="">
         <div class="tooltip-container is-flex is-align-items-center">
-          ${stravaImg ? `<figure class="image is-24x24 mr-2"><img class="is-rounded" src="${stravaImg}" alt="${fullName}" crossorigin="anonymous" onerror="this.src='./images/cors-avatar.png'"></figure>` : ''}
+          ${stravaImg ? `<figure class="image is-24x24 mr-2"><img class="is-rounded" src="${stravaImg}" alt="${fullName}"></figure>` : ''}
           <div>
             <a href="${stravaUrl}" target="_blank" rel="noopener noreferrer" class="athlete-name has-text-dark">${fullName}</a>
             <div class="tooltip-content has-width-750">
@@ -431,7 +431,7 @@ function renderClubLeaderboard(clubMap) {
         <th>${idx + 1}</th>
         <td>
           <div class="is-flex is-align-items-center">
-            ${club.logoUrl ? `<figure class="image is-24x24 mr-2"><img src="${club.logoUrl}" alt="${club.shortName}" crossorigin="anonymous" onerror="this.src='./images/cors-avatar.png'"></figure>` : ''}
+            ${club.logoUrl ? `<figure class="image is-24x24 mr-2"><img src="${club.logoUrl}" alt="${club.shortName}"></figure>` : ''}
             <a href="${club.stravaClubUrl || '#'}" class="has-text-dark" target="_blank">${club.shortName || club.name}</a>
           </div>
         </td>
@@ -524,7 +524,7 @@ function renderNonQualifiedAthletesTable(nonQualifiedMap, athleteProfiles = wind
       <th>${idx}</th>
       <td class="has-tooltip-right" data-tooltip="">
         <div class="tooltip-container is-flex is-align-items-center">
-        ${stravaImg ? `<figure class="image is-24x24 mr-2"><img class="is-rounded" src="${stravaImg}" alt="${fullName}" crossorigin="anonymous" onerror="this.src='./images/cors-avatar.png'"></figure>` : ''}
+        ${stravaImg ? `<figure class="image is-24x24 mr-2"><img class="is-rounded" src="${stravaImg}" alt="${fullName}"></figure>` : ''}
           <div>
             <a href="${stravaUrl}" target="_blank" rel="noopener noreferrer" class="${nameClass}">${fullName}</a>
             <div class="tooltip-content has-width-750">

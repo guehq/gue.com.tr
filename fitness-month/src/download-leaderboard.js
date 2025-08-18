@@ -61,11 +61,13 @@ function downloadLeaderboardAsJPG(containerId, filename = 'leaderboard.jpg') {
 
   // Add GUE logo at the bottom center
   const logo = document.createElement('img');
-  logo.src = './images/GUE-logo_new.png';
+  logo.src = './images/Logo-gue-long-black.png';
   logo.style.display = 'block';
   logo.style.margin = '3.5rem auto 0 auto';
   logo.style.width = '600px';
   logo.style.height = 'auto';
+  logo.style.opacity = '0.2';
+  logo.style.imageRendering = 'crisp-edges';
   clone.appendChild(logo);
 
   domtoimage.toJpeg(clone, {

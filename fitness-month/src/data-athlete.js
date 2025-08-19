@@ -2536,7 +2536,7 @@ window.athleteProfiles = {
     stravaId: 174625260,
     fullName: 'Michael Goodness',
     localImg: '',
-    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/174625260/38437871/1/medium.jpg',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/174625260/38437871/2/medium.jpg',
     city: 'Milwaukee, Wisconsin',
     country: '',
     clubs: [],
@@ -3175,6 +3175,18 @@ window.athleteProfiles = {
     stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/60535203/15460553/2/medium.jpg',
     city: 'Toronto, Ontario',
     country: 'Canada',
+    clubs: [],
+    isAdmin: false,
+    isActive: true
+  },
+  'Willem T.': {
+    gueId: null,
+    stravaId: 4934476,
+    fullName: 'Willem Takens',
+    localImg: '',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/4934476/16391544/1/medium.jpg',
+    city: 'Eelderwolde, Drenthe',
+    country: 'Netherlands',
     clubs: [],
     isAdmin: false,
     isActive: true

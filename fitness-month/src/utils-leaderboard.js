@@ -138,6 +138,7 @@ function renderAthleteMapTable(athleteMap, athleteProfiles = window.athleteProfi
     const stravaUrl = profile?.stravaId ? `https://www.strava.com/athletes/${profile.stravaId}` : '#';
     const stravaImg = profile?.stravaImg || './images/default-avatar.png';
 
+    // Qualified Athletes ROWS
     const row = document.createElement('tr');
     row.innerHTML = `
       <th>${idx}</th>
@@ -266,6 +267,10 @@ function formatNumber(value, sortKey) {
   }
 }
 
+// *************************************
+// ***   RENDER LEADERBOARD TABLES   ***
+// *************************************
+
 /**
  * Render a leaderboard table for the top N athletes into given container
  * @param {Map} athleteMap - Map of athletes with totals and activities
@@ -316,10 +321,11 @@ function renderLeaderboardSection(athleteMap, sortKey, containerId, title, btnId
       <tbody>
   `;
 
+  // Leaderboard ROWS
   topN.forEach((entry, idx) => {
     const profile = (window.athleteProfiles || {})[entry.athlete] || {};
     const fullName = profile.fullName || entry.athlete;
-    const stravaImg = profile.stravaImg || './images/default-avatar.png';
+    const avatar = `./images/avatars/${profile.localImg}`;
     const val = entry.totals[sortKey];
     html += `
       <tr>
@@ -328,7 +334,7 @@ function renderLeaderboardSection(athleteMap, sortKey, containerId, title, btnId
         }</th>
         <td class="has-text-left">
           <div class="is-flex is-align-items-center">
-            ${stravaImg ? `<figure class="image is-24x24 mr-2"><img class="is-rounded" src="${stravaImg}" alt="${fullName}" crossorigin="anonymous" onerror="this.src='./images/cors-avatar.png'"></figure>` : ''}
+            ${avatar ? `<figure class="image is-24x24 mr-2"><img class="is-rounded" src="${avatar}" alt="${fullName}" crossorigin="anonymous" onerror="this.src='./images/default-avatar.png'"></figure>` : ''}
             <p>${fullName}</p>
           </div>
         </td>
@@ -413,6 +419,10 @@ function buildClubMap(activities, athleteProfiles, communities) {
   return clubMap;
 }
 
+// **********************************
+// ***   RENDER CLUBS MAP TABLE   ***
+// **********************************
+
 function renderClubLeaderboard(clubMap) {
   const container = document.getElementById('communitiesLB');
   if (!container) {
@@ -442,6 +452,7 @@ function renderClubLeaderboard(clubMap) {
       <tbody>
   `;
 
+  // Community Leaderboard ROWS
   clubsArray.forEach((club, idx) => {
     html += `
       <tr>
@@ -536,6 +547,7 @@ function renderNonQualifiedAthletesTable(nonQualifiedMap, athleteProfiles = wind
     const stravaImg = profile?.stravaImg || './images/default-avatar.png';
     const nameClass = profile?.stravaId ? 'has-text-dark' : 'has-text-danger';
 
+    // Non-Qualified Athletes ROWS
     const row = document.createElement('tr');
     row.innerHTML = `
       <th>${idx}</th>

@@ -1408,7 +1408,7 @@ window.athleteProfiles = {
     stravaId: 120698386,
     fullName: 'Gabi Sleeman',
     localImg: '',
-    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/120698386/39029972/1/medium.jpg',
+    stravaImg: 'https://dgalywyr863hv.cloudfront.net/pictures/athletes/120698386/39029972/2/medium.jpg',
     city: 'Grand Rapids, Michigan',
     country: 'United States',
     clubs: [],

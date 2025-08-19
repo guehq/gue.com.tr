@@ -1,11 +1,11 @@
 // Generalized leaderboard download buttons
 const leaderboardButtons = [
-  { btnId: 'downloadDurationLBBtn', sectionId: 'durationLB', fileName: 'Duration_leaderboard.jpg' },
-  { btnId: 'downloadDistanceLBBtn', sectionId: 'distanceLB', fileName: 'Distance_leaderboard.jpg' },
-  { btnId: 'downloadElevationLBBtn', sectionId: 'elevationLB', fileName: 'Elevation_leaderboard.jpg' },
-  { btnId: 'downloadActivitiesLBBtn', sectionId: 'activitiesLB', fileName: 'Activities_leaderboard.jpg' },
-  { btnId: 'downloadMetScoreLBBtn', sectionId: 'metScoreLB', fileName: 'MET_Score_leaderboard.jpg' },
-  { btnId: 'downloadCommunityLBBtn', sectionId: 'communitiesLB', fileName: 'Communities_leaderboard.jpg' },
+  { btnId: 'downloadDurationLBBtn', sectionId: 'durationLB', fileName: '01_Duration_leaderboard' },
+  { btnId: 'downloadDistanceLBBtn', sectionId: 'distanceLB', fileName: '02_Distance_leaderboard' },
+  { btnId: 'downloadElevationLBBtn', sectionId: 'elevationLB', fileName: '03_Elevation_leaderboard' },
+  { btnId: 'downloadActivitiesLBBtn', sectionId: 'activitiesLB', fileName: '04_Activities_leaderboard' },
+  { btnId: 'downloadMetScoreLBBtn', sectionId: 'metScoreLB', fileName: '05_MET_Score_leaderboard' },
+  { btnId: 'downloadCommunityLBBtn', sectionId: 'communitiesLB', fileName: '06_Communities_leaderboard' },
 ];
 
 leaderboardButtons.forEach(({ btnId, sectionId, fileName }) => {
@@ -13,7 +13,8 @@ leaderboardButtons.forEach(({ btnId, sectionId, fileName }) => {
   const section = document.getElementById(sectionId);
   button?.addEventListener('click', () => {
     if (!section) return console.warn(`Section ${sectionId} not found.`);
-    downloadLeaderboardAsJPG(sectionId, fileName);
+    const today = new Date().toISOString().split('T')[0];
+    downloadLeaderboardAsJPG(sectionId, `${fileName}_${today}.jpg`);
   });
 });
 

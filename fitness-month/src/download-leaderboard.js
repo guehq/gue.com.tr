@@ -8,27 +8,38 @@ const leaderboardButtons = [
   { btnId: 'downloadCommunityLBBtn', sectionId: 'communitiesLB', fileName: '06_Communities_leaderboard' },
 ];
 
-leaderboardButtons.forEach(({ btnId, sectionId, fileName }) => {
+leaderboardButtons.forEach(({ btnId, sectionId }) => {
   const button = document.getElementById(btnId);
   const section = document.getElementById(sectionId);
   button?.addEventListener('click', () => {
     if (!section) return console.warn(`Section ${sectionId} not found.`);
-    const today = new Date().toISOString().split('T')[0];
-    downloadLeaderboardAsJPG(sectionId, `${fileName}_${today}.jpg`);
+    downloadLeaderboardAsJPG(sectionId);
   });
 });
 
 /**
  * Download a leaderboard table as a JPG image
  * @param {string} containerId - The DOM element id containing the leaderboard/table
- * @param {string} filename - Optional. Filename for download (default: 'leaderboard.jpg')
  */
-function downloadLeaderboardAsJPG(containerId, filename = 'leaderboard.jpg') {
+function downloadLeaderboardAsJPG(containerId) {
+  const filenameMap = {
+    durationLB: '01_Duration_Leaderboard',
+    distanceLB: '02_Distance_Leaderboard',
+    elevationLB: '03_Elevation_Leaderboard',
+    activitiesLB: '04_Activities_Leaderboard',
+    metScoreLB: '05_MET_Score_Leaderboard',
+    communitiesLB: '06_Communities_Leaderboard',
+  };
+
   const node = document.getElementById(containerId);
   if (!node) {
     console.warn(`Container #${containerId} not found for download`);
     return;
   }
+
+  const today = new Date().toISOString().split('T')[0];
+  const baseName = filenameMap[containerId] || 'leaderboard';
+  const filename = `${baseName}_${today}.jpg`;
 
   // Clone node to apply scaling without affecting DOM
   const clone = node.cloneNode(true);

@@ -65,15 +65,20 @@ function downloadLeaderboardAsJPG(containerId, filename = 'leaderboard.jpg') {
   });
 
   // Add GUE logo at the bottom center
-  const logo = document.createElement('img');
-  logo.src = './images/Logo-gue-long-black.png';
-  logo.style.display = 'block';
-  logo.style.margin = '3rem auto 0';
-  logo.style.width = '500px';
-  logo.style.height = 'auto';
-  logo.style.opacity = '0.2';
-  logo.style.imageRendering = 'crisp-edges';
-  clone.appendChild(logo);
+  // const logo = document.createElement('img');
+  // logo.src = './images/Logo-gue-long-black.png';
+  // logo.style.display = 'block';
+  // logo.style.margin = '3rem auto 0';
+  // logo.style.width = '500px';
+  // logo.style.height = 'auto';
+  // logo.style.opacity = '0.2';
+  // logo.style.imageRendering = 'crisp-edges';
+  // clone.appendChild(logo);
+
+  // TABLE FOOTER STYLE
+  clone.querySelectorAll('tfoot').forEach(tfoot => {
+    tfoot.style.display = 'table-footer-group';
+  });
 
   domtoimage.toJpeg(clone, {
     quality: 1,

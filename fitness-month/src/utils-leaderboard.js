@@ -337,7 +337,22 @@ function renderLeaderboardSection(athleteMap, sortKey, containerId, title, btnId
     `;
   });
 
-  html += `</tbody></table>`;
+  html += `</tbody>`;
+  html += `
+    <tfoot style="display: none; opacity: .5">
+      <tr style="height: 300px;">
+        <td colspan="2" style="border: none">
+          <em style="font-size: 3rem;">#gueFitnessMonth</em>
+          <em style="font-size: 3rem;">#fitForPurpose</em>
+          <em style="font-size: 3rem;">#fitnessForDivers</em>
+        </td>
+        <td style="border: none; padding-top: 1rem;">
+          <img src="./images/GUE-logo_new.png" alt="GUE" style="width: 100px;">
+        </td>
+      </tr>
+    </tfoot>
+  `;
+  html += `</table>`;
   container.innerHTML = html;
 }
 

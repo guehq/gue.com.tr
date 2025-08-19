@@ -213,7 +213,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const requireDailyStreakInput = document.getElementById('requireDailyStreakInput');
 
   if (startDateInput) startDateInput.value = DEFAULT_START_DATE;
-  if (endDateInput) endDateInput.value = yesterdayStr;
+  if (endDateInput) {
+    const today = new Date();
+    const defaultEndDateObj = new Date(DEFAULT_END_DATE);
+    if (today > defaultEndDateObj) {
+      endDateInput.value = DEFAULT_END_DATE;
+    } else {
+      endDateInput.value = yesterdayStr;
+    }
+  }
   if (minDurationInput) minDurationInput.value = DEFAULT_MIN_DURATION;
   if (requireDailyStreakInput) requireDailyStreakInput.checked = true;
 
@@ -277,7 +285,15 @@ function resetFilters() {
   const requireDailyStreakInput = document.getElementById('requireDailyStreakInput');
 
   if (startDateInput) startDateInput.value = DEFAULT_START_DATE;
-  if (endDateInput) endDateInput.value = yesterdayStr;
+  if (endDateInput) {
+    const today = new Date();
+    const defaultEndDateObj = new Date(DEFAULT_END_DATE);
+    if (today > defaultEndDateObj) {
+      endDateInput.value = DEFAULT_END_DATE;
+    } else {
+      endDateInput.value = yesterdayStr;
+    }
+  }
   if (minDurationInput) minDurationInput.value = DEFAULT_MIN_DURATION;
   if (requireDailyStreakInput) requireDailyStreakInput.checked = true;
 }

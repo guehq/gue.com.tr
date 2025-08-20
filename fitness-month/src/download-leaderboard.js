@@ -57,6 +57,9 @@ function downloadLeaderboardAsJPG(containerId) {
   clone.querySelectorAll('table').forEach(table => {
     table.style.marginTop = '4rem';
   });
+  clone.querySelectorAll('td').forEach(table => {
+    table.style.minWidth = '400px';
+  });
 
   // AVATAR IMAGES
   clone.querySelectorAll('img').forEach(img => {
@@ -95,7 +98,7 @@ function downloadLeaderboardAsJPG(containerId) {
   domtoimage.toJpeg(clone, {
     quality: 1,
     pixelRatio: 3,
-    bgcolor: '#ffffff',
+    // bgcolor: '#ffffff',
     filter: (el) => !(el.classList && el.classList.contains('no-export'))
   })
     .then((dataUrl) => {

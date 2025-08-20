@@ -151,8 +151,8 @@ function populateTable(data, athleteFilter = '', startDate = '', endDate = '', s
       tr.innerHTML = `
         <td class="has-text-right">${index + 1}</td>
         <td class="has-text-center">${activityDateStr ? new Date(activityDateStr).toLocaleDateString() : ''}</td>
-        <td style="display: flex; align-items: center; gap: 10px; vertical-align: middle;">
-          <img src="${imgSrc}" alt="${fullName}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 40px; border-radius: 50%; margin: 0 auto;">
+        <td>
+          <img src="${imgSrc}" alt="${fullName}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 64px; border-radius: 50%; margin: 0 auto;">
         </td>
         <td>${fullName}</td>
         <td>${row['Activity'] || ''} ${activityStravaId ? `<a href="https://www.strava.com/activities/${activityStravaId}" target="_blank" rel="noopener noreferrer" title="View on Strava"><i class="fab fa-strava ml-3" style="color: #fc4c02;"></i></a>` : ''}</td>

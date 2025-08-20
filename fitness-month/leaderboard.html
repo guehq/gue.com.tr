@@ -222,12 +222,12 @@
 	<div class="container is-max-widescreen">
 		<main class="mt-5">
       <div class="columns is-multiline is-tablet">
-				<div id="durationLB" class="column is-one-third mb-5"></div>
-				<div id="distanceLB" class="column is-one-third mb-5"></div>
-				<div id="elevationLB" class="column is-one-third mb-5"></div>
-				<div id="activitiesLB" class="column is-one-third mb-5"></div>
-				<div id="metScoreLB" class="column is-one-third mb-5"></div>
-				<div id="communitiesLB" class="column is-two-thirds mb-5"></div>
+				<div id="durationLB" class="column is-one-third mb-5 has-background-info"></div>
+				<div id="distanceLB" class="column is-one-third mb-5 has-background-success"></div>
+				<div id="elevationLB" class="column is-one-third mb-5 has-background-warning"></div>
+				<div id="activitiesLB" class="column is-one-third mb-5 has-background-danger"></div>
+				<div id="metScoreLB" class="column is-one-third mb-5 has-background-dark"></div>
+				<div id="communitiesLB" class="column is-two-thirds table-container mb-5"></div>
 				<div class="column is-one-third pt-6 mb-6">
 					<div class="notification is-info is-light mt-4">
 						<p><strong>Community Leaderboard</strong> is sorted by <strong>total MET score</strong> and includes only active members who have at least one valid activity within the selected date range.</p>
@@ -240,22 +240,24 @@
 					<h2 class="title is-4">🏅 
 						<abbr title="All qualified athletes sort by athlete name">Qualified Athletes</abbr>
 					</h2>
-					<table id="qualifiedAthletesTable" class="table is-striped is-hoverable is-fullwidth is-narrow">
-						<thead>
-							<tr>
-								<th></th>
-								<th class="has-text-left" onclick="sortTableByColumn('qualifiedAthletesTable', 0)">Athlete</th>
-								<th class="has-text-right" onclick="sortTableByColumn('qualifiedAthletesTable', 1)">Activities</th>
-								<th class="has-text-right" onclick="sortTableByColumn('qualifiedAthletesTable', 2)">Duration</th>
-								<th class="has-text-right" onclick="sortTableByColumn('qualifiedAthletesTable', 3)">Distance</th>
-								<th class="has-text-right" onclick="sortTableByColumn('qualifiedAthletesTable', 4)">Elevation</th>
-								<th class="has-text-right" onclick="sortTableByColumn('qualifiedAthletesTable', 5)">MET</th>
-							</tr>
-						</thead>
-						<tbody id="qualifiedAthletesTableBody">
-							<!-- Rows will be dynamically added here -->
-						</tbody>
-					</table>
+					<div class="table-container">
+						<table id="qualifiedAthletesTable" class="table is-striped is-hoverable is-fullwidth is-narrow">
+							<thead>
+								<tr>
+									<th></th>
+									<th class="has-text-left" onclick="sortTableByColumn('qualifiedAthletesTable', 0)">Athlete</th>
+									<th class="has-text-right" onclick="sortTableByColumn('qualifiedAthletesTable', 1)">Activities</th>
+									<th class="has-text-right" onclick="sortTableByColumn('qualifiedAthletesTable', 2)">Duration</th>
+									<th class="has-text-right" onclick="sortTableByColumn('qualifiedAthletesTable', 3)">Distance</th>
+									<th class="has-text-right" onclick="sortTableByColumn('qualifiedAthletesTable', 4)">Elevation</th>
+									<th class="has-text-right" onclick="sortTableByColumn('qualifiedAthletesTable', 5)">MET</th>
+								</tr>
+							</thead>
+							<tbody id="qualifiedAthletesTableBody">
+								<!-- Rows will be dynamically added here -->
+							</tbody>
+						</table>
+					</div>
 				</div>
 
 
@@ -264,22 +266,24 @@
 					<h2 class="title is-4">🙅🏻‍♂️ 
 						<abbr title="All non-qualified athletes sort by activity count">Non-Qualified Athletes</abbr>
 					</h2>
-					<table id="nonQualifiedAthletesTable" class="table is-striped is-hoverable is-fullwidth is-narrow">
-						<thead>
-							<tr>
-								<th></th>
-								<th class="has-text-left" onclick="sortTableByColumn('nonQualifiedAthletesTable', 0)">Athlete</th>
-								<th class="has-text-right" onclick="sortTableByColumn('nonQualifiedAthletesTable', 1)">Activities</th>
-								<th class="has-text-right" onclick="sortTableByColumn('nonQualifiedAthletesTable', 2)">Duration</th>
-								<th class="has-text-right" onclick="sortTableByColumn('nonQualifiedAthletesTable', 3)">Distance</th>
-								<th class="has-text-right" onclick="sortTableByColumn('nonQualifiedAthletesTable', 4)">Elevation</th>
-								<th class="has-text-right" onclick="sortTableByColumn('nonQualifiedAthletesTable', 5)">MET</th>
-							</tr>
-						</thead>
-						<tbody id="nonQualifiedAthletesTableBody">
-							<!-- Rows will be dynamically added here -->
-						</tbody>
-					</table>
+					<div class="table-container">
+						<table id="nonQualifiedAthletesTable" class="table is-striped is-hoverable is-fullwidth is-narrow">
+							<thead>
+								<tr>
+									<th></th>
+									<th class="has-text-left" onclick="sortTableByColumn('nonQualifiedAthletesTable', 0)">Athlete</th>
+									<th class="has-text-right" onclick="sortTableByColumn('nonQualifiedAthletesTable', 1)">Activities</th>
+									<th class="has-text-right" onclick="sortTableByColumn('nonQualifiedAthletesTable', 2)">Duration</th>
+									<th class="has-text-right" onclick="sortTableByColumn('nonQualifiedAthletesTable', 3)">Distance</th>
+									<th class="has-text-right" onclick="sortTableByColumn('nonQualifiedAthletesTable', 4)">Elevation</th>
+									<th class="has-text-right" onclick="sortTableByColumn('nonQualifiedAthletesTable', 5)">MET</th>
+								</tr>
+							</thead>
+							<tbody id="nonQualifiedAthletesTableBody">
+								<!-- Rows will be dynamically added here -->
+							</tbody>
+						</table>
+					</div>
 				</div>
 
 			</div>

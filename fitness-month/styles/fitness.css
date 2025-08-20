@@ -45,6 +45,10 @@ table.table td {
 
 
 /* LEADERBOARD */
+#metScoreLB.has-background-dark .title {
+  color: aliceblue;
+}
+
 .tooltip-container {
   position: relative;
   display: inline-block;
@@ -68,14 +72,14 @@ table.table td {
   max-height: 1000px;
 }
 
+.tooltip-container:hover table.table {
+  font-size: .6em;
+}
+
 .has-width-250 {
   width: 250px;
 }
 
 .has-width-750 {
   width: 750px;
-}
-
-.tooltip-container:hover table.table {
-  font-size: .6em;
 }

@@ -338,7 +338,7 @@ function renderLeaderboardSection(athleteMap, sortKey, containerId, title, btnId
             <p>${fullName}</p>
           </div>
         </td>
-        <td class="has-text-right">${formatNumber(val, sortKey)}</td>
+        <td class="has-text-right" style="min-width: 70px;">${formatNumber(val, sortKey)}</td>
       </tr>
     `;
   });

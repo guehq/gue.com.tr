@@ -105,23 +105,25 @@
 				</span>
 			</p>
 			
-			<table id="apiDataTable" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Athlete</th>
-            <th><abbr title="Activity Name">Activity</abbr></th>
-            <th><abbr title="Sport Type">Type</abbr></th>
-            <th><abbr title="Moving Time">Duration</abbr></th>
-            <th>Distance</th>
-            <th><abbr title="Total Elevation Gain">Elevation</abbr></th>
-            <!-- <th>elapsed_time</th> -->
-            <!-- <th>type</th> -->
-            <!-- <th>workout_type</th> -->
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+			<div class="table-container">
+				<table id="apiDataTable" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>Athlete</th>
+							<th><abbr title="Activity Name">Activity</abbr></th>
+							<th><abbr title="Sport Type">Type</abbr></th>
+							<th><abbr title="Moving Time">Duration</abbr></th>
+							<th>Distance</th>
+							<th><abbr title="Total Elevation Gain">Elevation</abbr></th>
+							<!-- <th>elapsed_time</th> -->
+							<!-- <th>type</th> -->
+							<!-- <th>workout_type</th> -->
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
 
 			<div id="noResultsAnimation" style="display: none; text-align: center; margin-top: 2rem;">
 				<dotlottie-player
@@ -141,15 +143,17 @@
 					<span class="subtitle ml-1">(Debug View)</span>
 				</p>
 				
-				<table id="rawDataTable" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-					<thead>
-						<tr>
-							<th>No</th>
-							<th>Data</th>
-						</tr>
-					</thead>
-					<tbody></tbody>
-				</table>
+				<div class="table-container">
+					<table id="rawDataTable" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+						<thead>
+							<tr>
+								<th>No</th>
+								<th>Data</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
 			</section>
 
 		</main>

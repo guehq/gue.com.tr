@@ -2704,7 +2704,7 @@ window.athleteProfiles = {
     stravaId: 179340884,
     fullName: 'Nicole Alarid',
     localImg: '',
-    stravaImg: 'https://lh3.googleusercontent.com/a/ACg8ocI6uN0h5OEf1DqeOBYSwSQtnj_Kk9j87mBoUy851jA6me2COBIo=s96-c',
+    stravaImg: 'https://graph.facebook.com/10224765636473305/picture?height=256&width=256',
     city: 'Alachua, Florida',
     country: 'United States',
     clubs: [],

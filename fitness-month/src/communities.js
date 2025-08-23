@@ -29,11 +29,11 @@ document.addEventListener('DOMContentLoaded', function () {
           : `<span>${community.name}</span>`
         }
       </td>
-      <td style="width: 200px;">
+      <td>
         ${community.contactPerson.name || ''}
-        ${community.contactPerson.email ? `<br><a href="mailto:${community.contactPerson.email}">${community.contactPerson.email}</a>` : ''}
+        ${community.contactPerson.email ? `<a href="mailto:${community.contactPerson.email}" class="has-text-info">[${community.contactPerson.email}]</a>` : ''}
       </td>
-      <td style="width: 100px;">${community.country || ''}</td>
+      <td>${community.country || ''}</td>
     `;
 
     communitiesListContainer.appendChild(communityRow);

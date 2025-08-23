@@ -120,6 +120,7 @@ export function standardizeActivities(rawActivities) {
       distance,
       elevation,
       met,
+      notes: (activity['Notes'] || '').trim(),
       stravaID: (activity['Activity Strava ID'] || '').trim()
     };
   });

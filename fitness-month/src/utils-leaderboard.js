@@ -165,12 +165,22 @@ function renderAthleteMapTable(athleteMap, athleteProfiles = window.athleteProfi
                     <tr>
                       <th class="has-text-right">${index + 1}</th>
                       <td class="has-text-centered">${act.date || ''}</td>
-                      <td class="has-text-left">${act.activityName || ''}</td>
+                      <td class="has-text-left">
+                        ${act.stravaID
+                          ? `<a href="https://www.strava.com/activities/${act.stravaID}" target="_blank" rel="noopener noreferrer" class="has-text-dark"><i class="fab fa-strava mr-1" style="color: orangered;"></i>${act.activityName || ''}</a>` 
+                          : (act.activityName || '')
+                        }
+                        ${act.notes !== '' 
+                          ? `<i class="fas fa-flag has-text-warning ml-1" title="${act.notes}"></i>` 
+                          : ''
+                        }
+                      </td>
                       <td class="has-text-right">${formatDuration(act.duration)}</td>
                       <td class="has-text-right">${act.distance.toFixed(2) || 0} km</td>
                       <td class="has-text-right">${act.elevation.toFixed(1) || 0} m</td>
                       <td class="has-text-right">${act.met?.toFixed(1) || 0}</td>
-                    </tr>`).join('')}
+                    </tr>
+                  `).join('')}
                 </tbody>
               </table>
             </div>
@@ -361,6 +371,10 @@ function renderLeaderboardSection(athleteMap, sortKey, containerId, title, btnId
   html += `</table>`;
   container.innerHTML = html;
 }
+
+// *********************************
+// ***   BUILD CLUBS MAP TABLE   ***
+// *********************************
 
 function buildClubMap(activities, athleteProfiles, communities) {
   const clubMap = {};
@@ -574,7 +588,16 @@ function renderNonQualifiedAthletesTable(nonQualifiedMap, athleteProfiles = wind
                     <tr>
                       <th class="has-text-right">${index + 1}</th>
                       <td class="has-text-centered">${act.date || ''}</td>
-                      <td class="has-text-left">${act.activityName || ''}</td>
+                      <td class="has-text-left">
+                        ${act.stravaID
+                          ? `<a href="https://www.strava.com/activities/${act.stravaID}" target="_blank" rel="noopener noreferrer" class="has-text-dark"><i class="fab fa-strava mr-1" style="color: orangered;"></i>${act.activityName || ''}</a>` 
+                          : (act.activityName || '')
+                        }
+                        ${act.notes !== '' 
+                          ? `<i class="fas fa-flag has-text-warning ml-1" title="${act.notes}"></i>` 
+                          : ''
+                        }
+                      </td>
                       <td class="has-text-right">${formatDuration(act.duration)}</td>
                       <td class="has-text-right">${act.distance?.toFixed(2) || 0} km</td>
                       <td class="has-text-right">${act.elevation?.toFixed(1) || 0} m</td>

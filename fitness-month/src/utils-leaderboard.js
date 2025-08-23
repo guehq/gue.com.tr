@@ -152,12 +152,12 @@ function renderAthleteMapTable(athleteMap, athleteProfiles = window.athleteProfi
                 <thead>
                   <tr>
                     <th></th>
-                    <th class="has-text-centered">Date</th>
+                    <th class="has-text-centered" style="width: 70px;">Date</th>
                     <th class="has-text-left">Activity</th>
-                    <th class="has-text-right">Dur.</th>
-                    <th class="has-text-right">Dist.</th>
-                    <th class="has-text-right">Elev.</th>
-                    <th class="has-text-right">MET</th>
+                    <th class="has-text-right" style="width: 60px;">Dur.</th>
+                    <th class="has-text-right" style="width: 60px;">Dist.</th>
+                    <th class="has-text-right" style="width: 60px;">Elev.</th>
+                    <th class="has-text-right" style="width: 60px;">MET</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -575,12 +575,12 @@ function renderNonQualifiedAthletesTable(nonQualifiedMap, athleteProfiles = wind
                 <thead>
                   <tr>
                     <th></th>
-                    <th class="has-text-centered">Date</th>
+                    <th class="has-text-centered" style="width: 70px;">Date</th>
                     <th class="has-text-left">Activity</th>
-                    <th class="has-text-right">Dur.</th>
-                    <th class="has-text-right">Dist.</th>
-                    <th class="has-text-right">Elev.</th>
-                    <th class="has-text-right">MET</th>
+                    <th class="has-text-right" style="width: 60px;">Dur.</th>
+                    <th class="has-text-right" style="width: 60px;">Dist.</th>
+                    <th class="has-text-right" style="width: 60px;">Elev.</th>
+                    <th class="has-text-right" style="width: 60px;">MET</th>
                   </tr>
                 </thead>
                 <tbody>

@@ -142,20 +142,28 @@ function populateTable(data, athleteFilter = '', startDate = '', endDate = '', s
 
       // Extract Activity Strava ID and create activity link icon if available
       const activityStravaId = row['Activity Strava ID'];
-      const activityLinkIcon = activityStravaId
-        ? `<a href="https://www.strava.com/activities/${activityStravaId}" target="_blank" rel="noopener noreferrer" title="View on Strava" style="margin-right: 5px;">🔗</a>`
-        : '';
+
+      let activityName = row['Activity'] || '';
+      if (row['is Activity Valid'] && row['is Activity Valid'].toLowerCase() === 'suspicious') {
+        activityName += ` <div class="has-text-danger is-inline" title="${row['Notes'] || 'Suspicious Activity'}"><i class="fas fa-flag mx-2"></i><small class="is-size-7">suspicious</small></div>`;
+      }
 
       const activityDateStr = row['Real Date on Strava'] || row['Estimated Activity Start DateTime'];
 
       tr.innerHTML = `
-        <td class="has-text-right">${index + 1}</td>
+        <th class="has-text-right">${index + 1}</th>
         <td class="has-text-center">${activityDateStr ? new Date(activityDateStr).toLocaleDateString() : ''}</td>
         <td>
-          <img src="${imgSrc}" alt="${fullName}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 64px; border-radius: 50%; margin: 0 auto;">
+          <figure class="image is-24x24 mr-2">
+            <img src="${imgSrc}" alt="${fullName}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 64px; border-radius: 50%; margin: 0 auto;">
+          </figure>
         </td>
         <td>${fullName}</td>
-        <td>${row['Activity'] || ''} ${activityStravaId ? `<a href="https://www.strava.com/activities/${activityStravaId}" target="_blank" rel="noopener noreferrer" title="View on Strava"><i class="fab fa-strava ml-3" style="color: #fc4c02;"></i></a>` : ''}</td>
+        <td>${
+          activityStravaId
+            ? `<a href="https://www.strava.com/activities/${activityStravaId}" target="_blank" rel="noopener noreferrer" class="has-text-info" title="View on Strava"><i class="fab fa-strava mr-1" style="color: #fc4c02;"></i> ${activityName}</a>`
+            : `${activityName}`
+        }</td>
         <td class="has-text-right">${formatMinutesToHHMMSS(row['Duration'])}</td>
         <td class="has-text-right">${row['distance in K'] || ''}</td>
         <td class="has-text-right">${row['total elevation gain'] || ''}</td>

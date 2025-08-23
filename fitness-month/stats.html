@@ -29,12 +29,12 @@
 	
 		<div id="navbarExampleTransparentExample" class="navbar-menu">
 			<div class="navbar-start">
-				<a class="navbar-item" href="./index.html">Home</a>
-				<a class="navbar-item" href="./activities.html">Activities</a>
-				<a class="navbar-item" href="./members.html">Members</a>
-				<a class="navbar-item" href="./communities.html">Communities</a>
-				<a class="navbar-item" href="./leaderboard.html">🏆 Leaderboards</a>
-				<a class="navbar-item has-text-link" href="./stats.html">Stats</a>
+				<a class="navbar-item" href="./index.html"><i class="fa-solid fa-house has-text-light"></i> Home</a>
+				<a class="navbar-item" href="./activities.html"><i class="fa-solid fa-person-walking has-text-info"></i> Activities</a>
+				<a class="navbar-item" href="./members.html"><i class="fa-regular fa-id-card has-text-success"></i> Members</a>
+				<a class="navbar-item" href="./communities.html"><i class="fa-solid fa-people-group has-text-light"></i> Communities</a>
+				<a class="navbar-item" href="./leaderboard.html"><i class="fa-solid fa-trophy has-text-warning"></i> Leaderboards</a>
+				<a class="navbar-item has-background-black" href="./stats.html"><i class="fa-solid fa-chart-simple has-text-link"></i> Stats</a>
 				<a class="navbar-item" href="./strava-activity-api.html" disabled><i class="fab fa-strava" style="color: #fc4c02;"></i> Recent Activities</a>
 			</div>
 	
@@ -92,23 +92,7 @@
 		<div class="hero-body">
 			<img src="./images/GUE_community.png" alt="GUE Community Logo" style="float: left; width: 90px; margin-right: 2em;">
 			<p class="title">Stats</p>
-			<p class="subtitle">
-				Strava Club - Global Underwater Explorers (GUE)
-				<a
-					class="bd-tw-button button is-small"
-					data-social-network="Strava"
-					data-social-action="strava"
-					data-social-target="https://www.strava.com/clubs/960343/leaderboard"
-					target="_blank"
-					href="https://www.strava.com/clubs/960343/leaderboard"
-					style="background-color: orangered; color: white;"
-					>
-					<span class="icon">
-						<i class="fab fa-strava"></i>
-					</span>
-					<span>Strava</span>
-				</a>
-			</p>
+			<p class="subtitle">Strava Club - Global Underwater Explorers (GUE)</p>
 		</div>
 	</section>
 
@@ -159,32 +143,7 @@
 					</div>
 				</div>
 
-				<!-- <div class="field" style="width: 120px;">
-					<div class="field-label is-small has-text-left ml-1">
-						<label class="label">Max Rank:</label>
-					</div>
-					<div class="field-body">
-						<div class="field">
-							<p class="control has-icons-left">
-								<input class="input" type="number" id="maxRankInput" min="1" />
-								<span class="icon is-small is-left">
-									<i class="fas fa-user"></i>
-								</span>
-							</p>
-						</div>
-					</div>
-				</div> -->
-
-				<label class="checkbox mt-5 pt-2">
-					<input type="checkbox" id="requireDailyStreakInput" checked />
-					Require Daily Streak
-				</label>
-
 				<div class="field is-grouped is-justify-content-center mt-4 pt-1">
-					<div class="control">
-						<button id="applyFiltersBtn" class="button is-info" disabled>Filter</button>
-					</div>
-					
 					<div class="control">
 						<button id="resetFiltersBtn" class="button is-warning">Reset</button>
 					</div>
@@ -230,6 +189,7 @@
 					<div class="notification is-info is-light has-text-centered">
 						<p class="title is-4">Longest Activity</p>
 						<p class="subtitle is-6">by Duration</p>
+						<div id="longestActivityDuration" class="box"></div>
 					</div>
 				</div>
 
@@ -237,6 +197,7 @@
 					<div class="notification is-success is-light has-text-centered">
 						<p class="title is-4">Longest Activity</p>
 						<p class="subtitle is-6">by Distance</p>
+						<div id="longestActivityDistance" class="box"></div>
 					</div>
 				</div>
 
@@ -244,6 +205,7 @@
 					<div class="notification is-warning is-light has-text-centered">
 						<p class="title is-4">Highest Elevation</p>
 						<p class="subtitle is-6">in One Activity</p>
+						<div id="highestElevationActivity" class="box"></div>
 					</div>
 				</div>
 
@@ -251,6 +213,7 @@
 					<div class="notification is-danger is-light has-text-centered">
 						<p class="title is-4">Max Activities</p>
 						<p class="subtitle is-6">in a Day</p>
+						<div id="mostActivitiesDay" class="box"></div>
 					</div>
 				</div>
 
@@ -327,10 +290,8 @@
 	<script src="./src/main.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 	<script src="./src/config.js"></script>
-	<script src="./src/data-community.js"></script>
 	<script src="./src/data-athlete.js"></script>
-	<script type="module" src="./src/main-leaderboard.js"></script>
-	<script src="./src/download-leaderboard.js"></script>
+	<script src="./src/stats.js" defer></script>
 
 </body>
 </html>

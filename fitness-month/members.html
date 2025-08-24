@@ -33,7 +33,7 @@
 				<a class="navbar-item" href="./communities.html"><i class="fa-solid fa-people-group has-text-light"></i> Communities</a>
 				<a class="navbar-item" href="./leaderboard.html"><i class="fa-solid fa-trophy has-text-warning"></i> Leaderboards</a>
 				<a class="navbar-item" href="./stats.html"><i class="fa-solid fa-chart-simple has-text-link"></i> Stats</a>
-				<a class="navbar-item" href="./strava-activity-api.html" disabled><i class="fab fa-strava" style="color: #fc4c02;"></i> Recent Activities</a>
+				<a class="navbar-item" href="./strava-api-activities.html" disabled><i class="fab fa-strava" style="color: #fc4c02;"></i> Recent Activities</a>
 			</div>
 		</div>
 	</nav>
@@ -70,6 +70,7 @@
 				<li>To enhance your experience, I created a mapping file: <strong>when a match is found</strong>, the athlete’s <strong>full name, profile picture and location information</strong> are shown here. If no match exists, you will see the original limited information from Strava.</li>
 				<li><strong>Important:</strong> If an athlete changes their name or profile information on Strava, and we do not have the updated data, the display may become outdated. We can only update information if we recognize and match it again.</li>
 				<li>Additionally, you can see the current <strong>total number of members</strong> displayed next to the title above. This allows you to easily compare it with the member count shown on the official <a href="https://www.strava.com/clubs/960343/members" target="_blank">Strava club page</a>.</li>
+				<li><strong>Note:</strong> Do not forget to check "<a href="#athleteMappingNotice">Athlete Mapping Notice</a>" table below.</li>
 			</ul>
 		</div>
 	</div>
@@ -143,7 +144,7 @@
 		</main>
 	</div>
 
-	<div class="notification is-danger is-light">
+	<div id="athleteMappingNotice" class="notification is-danger is-light">
 		<div class="container is-max-widescreen">
 			<div class="content is-normal">
 				<p><strong>⚠️ Athlete Name Mapping Notice</strong></p>
@@ -316,7 +317,7 @@
 	<script src="./src/config.js"></script>
 	<script src="./src/data-athlete.js"></script>
 	<script src="./src/members.js"></script>
-	<script src="./src/strava-member-api.js"></script>
+	<script src="./src/strava-api-members.js"></script>
 
 </body>
 </html>

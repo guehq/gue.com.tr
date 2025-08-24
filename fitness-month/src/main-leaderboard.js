@@ -1,5 +1,5 @@
 // 3. Filtering Step
-// ✔ Likely in main-leaderboard.js (or helper in utils-activity.js)
+// ✔ Likely in main-leaderboard.js (or helper in utils-valid-activities.js)
 // ✅ Filtering Rules:
 // 	•	duration >= minDuration
 // 	•	Date between startDate and endDate
@@ -13,7 +13,7 @@ import {
 
 import { 
   validateRawActivities 
-} from './utils-activity.js';
+} from './utils-valid-activities.js';
 
 import {
   buildAthleteMap,

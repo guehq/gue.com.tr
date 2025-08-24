@@ -1,5 +1,5 @@
 // 1. Validation Step
-// ✔ Done in utils-activity.js
+// ✔ Done in utils-valid-activities.js
 // ✅ Validation Rules:
 // 	•	isValidActivity !== 'false'
 // 	•	Not a duplicate (based on Activity ID)

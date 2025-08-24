@@ -6,11 +6,9 @@
 	<meta name="author" content="Nevcan Uludas">
   <title>GUE Fitness Challenge - Strava Club Visualizer</title>
   <!-- Styles -->
-  <link rel="stylesheet" href="./styles/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="./styles/fitness.css">
-	<!-- Scripts -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
 </head>
 
 <body class="m-0">
@@ -225,7 +223,7 @@
 				<div class="column is-3">
 					<div class="notification is-info has-text-centered">
 						<p class="title is-4">🕑 Total Duration</p>
-						<p class="title is-2">85 Days</p>
+						<p id="totalDuration" class="title is-2">0 Days!</p>
 						<p class="title is-6">Fun Fact: This is equivalent to 2,040 hours!</p>
 					</div>
 				</div>
@@ -233,7 +231,7 @@
 				<div class="column is-3">
 					<div class="notification is-success has-text-centered">
 						<p class="title is-4">🚗 Total Distance</p>
-						<p class="title is-2">14,738 KM</p>
+						<p id="totalDistance" class="title is-2">0 KM</p>
 						<p class="title is-6">Fun Fact: This is equivalent to driving from New York to Los Angeles!</p>
 					</div>
 				</div>
@@ -241,7 +239,7 @@
 				<div class="column is-3">
 					<div class="notification is-warning has-text-centered">
 						<p class="title is-4">🏔️ Total Elevation</p>
-						<p class="title is-2">114.9 KM</p>
+						<p id="totalElevation" class="title is-2">0 KM</p>
 						<p class="title is-6">Fun Fact: This is equivalent to climbing Mount Everest 13 times!</p>
 					</div>
 				</div>
@@ -249,7 +247,7 @@
 				<div class="column is-3">
 					<div class="notification is-danger has-text-centered">
 						<p class="title is-4">🏃🏽 Total Activities</p>
-						<p class="title is-2">784</p>
+						<p id="totalActivities" class="title is-2">0 🔥</p>
 					</div>
 				</div>
 
@@ -291,7 +289,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 	<script src="./src/config.js"></script>
 	<script src="./src/data-athlete.js"></script>
-	<script src="./src/stats.js" defer></script>
+	<script type="module" src="./src/stats.js" defer></script>
 
 </body>
 </html>

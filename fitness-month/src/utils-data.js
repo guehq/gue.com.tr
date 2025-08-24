@@ -1,5 +1,5 @@
 // 2. 🧽 Standardization
-// ✔ Located in: utils-data.js or utils-activity.js
+// ✔ Located in: utils-data.js or utils-valid-activities.js
 // (we can place this where you prefer — utils-data.js would be more logical)
 // Steps:
 // 	•	✅ Standardize date formats → YYYY-MM-DD

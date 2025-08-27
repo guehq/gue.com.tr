@@ -202,12 +202,54 @@ function updateStats() {
   const highestElevationElem = document.getElementById('highestElevationActivity');
   const mostActivitiesDayElem = document.getElementById('mostActivitiesDay');
 
-  if (!longestDurationElem && !longestDistanceElem && !highestElevationElem && !mostActivitiesDayElem) {
+  // New elements for totals
+  const totalDurationElem = document.getElementById('totalDuration');
+  const totalDistanceElem = document.getElementById('totalDistance');
+  const totalElevationElem = document.getElementById('totalElevation');
+  const totalActivitiesElem = document.getElementById('totalActivities');
+
+  if (!longestDurationElem && !longestDistanceElem && !highestElevationElem && !mostActivitiesDayElem && !totalDurationElem && !totalDistanceElem && !totalElevationElem && !totalActivitiesElem) {
     return; // No stats elements to update
   }
 
   // Filter out invalid activities (skip if "is Activity Valid" is "false")
   const validActivities = allData.filter(row => !(row['is Activity Valid'] && row['is Activity Valid'].toLowerCase() === 'false'));
+
+  // Calculate totals
+  let totalDuration = 0;
+  let totalDistance = 0;
+  let totalElevation = 0;
+  let totalActivities = validActivities.length;
+
+  validActivities.forEach(row => {
+    const dur = parseFloat(row['Duration']);
+    if (!isNaN(dur)) {
+      totalDuration += dur;
+    }
+    const dist = parseFloat(row['distance in K']);
+    if (!isNaN(dist)) {
+      totalDistance += dist;
+    }
+    const elev = parseFloat(row['total elevation gain']);
+    if (!isNaN(elev)) {
+      totalElevation += elev;
+    }
+  });
+
+  // Display totals
+  if (totalDurationElem) {
+    const totalDurationInHours = totalDuration.toFixed(2);
+    totalDurationElem.textContent = `${totalDurationInHours} Hours`;
+  }
+  if (totalDistanceElem) {
+    totalDistanceElem.textContent = `${totalDistance.toFixed(2)} KM`;
+  }
+  if (totalElevationElem) {
+    totalElevationElem.textContent = `${totalElevation.toFixed(0)} m`;
+  }
+  if (totalActivitiesElem) {
+    totalActivitiesElem.textContent = totalActivities.toString();
+  }
 
   // Longest activity by duration (in minutes)
   if (longestDurationElem) {

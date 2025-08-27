@@ -299,52 +299,58 @@ function updateStats() {
     }
   }
 
-  // Max activities in a single day
+  // Max activities in a single day per athlete
   if (mostActivitiesDayElem) {
-    // Count activities per day (using Real Date on Strava or Estimated Activity Start DateTime)
-    const dayCounts = {};
-    const dayAthletes = {};
-    const dayActivities = {};
+    // Count activities per athlete per day (using Real Date on Strava or Estimated Activity Start DateTime)
+    const athleteDayCounts = {};
+    const athleteDayActivities = {};
     validActivities.forEach(row => {
       const dateStr = row['Real Date on Strava'] || row['Estimated Activity Start DateTime'];
       if (!dateStr) return;
       const dateObj = new Date(dateStr);
       if (isNaN(dateObj.getTime())) return;
       // Use yyyy-mm-dd format as key
-      const key = dateObj.toISOString().slice(0, 10);
-      dayCounts[key] = (dayCounts[key] || 0) + 1;
-      // Save first activity and athlete for that day (for display)
-      if (!dayAthletes[key]) {
-        const shortName = `${row['athlete first name'] || ''} ${row['athlete last name'] || ''}`.trim();
-        const profile = window.athleteProfiles[shortName] || null;
-        const fullName = profile ? profile.fullName : shortName;
-        dayAthletes[key] = fullName;
-        dayActivities[key] = row['Activity'] || '';
+      const dayKey = dateObj.toISOString().slice(0, 10);
+      const shortName = row['Athlete'] || 'Unknown';
+      const profile = window.athleteProfiles[shortName] || null;
+      const fullName = profile ? profile.fullName : shortName;
+      const key = `${fullName}_${dayKey}`;
+
+      athleteDayCounts[key] = (athleteDayCounts[key] || 0) + 1;
+      // Save first activity for that athlete on that day (for display)
+      if (!athleteDayActivities[key]) {
+        athleteDayActivities[key] = {
+          activity: row['Activity'] || '',
+          profile: profile,
+          fullName: fullName,
+          dayKey: dayKey
+        };
       }
     });
 
     let maxCount = 0;
-    let maxDay = null;
-    for (const day in dayCounts) {
-      if (dayCounts[day] > maxCount) {
-        maxCount = dayCounts[day];
-        maxDay = day;
+    let maxKey = null;
+    for (const key in athleteDayCounts) {
+      if (athleteDayCounts[key] > maxCount) {
+        maxCount = athleteDayCounts[key];
+        maxKey = key;
       }
     }
 
-    if (maxDay) {
-      // Format date for display
-      const displayDate = new Date(maxDay).toLocaleDateString();
-      const name = dayAthletes[maxDay] || '';
-      const activity = dayActivities[maxDay] || '';
-      const athleteImg = (window.athleteProfiles[name] && window.athleteProfiles[name].stravaImg) || './images/default-avatar.png';
+    if (maxKey) {
+      const data = athleteDayActivities[maxKey];
+      const dateObj = new Date(data.dayKey);
+      const options = { day: 'numeric', month: 'short' };
+      const year = dateObj.getFullYear().toString().slice(-2);
+      const displayDate = `${dateObj.toLocaleDateString('en-US', options)}`;
+      const athleteImg = (data.profile && data.profile.stravaImg) || './images/default-avatar.png';
       mostActivitiesDayElem.innerHTML = `
-        <p>${activity}</p>
+        <p>${data.activity}</p>
         <div class="my-2">
-          <img src="${athleteImg}" alt="${name}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 24px; border-radius: 50%; vertical-align: middle;">
-          <em class="is-size-6 ml-1">${name}</em>
+          <img src="${athleteImg}" alt="${data.fullName}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 24px; border-radius: 50%; vertical-align: middle;">
+          <em class="is-size-6 ml-1">${data.fullName}</em>
         </div>
-        <div class="is-size-4 has-text-weight-bold">${displayDate} - ${maxCount} activities</div>
+        <div class="is-size-5 has-text-weight-bold">${maxCount} acts <span class="has-text-weight-normal">on</span> ${displayDate}</div>
       `;
     } else {
       mostActivitiesDayElem.textContent = 'No data';

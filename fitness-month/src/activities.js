@@ -7,39 +7,45 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(response => response.text())
     .then(text => {
       allData = parseCSV(text);
-      populateTable(allData);
 
-      const searchInput = document.getElementById('athleteSearch');
-      const startInput = document.getElementById('startDate');
-      const endInput = document.getElementById('endDate');
-      const sortInput = document.getElementById('sortOrder');
-      const clearButton = document.getElementById('clearFilters');
-
-      searchInput.addEventListener('input', applyFilters);
-      startInput.addEventListener('input', applyFilters);
-      endInput.addEventListener('input', applyFilters);
-      sortInput.addEventListener('change', applyFilters);
-      clearButton.addEventListener('click', function () {
-        searchInput.value = '';
-        startInput.value = '';
-        endInput.value = '';
-        sortInput.value = 'desc'; // Reset sort to Newest
+      if (document.querySelector('#dataTable tbody')) {
         populateTable(allData);
-      });
 
-      function applyFilters() {
-        populateTable(
-          allData,
-          searchInput.value,
-          startInput.value,
-          endInput.value,
-          sortInput.value
-        );
+        const searchInput = document.getElementById('athleteSearch');
+        const startInput = document.getElementById('startDate');
+        const endInput = document.getElementById('endDate');
+        const sortInput = document.getElementById('sortOrder');
+        const clearButton = document.getElementById('clearFilters');
+
+        searchInput.addEventListener('input', applyFilters);
+        startInput.addEventListener('input', applyFilters);
+        endInput.addEventListener('input', applyFilters);
+        sortInput.addEventListener('change', applyFilters);
+        clearButton.addEventListener('click', function () {
+          searchInput.value = '';
+          startInput.value = '';
+          endInput.value = '';
+          sortInput.value = 'desc'; // Reset sort to Newest
+          populateTable(allData);
+        });
+
+        function applyFilters() {
+          populateTable(
+            allData,
+            searchInput.value,
+            startInput.value,
+            endInput.value,
+            sortInput.value
+          );
+        }
+
+        searchInput.addEventListener('input', applyFilters);
+        startInput.addEventListener('input', applyFilters);
+        endInput.addEventListener('input', applyFilters);
       }
 
-      searchInput.addEventListener('input', applyFilters);
-      startInput.addEventListener('input', applyFilters);
-      endInput.addEventListener('input', applyFilters);
+      updateStats();
+
     })
     .catch(error => console.error('Error loading CSV file:', error));
 });
@@ -74,6 +80,7 @@ function parseActivityDate(dateStr) {
 
 function populateTable(data, athleteFilter = '', startDate = '', endDate = '', sortOrder = 'desc') {
   const tbody = document.querySelector('#dataTable tbody');
+  if (!tbody) return;
   tbody.innerHTML = '';
 
   data
@@ -171,8 +178,11 @@ function populateTable(data, athleteFilter = '', startDate = '', endDate = '', s
       tbody.appendChild(tr);
     });
 
-  // Update the total activity count
-  document.getElementById('zapierTotalActivityCount').textContent = document.querySelectorAll('#dataTable tbody tr').length;
+  // Update the total activity count if element exists
+  const totalCountElem = document.getElementById('zapierTotalActivityCount');
+  if (totalCountElem) {
+    totalCountElem.textContent = document.querySelectorAll('#dataTable tbody tr').length;
+  }
 }
 
 function formatMinutesToHHMMSS(minutes) {
@@ -181,4 +191,163 @@ function formatMinutesToHHMMSS(minutes) {
   const mins = Math.floor((totalSeconds % 3600) / 60);
   const secs = totalSeconds % 60;
   return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+}
+
+function updateStats() {
+  if (!allData || allData.length === 0) return;
+
+  // Check if any of the stats container elements exist
+  const longestDurationElem = document.getElementById('longestActivityDuration');
+  const longestDistanceElem = document.getElementById('longestActivityDistance');
+  const highestElevationElem = document.getElementById('highestElevationActivity');
+  const mostActivitiesDayElem = document.getElementById('mostActivitiesDay');
+
+  if (!longestDurationElem && !longestDistanceElem && !highestElevationElem && !mostActivitiesDayElem) {
+    return; // No stats elements to update
+  }
+
+  // Filter out invalid activities (skip if "is Activity Valid" is "false")
+  const validActivities = allData.filter(row => !(row['is Activity Valid'] && row['is Activity Valid'].toLowerCase() === 'false'));
+
+  // Longest activity by duration (in minutes)
+  if (longestDurationElem) {
+    let maxDuration = -Infinity;
+    let maxDurationActivity = null;
+    validActivities.forEach(row => {
+      const dur = parseFloat(row['Duration']);
+      if (!isNaN(dur) && dur > maxDuration) {
+        maxDuration = dur;
+        maxDurationActivity = row;
+      }
+    });
+    if (maxDurationActivity) {
+      const shortName = `${maxDurationActivity['athlete first name'] || ''} ${maxDurationActivity['athlete last name'] || ''}`.trim();
+      const profile = window.athleteProfiles[shortName] || null;
+      const name = profile ? profile.fullName : shortName;
+      const activity = maxDurationActivity['Activity'] || '';
+      const athleteImg = (profile && profile.stravaImg) || './images/default-avatar.png';
+      longestDurationElem.innerHTML = `
+        <p>${activity}</p> 
+        <div class="my-2">
+          <img src="${athleteImg}" alt="${name}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 24px; border-radius: 50%; vertical-align: middle;">
+          <em class="is-size-6 ml-1">${name}</em>
+        </div>
+        <div class="is-size-4 has-text-weight-bold">${formatMinutesToHHMMSS(maxDuration)}</div>
+      `;
+    } else {
+      longestDurationElem.textContent = 'No data';
+    }
+  }
+
+  // Longest activity by distance (in K)
+  if (longestDistanceElem) {
+    let maxDistance = -Infinity;
+    let maxDistanceActivity = null;
+    validActivities.forEach(row => {
+      const dist = parseFloat(row['distance in K']);
+      if (!isNaN(dist) && dist > maxDistance) {
+        maxDistance = dist;
+        maxDistanceActivity = row;
+      }
+    });
+    if (maxDistanceActivity) {
+      const shortName = `${maxDistanceActivity['athlete first name'] || ''} ${maxDistanceActivity['athlete last name'] || ''}`.trim();
+      const profile = window.athleteProfiles[shortName] || null;
+      const name = profile ? profile.fullName : shortName;
+      const activity = maxDistanceActivity['Activity'] || '';
+      const athleteImg = (profile && profile.stravaImg) || './images/default-avatar.png';
+      longestDistanceElem.innerHTML = `
+        <p>${activity}</p> 
+        <div class="my-2">
+          <img src="${athleteImg}" alt="${name}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 24px; border-radius: 50%; vertical-align: middle;">
+          <em class="is-size-6 ml-1">${name}</em>
+        </div>
+        <div class="is-size-4 has-text-weight-bold">${maxDistance.toFixed(2)} KM</div>
+      `;
+    } else {
+      longestDistanceElem.textContent = 'No data';
+    }
+  }
+
+  // Highest elevation activity
+  if (highestElevationElem) {
+    let maxElevation = -Infinity;
+    let maxElevationActivity = null;
+    validActivities.forEach(row => {
+      const elev = parseFloat(row['total elevation gain']);
+      if (!isNaN(elev) && elev > maxElevation) {
+        maxElevation = elev;
+        maxElevationActivity = row;
+      }
+    });
+    if (maxElevationActivity) {
+      const shortName = `${maxElevationActivity['athlete first name'] || ''} ${maxElevationActivity['athlete last name'] || ''}`.trim();
+      const profile = window.athleteProfiles[shortName] || null;
+      const name = profile ? profile.fullName : shortName;
+      const activity = maxElevationActivity['Activity'] || '';
+      const athleteImg = (profile && profile.stravaImg) || './images/default-avatar.png';
+      highestElevationElem.innerHTML = `
+        <p>${activity}</p> 
+        <div class="my-2">
+          <img src="${athleteImg}" alt="${name}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 24px; border-radius: 50%; vertical-align: middle;">
+          <em class="is-size-6 ml-1">${name}</em>
+        </div>
+        <div class="is-size-4 has-text-weight-bold">${maxElevation.toFixed(0)} m</div>
+      `;
+    } else {
+      highestElevationElem.textContent = 'No data';
+    }
+  }
+
+  // Max activities in a single day
+  if (mostActivitiesDayElem) {
+    // Count activities per day (using Real Date on Strava or Estimated Activity Start DateTime)
+    const dayCounts = {};
+    const dayAthletes = {};
+    const dayActivities = {};
+    validActivities.forEach(row => {
+      const dateStr = row['Real Date on Strava'] || row['Estimated Activity Start DateTime'];
+      if (!dateStr) return;
+      const dateObj = new Date(dateStr);
+      if (isNaN(dateObj.getTime())) return;
+      // Use yyyy-mm-dd format as key
+      const key = dateObj.toISOString().slice(0, 10);
+      dayCounts[key] = (dayCounts[key] || 0) + 1;
+      // Save first activity and athlete for that day (for display)
+      if (!dayAthletes[key]) {
+        const shortName = `${row['athlete first name'] || ''} ${row['athlete last name'] || ''}`.trim();
+        const profile = window.athleteProfiles[shortName] || null;
+        const fullName = profile ? profile.fullName : shortName;
+        dayAthletes[key] = fullName;
+        dayActivities[key] = row['Activity'] || '';
+      }
+    });
+
+    let maxCount = 0;
+    let maxDay = null;
+    for (const day in dayCounts) {
+      if (dayCounts[day] > maxCount) {
+        maxCount = dayCounts[day];
+        maxDay = day;
+      }
+    }
+
+    if (maxDay) {
+      // Format date for display
+      const displayDate = new Date(maxDay).toLocaleDateString();
+      const name = dayAthletes[maxDay] || '';
+      const activity = dayActivities[maxDay] || '';
+      const athleteImg = (window.athleteProfiles[name] && window.athleteProfiles[name].stravaImg) || './images/default-avatar.png';
+      mostActivitiesDayElem.innerHTML = `
+        <p>${activity}</p>
+        <div class="my-2">
+          <img src="${athleteImg}" alt="${name}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 24px; border-radius: 50%; vertical-align: middle;">
+          <em class="is-size-6 ml-1">${name}</em>
+        </div>
+        <div class="is-size-4 has-text-weight-bold">${displayDate} - ${maxCount} activities</div>
+      `;
+    } else {
+      mostActivitiesDayElem.textContent = 'No data';
+    }
+  }
 }

@@ -238,17 +238,17 @@ function updateStats() {
 
   // Display totals
   if (totalDurationElem) {
-    const totalDurationInHours = totalDuration.toFixed(2);
-    totalDurationElem.textContent = `${totalDurationInHours} Hours`;
+    const totalDurationInDays = Math.ceil(totalDuration / 60 / 24);
+    totalDurationElem.textContent = `${totalDurationInDays} Days!`;
   }
   if (totalDistanceElem) {
-    totalDistanceElem.textContent = `${totalDistance.toFixed(2)} KM`;
+    totalDistanceElem.textContent = `${totalDistance.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")} KM`;
   }
   if (totalElevationElem) {
-    totalElevationElem.textContent = `${totalElevation.toFixed(0)} m`;
+    totalElevationElem.textContent = `${Math.ceil(totalElevation.toFixed(0) / 1000)} KM`;
   }
   if (totalActivitiesElem) {
-    totalActivitiesElem.textContent = totalActivities.toString();
+    totalActivitiesElem.textContent = `${totalActivities.toString()} 🔥`;
   }
 
   // Longest activity by duration (in minutes)

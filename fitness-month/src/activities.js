@@ -383,16 +383,17 @@ function updateStats() {
       const data = athleteDayActivities[maxKey];
       const dateObj = new Date(data.dayKey);
       const options = { day: 'numeric', month: 'short' };
-      const year = dateObj.getFullYear().toString().slice(-2);
+      const year = dateObj.getFullYear().toString().slice(0);
       const displayDate = `${dateObj.toLocaleDateString('en-US', options)}`;
       const athleteImg = (data.profile && data.profile.stravaImg) || './images/default-avatar.png';
       mostActivitiesDayElem.innerHTML = `
-        <p>${data.activity}</p>
-        <div class="my-2">
+        <div class="mb-2">
           <img src="${athleteImg}" alt="${data.fullName}" onerror="this.onerror=null; this.src='./images/default-avatar.png';" style="width: 24px; border-radius: 50%; vertical-align: middle;">
           <em class="is-size-6 ml-1">${data.fullName}</em>
         </div>
-        <div class="is-size-5 has-text-weight-bold">${maxCount} acts <span class="has-text-weight-normal">on</span> ${displayDate}</div>
+        <div class="has-text-weight-bold">
+          <div class="is-size-4 my-4">${maxCount} activities</div>
+          <span class="has-text-weight-normal">on</span> ${displayDate} ${year}</div>
       `;
     } else {
       mostActivitiesDayElem.textContent = 'No data';

@@ -359,8 +359,6 @@ function renderLeaderboardSection(athleteMap, sortKey, containerId, title, btnId
       <tr style="height: 300px;">
         <td colspan="2" style="border: none">
           <em style="font-size: 3rem;">#gueFitnessMonth</em>
-          <em style="font-size: 3rem;">#fitForPurpose</em>
-          <em style="font-size: 3rem;">#fitnessForDivers</em>
         </td>
         <td style="border: none; padding-top: 1rem;">
           <img src="./images/GUE-logo_new.png" alt="GUE" style="width: 100px;">

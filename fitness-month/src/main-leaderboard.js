@@ -33,7 +33,7 @@ import {
 
 const DEFAULT_MIN_DURATION = 30;
 const DEFAULT_START_DATE = '2025-08-01';
-const DEFAULT_END_DATE = '2025-08-31';
+const DEFAULT_END_DATE = '2025-09-01';
 export const DEFAULT_MAX_RANK = 20;
 
 // ***********************

@@ -35,7 +35,7 @@ Version    : 1.0
      */
 
     var headertopoption = $(window);
-    var headTop = $('.header-top-area');
+    var headTop = $('#home .header-top-area');
 
     headertopoption.on('scroll', function () {
       if (headertopoption.scrollTop() > 400) {

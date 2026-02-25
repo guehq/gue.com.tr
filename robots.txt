@@ -1,8 +1,16 @@
+# robots.txt for gue.com.tr
+
 User-agent: *
+# Engellenen klasörler
 Disallow: /admin/
 Disallow: /cgi-bin/
 Disallow: /tmp/
 Disallow: /private/
+Disallow: /assets/
+Disallow: /hub/
+
+# Gereksiz parametreli URL'leri engelle (örnek)
+Disallow: /*?*
 
 # Allow all bots to access the rest of the site
 Allow: /
